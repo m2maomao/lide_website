@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title><%= htmlWebpackPlugin.options.webTitle %></title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      var documentElement = document.documentElement;
+
+      function callback() {
+          var clientWidth = documentElement.clientWidth;
+          // 屏幕宽度大于780，不在放大
+          // clientWidth = clientWidth < 780 ? clientWidth : 780;
+          documentElement.style.fontSize = clientWidth / 100 + 'px';
+      }
+
+      document.addEventListener('DOMContentLoaded', callback);
+      window.addEventListener('orientationchange' in window ? 'orientationchange' : 'resize', callback);
+    </script>
+  </body>
+</html>

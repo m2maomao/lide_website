@@ -1,0 +1,77 @@
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-collapse {
+    justify-content: space-around;
+  }
+}
+
+.dropdown-toggle {
+  &::after {
+    display: none !important;
+  }
+}
+
+.navbar {
+  margin-top: 10px !important;
+  z-index: 999;
+  padding: 0 20px !important;
+  justify-content: space-between !important;
+}
+.navbar-nav {
+  flex: 1;
+  justify-content: space-between;
+  margin-left: 10%;
+}
+
+.nav-link {
+  text-align: center;
+  &.active {
+    color: #2862ae !important;
+  }
+}
+
+.navbar-brand {
+  margin-right: 0 !important;
+}
+
+// 中英文切换按钮
+.switch-language-btn {
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 18px;
+  &:focus {
+    outline: none;
+  }
+}
+
+/* 移动端 */
+.navbar-toggler {
+  font-size: 3.25rem !important;
+}
+
+@media screen and (max-width: 576px) {
+  .navbar {
+    margin: 0 !important;
+    padding: 10px !important;
+  }
+  .navbar-brand > img {
+    width: 100px;
+  }
+  .nav-link {
+    text-align: center;
+  }
+  .navbar-collapse {
+    border-top: 1px solid #2962ae;
+    margin-top: 10px;
+    margin-right: -10px;
+    margin-left: -10px;
+  }
+  .nav-right {
+    display: block;
+    width: 100%;
+  }
+  .switch-language-btn {
+    display: block;
+    margin: 0 auto;
+  }
+}

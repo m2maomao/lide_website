@@ -1,0 +1,388 @@
+@function pc2rem($px) {
+  @return #{$px/1920 * 100}rem;
+}
+
+.p-1r {
+  padding: 0 1rem;
+  .p-1r-content {
+    background: #fff;
+  }
+}
+
+.welcome-main-body {
+  margin: pc2rem(56) 0;
+  /* 公司介绍 */
+  .company-summary {
+    & > div {
+      width: 50%;
+      padding: pc2rem(30);
+      justify-content: space-around;
+      background: #fff;
+    }
+  }
+  .company-name {
+    font-weight: 'sc-m';
+    font-size: pc2rem(30);
+    color: #333333;
+    & + p {
+      font-size: 12px;
+    }
+  }
+  .data-summary {
+    padding: pc2rem(40) 0;
+    justify-content: space-around;
+    text-align: center;
+    background: #f3f5f8;
+    .nums {
+      position: relative;
+      width: 22%;
+      &:not(:last-child) {
+        &::after {
+          content: '';
+          position: absolute;
+          right: 0;
+          top: 35%;
+          width: 1px;
+          height: 60%;
+          background: #dddddd;
+        }
+      }
+      &:nth-child(2) {
+        &::after {
+          right: -6%;
+        }
+      }
+      &:nth-child(3) {
+        &::after {
+          right: -15%;
+        }
+      }
+    }
+    .big-nums {
+      font-size: 40px;
+      color: #2862ae;
+      font-family: 'mo-s-b';
+      & + p {
+        font-size: 12px;
+        color: #333;
+      }
+    }
+  }
+  /* 企业文化 */
+  .culture-body {
+    padding: 0 pc2rem(40);
+    & + .bottom-image {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  .culture-item {
+    justify-content: space-between;
+    img,
+    .texts {
+      width: 33.333333%;
+    }
+    .t {
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: pc2rem(37);
+      margin-bottom: pc2rem(22);
+      border-bottom: 1px solid #dddddd;
+      &::after {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 4px;
+        left: 50%;
+        margin-left: -25px;
+        bottom: -2px;
+        background: #2862ae;
+      }
+      .icon {
+        width: pc2rem(42);
+        height: pc2rem(39);
+        margin-right: 8px;
+        margin-top: -5px;
+      }
+      .head {
+        margin: 0;
+        font-family: 'sc-b';
+        font-size: 24px;
+        color: #2d2d2d;
+      }
+    }
+    .texts {
+      background: #fcfcfc;
+      justify-content: center;
+      padding: 0 16px;
+      .words {
+        // justify-content: center;
+        margin-bottom: 10px;
+        align-items: center;
+      }
+    }
+    .blue-text {
+      margin-right: 10px;
+      padding: 2px 15px;
+      color: #fff;
+      background: #2862ae;
+      font-family: 'sc-m';
+      font-size: 16px;
+      border-radius: 8px;
+      & + p {
+        flex: 1;
+        font-size: 12px;
+        color: #333;
+      }
+    }
+  }
+  /* 资质与荣誉 */
+  .qualification-honor {
+    padding: 0 pc2rem(40);
+    .h {
+      align-items: center;
+      margin-bottom: 20px;
+      .c {
+        width: 28px;
+        margin-right: 12px;
+      }
+      .t {
+        font-size: 20px;
+        margin-bottom: 0;
+      }
+    }
+    .wrapper {
+      flex-wrap: wrap;
+    }
+    .item {
+      text-align: center;
+      margin-bottom: 20px;
+      margin-right: pc2rem(48);
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+      .img-c {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: pc2rem(315);
+        height: pc2rem(390);
+        padding: 20px;
+        background: #f3f5f8;
+      }
+      .certificate {
+        width: 100%;
+      }
+      .i-intro {
+        margin-top: 20px;
+        color: #666;
+        font-size: 14px;
+      }
+    }
+  }
+  .borders {
+    margin: 0 pc2rem(-40);
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f7f7f7;
+  }
+  /* 科研开发 */
+  .scientificre-search-wrapper {
+    padding: 0 pc2rem(40);
+    .text {
+      font-size: 14px;
+      color: #555;
+    }
+    .development-images {
+      margin-top: pc2rem(28);
+      margin-bottom: 10px;
+      .card-img-top {
+        display: block;
+        width: 100%;
+        min-height: pc2rem(180);
+      }
+      .card-body {
+        margin-top: pc2rem(-49);
+        padding: pc2rem(10) pc2rem(20);
+        background: rgba(40, 98, 174, 0.8);
+        color: #fff;
+        font-family: 'sc-m';
+        font-size: 16px;
+        .card-title {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  .acquire {
+    .h {
+      align-items: center;
+      justify-content: center;
+      margin-bottom: pc2rem(30);
+      .c {
+        width: 28px;
+        margin-right: 12px;
+      }
+      .t {
+        font-size: 20px;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .img-carousel {
+    padding: pc2rem(40) 0;
+  }
+
+  /* 我与立得同行*/
+  .magazine-lists {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .card-columns {
+      column-count: 2;
+    }
+    .magazine-item {
+      background: #fff;
+      padding: pc2rem(40);
+      margin-bottom: 13px;
+      border: none;
+      border-radius: 0;
+      transition: all 300ms;
+      &:hover {
+        background: #0187d0;
+        color: #fff;
+        .content {
+          color: #fff;
+        }
+        .date {
+          border-bottom: 2px solid #0187d0;
+        }
+      }
+    }
+
+    .t {
+      margin-bottom: pc2rem(20);
+    }
+    .post-image {
+      display: block;
+      width: 100%;
+      margin-bottom: pc2rem(25);
+    }
+    .content {
+      font-size: 16px;
+      color: #333;
+      font-family: 'sc-l';
+    }
+    .date {
+      position: relative;
+      text-align: right;
+      font-family: 'mo-s-h';
+      font-size: 14px;
+      margin-top: pc2rem(20);
+      padding-bottom: 10px;
+      border-bottom: 2px solid #2862ae;
+    }
+  }
+  /* 发展历程 */
+  .history-1r-content {
+    background: url('~@/assets/images/welcome/bg.png') repeat-y;
+    background-color: #fff;
+  }
+  .time-line-item {
+    margin-bottom: 40px;
+    .content {
+      position: relative;
+      width: 100%;
+      .icon {
+        width: 10px;
+        height: 10px;
+        background: #e8ecf2;
+        position: absolute;
+        left: pc2rem(308);
+        top: 21px;
+        transform: rotate(45deg);
+        transition: all 300ms;
+      }
+    }
+    &:hover {
+      .icon {
+        background: #2862ae;
+      }
+      .year-image {
+        background: #4caade;
+        &::after {
+          border-left: 7px solid #4caade;
+        }
+      }
+      .year {
+        color: #fff;
+      }
+    }
+  }
+  .timeline {
+    position: relative;
+    padding: 60px pc2rem(100);
+    padding-top: 0;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: pc2rem(413);
+      height: calc(100% - 120px);
+      width: 1px;
+      background: #e8ecf2;
+      
+    }
+    .year-image {
+      position: relative;
+      width: pc2rem(275);
+      height: pc2rem(215);
+      padding: pc2rem(22);
+      margin-right: pc2rem(76);
+      background: #eef1f5;
+      border-radius: 10px;
+      transition: all 300ms;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 100%;
+        top: 20px;
+        width: 0;
+        height: 0;
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent;
+        border-left: 7px solid #eef1f5;
+        transition: all 300ms;
+      }
+      .year {
+        margin-top: pc2rem(7);
+        margin-bottom: pc2rem(21);
+        font-size: 40px;
+        color: #2862ae;
+        font-family: 'mo-s-b';
+        & + img {
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+    .event {
+      flex: 1;
+      padding-top: 11px;
+      p {
+        position: relative;
+        color: #333;
+        font-family: 'sc-r';
+        padding-left: 20px;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 10px;
+          left: 0;
+          height: 2px;
+          width: 10px;
+          background: #2862ae;
+        }
+      }
+    }
+  }
+}

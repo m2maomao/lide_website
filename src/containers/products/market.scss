@@ -1,0 +1,109 @@
+@function pc2rem($px) {
+  @return #{$px/1920 * 100}rem;
+}
+
+.market-container {
+  padding: pc2rem(50);
+  background: #fff;
+  .top {
+    padding: pc2rem(35) 0 !important;
+    padding-top: 0 !important;
+    .sum {
+      padding: pc2rem(35);
+      width: 50%;
+    }
+    .t-t {
+      margin-bottom: pc2rem(30) !important;
+    }
+    .ch {
+      color: #2862ae;
+    }
+  }
+  .middle,
+  .bottom {
+    padding: pc2rem(35) 0;
+    .t-t {
+      margin-bottom: pc2rem(30);
+    }
+  }
+  .bottom {
+    padding-bottom: 0;
+    .t-t {
+      margin-bottom: pc2rem(50);
+    }
+    .ul {
+      width: 50%;
+      padding-left: pc2rem(20);
+      li {
+        color: #2862ae;
+        font-family: 'sc-m';
+        font-size: 16px;
+        padding-left: 25px;
+        margin-bottom: pc2rem(14);
+        background: url('~@/assets/images/products/icon.png') no-repeat left
+          center;
+      }
+    }
+    .inner-carousel {
+      flex: 1;
+      height: pc2rem(260);
+      overflow: hidden;
+      .carousel {
+        height: 100%;
+      }
+    }
+  }
+  .t-t {
+    .ch {
+      font-family: 'sc-b';
+      font-size: 22px;
+      margin-bottom: 0;
+    }
+    .en {
+      font-size: 14px;
+      color: #a6b4c8;
+      font-family: 'sc-r';
+    }
+  }
+  .borders {
+    height: 2px;
+    background: #f7f7f7;
+    margin: 0 pc2rem(-50);
+  }
+  .experts {
+    flex-wrap: wrap;
+  }
+  .experts-items {
+    display: flex;
+    align-items: center;
+    width: calc(100% / 3);
+    background: #f8f9fb;
+    .exports-text {
+      position: relative;
+      padding: 0 10px;
+      padding-bottom: pc2rem(33);
+      font-size: 18px;
+      color: #2d2d2d;
+      font-family: 'sc-m';
+      text-align: center;
+      margin: 0 10px;
+      border-bottom: 1px solid #dddddd;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        margin-left: pc2rem(-24);
+        width: pc2rem(48);
+        bottom: -2px;
+        height: 3px;
+        background: #2862ae;
+      }
+    }
+    img {
+      display: block;
+      width: 100%;
+      min-height: pc2rem(200);
+      background: #fff;
+    }
+  }
+}

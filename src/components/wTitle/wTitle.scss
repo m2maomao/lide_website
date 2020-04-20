@@ -1,0 +1,26 @@
+@function pc2rem($px) {
+  @return #{$px/1920 * 100}rem;
+}
+
+.w-title-c {
+  position: relative;
+  .w-t {
+    position: relative;
+    padding: pc2rem(60) 0;
+    text-align: center;
+    color: #2862ae;
+    font-size: 24px;
+    font-family: 'sc-b';
+    z-index: 1;
+  }
+  .e-t {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    color: #f4f6f9;
+    font-family: 'sc-h';
+    font-size: 48px;
+  }
+}

@@ -1,0 +1,118 @@
+@import '~bootstrap/scss/bootstrap';
+
+@font-face {
+  font-family: 'sc-r';
+  src: url('~@/assets/font/PingFangRegular.ttf');
+}
+
+@font-face {
+  font-family: 'sc-m';
+  src: url('~@/assets/font/PingFangMedium.ttf');
+}
+
+@font-face {
+  font-family: 'sc-l';
+  src: url('~@/assets/font/PingFangLight.ttf');
+}
+
+@font-face {
+  font-family: 'sc-b';
+  src: url('~@/assets/font/PingFangBold.ttf');
+}
+
+@font-face {
+  font-family: 'sc-h';
+  src: url('~@/assets/font/PingFangHeavy.ttf');
+}
+
+@font-face {
+  font-family: 'mo-l';
+  src: url('~@/assets/font/Montserrat-Light.otf');
+}
+@font-face {
+  font-family: 'mo-s-b';
+  src: url('~@/assets/font/Montserrat-Semi-Bold.otf');
+}
+
+@font-face {
+  font-family: 'mo-s-h';
+  src: url('~@/assets/font/Montserrat-Hairline.otf');
+}
+
+body {
+  font-size: 16px;
+  font-family: 'sc-r';
+}
+
+/* elements */
+ul,
+p {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+/* common css  */
+.flex {
+  display: flex;
+}
+button {
+  border: none;
+  outline: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+.main-side-container {
+  padding: 0 1rem;
+}
+
+/* 字体设置 */
+.sc-r {
+  font-family: 'sc-r';
+}
+.sc-m {
+  font-family: 'sc-m';
+}
+.sc-l {
+  font-family: 'sc-l';
+}
+.sc-b {
+  font-family: 'sc-b';
+}
+.sc-h {
+  font-family: 'sc-h';
+}
+.mo-l {
+  font-family: 'mo-l';
+}
+.mo-s-h {
+  font-family: 'mo-s-h';
+}
+
+/* bootstrap 样式*/
+
+// 面包屑
+.breadcrumb {
+  background: transparent;
+  margin-bottom: 0;
+}
+.breadcrumb-item {
+  font-size: 14px;
+  color: #999999;
+  a {
+    color: #999999;
+  }
+  &.active {
+    color: #666666;
+  }
+}

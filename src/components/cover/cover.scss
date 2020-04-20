@@ -1,0 +1,16 @@
+.m-cover {
+  overflow: hidden;
+  margin-top: -68px;
+  img {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .m-cover {
+    margin-top: 0;
+    img {
+      height: 120px;
+    }
+  }
+}

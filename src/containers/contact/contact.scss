@@ -1,0 +1,109 @@
+@function pc2rem($px) {
+  @return #{$px/1920 * 100}rem;
+}
+
+.contact-body {
+  background: #f7f7f7;
+  .com {
+    margin-top: 50px;
+    > div {
+      width: 50%;
+    }
+  }
+  .fo-c {
+    justify-content: center;
+    align-items: center;
+    background: url('~@/assets/images/contact/bg.png') no-repeat;
+    background-size: cover;
+  }
+  .form-body {
+    width: 70%;
+    .form-item {
+      margin-bottom: 10px;
+      align-items: center;
+      > span {
+        display: block;
+        width: 10px;
+        height: 10px;
+        margin-right: 10px;
+        background: url('~@/assets/images/contact/require.png') no-repeat center;
+        background-size: 100% 100%;
+        &.n {
+          background: none;
+        }
+      }
+      input,
+      textarea {
+        flex: 1;
+        outline: none;
+        padding: 10px;
+        font-size: 14px;
+        resize: none;
+        border: 1px solid #c6c6c6;
+      }
+      &.textarea {
+        align-items: flex-start;
+        > span {
+          margin-top: 10px;
+        }
+      }
+    }
+    .submit {
+      display: block;
+      margin: 0 auto;
+      padding: 10px;
+      margin-top: 30px !important;
+      width: 45%;
+      background: #2c7ec9;
+      border: 1px solid #2c7ec9;
+      transition: all 300ms ease-in-out;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+  .address {
+    padding: pc2rem(52);
+    background: #2c7ec9;
+    color: #fff;
+    font-size: 14px;
+    .company-name {
+      font-family: 'sc-l';
+      margin-bottom: pc2rem(30);
+    }
+    .d-flex {
+      align-items: center;
+      margin-bottom: 8px;
+      > img {
+        width: 15px;
+        height: 15px;
+        margin-right: 10px;
+      }
+    }
+  }
+  .d-flex.wechat {
+    position: relative;
+    padding: pc2rem(40);
+    background: #3059a5;
+    color: #fff;
+    img {
+      margin-right: 15px;
+      &.qrcode {
+        position: absolute;
+        top: -65px;
+        left: 55%;
+      }
+    }
+    p {
+      font-family: 'sc-m';
+      font-size: 18px;
+    }
+  }
+}
+
+.map-container {
+  width: 100%;
+  height: 300px;
+  margin-top: -80px;
+  border: 1px solid red;
+}

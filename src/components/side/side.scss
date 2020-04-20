@@ -1,0 +1,29 @@
+@function pc2rem($px) {
+  @return #{$px/1920 * 100}rem;
+}
+
+.aside {
+  background: #fff;
+  margin-top: pc2rem(-93);
+}
+.aside-header {
+  padding: pc2rem(25) pc2rem(50);
+}
+.aside-title {
+  position: relative;
+  padding-left: 20px;
+  margin: 0;
+  // margin-bottom: pc2rem(30);
+  // font-size: pc2rem(30);
+  font-size: 28px;
+  color: #333;
+  &::after {
+    position: absolute;
+    content: '';
+    width: pc2rem(10);
+    height: 80%;
+    background: #2862ae;
+    left: 0;
+    top: 10%;
+  }
+}
