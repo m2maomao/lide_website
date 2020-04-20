@@ -2,6 +2,8 @@
   @return #{$px/1920 * 100}rem;
 }
 
+$colorSky :#0187d0;
+
 .p-1r {
   padding: 0 1rem;
   .p-1r-content {
@@ -66,6 +68,125 @@
         font-size: 12px;
         color: #333;
       }
+    }
+  }
+  .second-container{
+    position: relative;
+    .img-wrap{
+      padding-top: pc2rem(100);
+      img{
+        width: 100%;
+      }
+    }
+    .tip{
+      position: absolute;
+      top: 23px;
+      left: 95px;
+      .header{
+        width: 324px;
+        height: 77px;
+        background: url('~@/assets/images/welcome/companyintro1.jpg') 0 0 no-repeat;
+      }
+      .content{
+        background: rgba($color: $colorSky, $alpha: .8);
+        color: #fff;
+        padding: 40px;
+        line-height: 24px;
+        width: 324px;
+        text-align: justify;
+      }
+    }
+  }
+  .third-fourth-area{
+    display: flex;
+    justify-content: space-between;
+  }
+  .third-container{
+    margin-top:30px;
+    padding-left: 38px;
+    .content-wrap{
+      width: 426px;
+      position: relative;
+      .img-wrap{
+        width: 100%;
+        img{
+          width:100%;
+        }
+      }
+      .tip{
+        position: relative;
+        margin-left: 74px;
+        left: 0;
+        top: -60px;
+        background: rgba($color: #fff, $alpha: 0.95);
+        padding: 40px 30px 0 40px;
+        box-sizing: border-box;
+        text-align: justify;
+      }
+      
+    }
+  }
+  .fourth-container{
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+    margin-top: 130px;
+    .img-singular-wrap{
+      width: 527px;
+      display: flex;
+      .img{
+        flex: 1;
+        img{
+          width: 100%;
+        }
+        .content{
+          margin-left: 35px;
+          padding: 50px 40px 40px;
+          position: relative;
+          margin-top: -90px;
+          background: rgba($color: #fff, $alpha: .95);
+          text-align: justify;
+        }
+      }
+      .bg{
+        width: 83px;
+        img{
+          width: 100%;
+        }
+      }
+    }
+  }
+  .fifth-container{
+    .img-wrap{
+      img{width: 100%; vertical-align: top;}
+      position: relative;
+      .content{
+        width: 410px;
+        height: 250px;
+        position: absolute;
+        right: 110px;
+        bottom: 0px;
+        background: rgba($color: $colorSky, $alpha: .8);
+        color: #fff;
+        padding: 40px 30px;
+      }
+    }
+  }
+  .sixth-container{
+    position: relative;
+    .img-wrap{
+      width: 100%;
+      img{
+        width:100%;
+      }
+    };
+    .content{
+      width: 450px;
+      position: absolute;
+      right: 80px;
+      top:110px;
+      line-height: 24px;
+      color: #fff;
     }
   }
   /* 企业文化 */
@@ -196,6 +317,33 @@
     .development-images {
       margin-top: pc2rem(28);
       margin-bottom: 10px;
+      .img-list-wrap{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        .box{
+          flex: 0 0 32%;
+          height: 186px;
+          box-sizing: border-box;
+          position: relative;
+          margin-bottom: 30px;
+          .img-wrap{
+            height: 100%;
+          }
+          .title {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            line-height: 40px;
+            background: rgba($color: #2d5385, $alpha: .8);
+            text-align: center;
+            color: #fff;
+            font-size: 16px;
+          }
+        }
+      }
+      
       .card-img-top {
         display: block;
         width: 100%;
@@ -231,6 +379,29 @@
   }
   .img-carousel {
     padding: pc2rem(40) 0;
+    ul {
+      display: inline-flex;
+      overflow: hidden;
+      li{
+        flex-shrink: 0;
+        margin-right: 15px;
+        display: flex;
+        &:nth-child(odd){
+          flex-direction: column;
+        }
+        &:nth-child(even){
+          flex-direction: column-reverse;
+        }
+        img{
+          width: 230px;
+        }
+        h6{
+          font-size: 16px;
+          line-height: 55px;
+          text-align: center;
+        }
+      }
+    }
   }
 
   /* 我与立得同行*/

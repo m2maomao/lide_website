@@ -1,7 +1,9 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Breadcrumb, CardColumns, Card } from 'react-bootstrap'
 import { useFetch } from '@/hooks/useFetch'
 import { WTitle } from 'com'
+import $ from 'jquery'
 
 import imgAcquire from '@/assets/images/welcome/imgAcquire.png'
 
@@ -12,6 +14,14 @@ export default function Evolution() {
       acquire: {},
     },
   })
+
+  function scroll() {
+    console.log('执行钩子函数!')
+  }
+
+  useEffect(() => {
+    scroll()
+  }, [])
 
   // console.log('data is:', data)
 
@@ -31,18 +41,16 @@ export default function Evolution() {
           <div className="scientificre-search-wrapper">
             <p className="text">{development.summary}</p>
             <div className="d-flex development-images">
-              <CardColumns>
+              <div className="img-list-wrap">
                 {
                   development.images && development.images.map((item, index) => (
-                    <Card key={index}>
-                      <Card.Img variant="top" src="holder.js/100px160" />
-                      <Card.Body>
-                        <Card.Title>{item.title}</Card.Title>
-                      </Card.Body>
-                    </Card>
+                    <div className="box" key={index}>
+                      <div className="img-wrap" style={{ background: `url(${item.image}) center center / auto 100% no-repeat` }} />
+                      <div className="title">{item.title}</div>
+                    </div>
                   ))
                 }
-              </CardColumns>
+              </div>
             </div>
             <div className="borders" />
             <div className="acquire">
@@ -51,7 +59,18 @@ export default function Evolution() {
                 <h3 className="t">所获奖项</h3>
               </div>
               <p className="text">{acquire.summary}</p>
-              <div className="img-carousel" />
+              <div className="img-carousel">
+                <ul>
+                  {
+                    acquire.images && acquire.images.map((item, index) => (
+                      <li key={index}>
+                        <img src={item.image} alt="" />
+                        <h6>{item.title}</h6>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
             </div>
           </div>
         </div>
