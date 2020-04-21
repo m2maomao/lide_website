@@ -15,12 +15,12 @@ $colorSky :#0187d0;
   margin: pc2rem(56) 0;
   /* 公司介绍 */
   .company-summary {
-    & > div {
-      width: 50%;
-      padding: pc2rem(30);
-      justify-content: space-around;
-      background: #fff;
-    }
+    // & > div {
+    //   width: 50%;
+    //   padding: pc2rem(30);
+    //   justify-content: space-around;
+    //   background: #fff;
+    // }
   }
   .company-name {
     font-weight: 'sc-m';

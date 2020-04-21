@@ -13,7 +13,7 @@ export default function Organ() {
   })
 
   function getData() {
-    http.get('/home/Enterlide/index').then((data) => {
+    http.get('/home/Enterlide/organ').then((data) => {
       if (data.status === 200) {
         setState((prevState) => ({
           ...prevState,
@@ -43,22 +43,8 @@ export default function Organ() {
         <div className="p-1r-content">
           <WTitle title="组织架构" enTitle="organizationalstructure" />
           <div className="d-flex company-summary">
-            <div style={{ width: '50%' }}>
-              <img
-                style={{ width: '100%' }}
-                src={content ? content[0].image : ''}
-                alt="company"
-              />
-            </div>
             <div className="d-flex flex-column">
-              <h4 className="company-name">
-                {content ? content[0].title : ''}
-              </h4>
-              <div dangerouslySetInnerHTML={{
-                __html: content
-                  ? content[0].content : '',
-              }}
-              />
+              <img src={content[0]} alt="" />
             </div>
           </div>
           {/* <div className="d-flex data-summary">

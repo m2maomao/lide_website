@@ -101,7 +101,8 @@ export default function Introduce() {
               <div
                 className="content"
                 dangerouslySetInnerHTML={{
-                  __html: '<p style="font-size:14px">2016年公司完成整体扩能、升级，目前拥有<font style="font-size:24px">7</font>条聚烯烃催化剂生产线、<font style="font-size:24px">1</font>个模块化催化剂加料系统的撬装制作工场，配套尾气处理系统、公用工程系统、消防安保防护系统。公司聚烯烃催化剂生产工艺绿色环保、简洁高效，以股东方上海化工研究院有限公司的母技术为基础，自行开发完善并产业化，聚烯烃催化剂年生产能力<font style="font-size:24px">620</font>吨/年（干基）。</p>',
+                  __html: content
+                    ? content[1].content : '',
                 }}
               />
             </div>
@@ -117,7 +118,8 @@ export default function Introduce() {
                   <div
                     className="content"
                     dangerouslySetInnerHTML={{
-                      __html: '<p style="font-size:14px">公司产品分为镁-钛系、铬系、镁-钛-钒系三大类，由SCG、SLC、SLH、SLT和NTR五个系列共<font style="font-size:24px">42</font>种聚烯烃催化剂组成，配套产品有5种模块化催化剂加料系统、2种催化剂在线还原剂、1种表面化学处理剂。产品适用于Univation气相流化床聚乙烯工艺、Innovene气相流化床聚乙烯工艺、Borstar双峰聚乙烯工艺等8种聚乙烯生产工艺。</p>',
+                      __html: content
+                        ? content[2].content : '',
                     }}
                   />
                 </div>
@@ -132,7 +134,8 @@ export default function Introduce() {
                   <div
                     className="content"
                     dangerouslySetInnerHTML={{
-                      __html: '<p style="font-size:14px">公司拥有一支勇于创新、实力强劲的聚烯烃催化剂研发团队，拥有授权发明专利14项、实用新型专利11项、上海市科学技术进步奖2项、中国石油化工集团公司科学技术进步奖5项，参与制定了2项国家标准，连续<font style="font-size:22px">14</font>年被授予"上海市高新技术企业”。</p>',
+                      __html: content
+                        ? content[3].content : '',
                     }}
                   />
                 </div>
@@ -151,7 +154,8 @@ export default function Introduce() {
               <div
                 className="content"
                 dangerouslySetInnerHTML={{
-                  __html: '<p style="font-size:14px">公司拥有一支专业精、技术强、素质高的聚烯烃催化剂技术服务团队，由具有丰富科研、设计、聚烯烃装置生产经验的高级技术专家组成，可为广大用户提供聚乙烯装置原始开工指导、各类型催化剂应用、各类专用料开发、催化剂加料系统改造、生产异常诊断、生产工艺优化等方面的<font style="font-size:16px">一站式、全过程、全方位技术服务。</font></p>',
+                  __html: content
+                    ? content[4].content : '',
                 }}
               />
             </div>
@@ -164,7 +168,8 @@ export default function Introduce() {
               <div
                 className="content"
                 dangerouslySetInnerHTML={{
-                  __html: '<p style="font-size:14px">凭借优良的技术服务能力，客户至上的服务原则，客户及产品销量快速增长。主要客户有中国石化、中国石油、中国海油、煤化工等系统内的大型化工企业，海外主要销往中国台湾、中东、印尼、菲律宾、韩国、美国和印度等地区和国家。</p>',
+                  __html: content
+                    ? content[5].content : '',
                 }}
               />
             </div>
