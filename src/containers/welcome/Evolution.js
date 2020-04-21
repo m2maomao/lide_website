@@ -45,7 +45,7 @@ export default function Evolution() {
                 {
                   development.images && development.images.map((item, index) => (
                     <div className="box" key={index}>
-                      <div className="img-wrap" style={{ background: `url(${item.image}) center center / auto 100% no-repeat` }} />
+                      <div className="img-wrap" style={{ background: `url(${item.image}) center center / auto 120% no-repeat` }} />
                       <div className="title">{item.title}</div>
                     </div>
                   ))

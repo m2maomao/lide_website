@@ -1,19 +1,31 @@
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 import './searchItem.scss'
 
-export default function SearchItem() {
+export default function SearchItem({
+  title, create_time, firstColumn, secondColumn, id,
+}) {
+  const history = useHistory()
+
+  // 判断进入各个二级栏目/详情页
+  function handleClick(fc, sc, id) {
+    // console.log('fc', fc, 'sc', sc, 'id', id)
+    if (fc === 'News') {
+      history.push(`/news/${id}`)
+    }
+  }
+
   return (
     <div className="d-flex search-item">
-      <div>
-        <h3 className="title">2020*迎新春团拜会</h3>
-        <span className="date">2020/01/01</span>
+      <div className="content">
+        <h3 className="title">{title}</h3>
+        <span className="date">{create_time}</span>
       </div>
-      <div>
+      <div className="link">
         <i className="read-more-icon" />
-        <Link to="/" className="read-more-link">
+        <button type="button" onClick={() => handleClick(firstColumn, secondColumn, id)} className="read-more-link">
           阅读详情
-        </Link>
+        </button>
       </div>
     </div>
   )
