@@ -10,8 +10,21 @@ export default function SearchItem({
   // 判断进入各个二级栏目/详情页
   function handleClick(fc, sc, id) {
     // console.log('fc', fc, 'sc', sc, 'id', id)
-    if (fc === 'News') {
-      history.push(`/news/${id}`)
+    switch (fc) {
+      case 'News':
+        history.push(`/news/${id}`)
+        break
+      case 'Welcome':
+        history.push('/welcome/magazine')
+        break
+      case 'Product':
+        history.push(`/products/${id}`)
+        break
+      case 'Duty':
+        history.push(`/responsibility/${sc}`)
+        break
+      default:
+        break
     }
   }
 
