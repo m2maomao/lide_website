@@ -21,7 +21,11 @@ export default function SearchItem({
         history.push(`/products/${id}`)
         break
       case 'Duty':
-        history.push(`/responsibility/${sc}`)
+        if (sc === 'Info') {
+          history.push(`/responsibility/${sc}/${id}`)
+        } else {
+          history.push(`/responsibility/${sc}/${id}`)
+        }
         break
       default:
         break
