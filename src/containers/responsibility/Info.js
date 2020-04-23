@@ -12,7 +12,7 @@ export default function Info() {
           <Link to="/">首页</Link>
         </li>
         <li className="breadcrumb-item">责任与关怀</li>
-        <Breadcrumb.Item active>信息公开</Breadcrumb.Item>
+        <Breadcrumb.Item active>催化剂产品</Breadcrumb.Item>
       </Breadcrumb>
       <div className="responsibility-main-container">
         <div className="r-main-container">
@@ -37,11 +37,26 @@ export default function Info() {
 function Sider() {
   return (
     <div className="silders">
+      <div className="title">
+        <div className="tip">
+          <i>2019·</i>
+          <span>第四季度</span>
+        </div>
+        <div className="arrow-wrap">
+          <div className="left" />
+          <div className="right" />
+        </div>
+      </div>
+      <div className="content">
+        2019年四季度环境监测数据公示，一季度环境监测数据公示，2019年一季度环境监测数据公示，一季度环境监测数据公示。
+      </div>
       <div className="d-flex buttons">
-        <button className="btns" type="button">
+        <button className="btns active" type="button">
+          <i />
           在线预览
         </button>
         <button className="btns" type="button">
+          <i />
           文件下载
         </button>
       </div>

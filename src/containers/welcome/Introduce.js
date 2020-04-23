@@ -20,6 +20,7 @@ export default function Introduce() {
   const [state, setState] = useState({
     seo: '',
     content: '',
+    specWork: [],
   })
 
   function getData() {
@@ -38,7 +39,7 @@ export default function Introduce() {
   }, [])
 
   console.log(state)
-  const { content } = state
+  const { content, specWork } = state
 
   return (
     <>
@@ -74,22 +75,14 @@ export default function Introduce() {
           </div>
           {/* 数字区域 */}
           <div className="d-flex data-summary">
-            <div className="nums">
-              <h3 className="big-nums">2001</h3>
-              <p>成立于2001</p>
-            </div>
-            <div className="nums">
-              <h3 className="big-nums">42</h3>
-              <p>五个系列工42种聚乙烯催化剂</p>
-            </div>
-            <div className="nums">
-              <h3 className="big-nums">60</h3>
-              <p>公司产品占60%的国内市场份额</p>
-            </div>
-            <div className="nums">
-              <h3 className="big-nums">40</h3>
-              <p>用户数量达到40余家</p>
-            </div>
+            {
+              specWork.map((item, index) => (
+                <div className="nums" key={index}>
+                  <h3 className="big-nums">{item.blueWord}</h3>
+                  <p>{item.blackWord}</p>
+                </div>
+              ))
+            }
           </div>
           {/* 第二区 */}
           <div className="second-container">

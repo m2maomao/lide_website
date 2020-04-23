@@ -3,6 +3,7 @@ import { Breadcrumb, CardColumns, Card } from 'react-bootstrap'
 import { useFetch } from '@/hooks/useFetch'
 
 // import imgAcquire from '@/assets/images/welcome/imgAcquire.png'
+import hot from '@/assets/images/welcome/hot.png'
 
 export default function Magazine() {
   const { content } = useFetch('/home/Enterlide/magazine', {
@@ -23,7 +24,7 @@ export default function Magazine() {
           <div className="d-flex magazine-lists">
             <CardColumns>
               {
-                content.length ? content.map((item, index) => <Item key={index} data={item} />) : ''
+                content.length ? content.map((item, index) => <Item key={index} isIcon={item.is_hot} data={item} />) : ''
               }
             </CardColumns>
           </div>
@@ -42,12 +43,17 @@ function Item({ isIcon, data }) {
   return (
     <Card className="magazine-item">
       <div className="inner-container">
+        {
+          isIcon === 1 && (
+          <div className="weekly">
+            <span>精选周刊</span>
+            <img src={hot} alt="icon" />
+          </div>
+          )
+        }
         <img className="post-image" src={image} alt="图片" />
         <div className="d-flex">
           <h3 className="t">{title}</h3>
-          {
-            isIcon && <img alt="icon" />
-          }
         </div>
         <p className="content">{summary}</p>
         <p className="date">{create_time}</p>

@@ -43,7 +43,9 @@ function TimelineItem({ data }) {
         <div className="icon" />
         <div className="year-image">
           <h3 className="year">{year}</h3>
-          <img src={img} alt="images" />
+          <div className="img">
+            <img src={img} alt="images" />
+          </div>
         </div>
         <div className="event">
           <p>{context}</p>

@@ -428,6 +428,17 @@ $colorSky :#0187d0;
           border-bottom: 2px solid #0187d0;
         }
       }
+      .weekly{
+        display: flex;
+        font-size: 22px;
+        align-items: center;
+        margin-bottom: pc2rem(30);
+        img{
+          margin-left: pc2rem(10);
+          width: pc2rem(21);
+          height: pc2rem(24);
+        }
+      }
     }
 
     .t {
@@ -527,14 +538,25 @@ $colorSky :#0187d0;
       .year {
         margin-top: pc2rem(7);
         margin-bottom: pc2rem(21);
-        font-size: 40px;
+        font-size: pc2rem(40);
         color: #2862ae;
         font-family: 'mo-s-b';
+        line-height: .8;
         & + img {
           display: block;
           width: 100%;
         }
       }
+      .img{
+        height: pc2rem(115);
+        overflow: hidden;
+        position: relative;
+        img{
+          bottom: 0;
+          position: absolute;
+        }
+      }
+
     }
     .event {
       flex: 1;

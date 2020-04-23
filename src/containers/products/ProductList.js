@@ -10,7 +10,7 @@ export default function ProductList({ data }) {
           <Link to="/">首页</Link>
         </li>
         <li className="breadcrumb-item">产品与服务</li>
-        <Breadcrumb.Item active>信息公开</Breadcrumb.Item>
+        <Breadcrumb.Item active>催化剂产品</Breadcrumb.Item>
       </Breadcrumb>
       <div className="main-side-container">
         <div>

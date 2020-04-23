@@ -30,12 +30,53 @@
       width: pc2rem(330);
       height: pc2rem(290);
       left: pc2rem(100);
-      border: 1px solid red;
       background: rgba(38, 145, 209, 0.8);
+      .title{
+        padding: pc2rem(30);
+        display: flex;
+        justify-content: space-between;
+        line-height: 1em;
+        .tip{
+          display: flex;
+          align-items: center;
+          color: #fff;
+          i{
+            font-style: normal;
+            font-size: 30px;
+            font-weight: bold;
+          }
+          span{
+            font-size: 18px;
+          }
+        }
+        .arrow-wrap{
+          width: pc2rem(50);
+          display: flex;
+          justify-content: space-between;
+          .left{
+            width: pc2rem(13);
+            height: pc2rem(17);
+            background: url('~@/assets/images/responsibility/arrow_left_100.png') 0 0 / pc2rem(13) pc2rem(17) no-repeat;
+          }
+          .right{
+            width: pc2rem(13);
+            height: pc2rem(17);
+            background: url('~@/assets/images/responsibility/arrow_right_100.png') 0 0 / pc2rem(13) pc2rem(17) no-repeat;
+          }
+        }
+      }
+      .content{
+        padding: 0 pc2rem(30);
+        height: pc2rem(150);
+        color: #fff;
+      }
     }
     .buttons {
       justify-content: space-between;
       border: 1px solid #fff;
+      margin: pc2rem(12);
+      height: pc2rem(40);
+
       .btns {
         flex: 1;
         color: #fff;
@@ -44,12 +85,42 @@
         background: none;
         font-size: 14px;
         font-family: 'sc-m';
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        i{
+          margin-right: pc2rem(10);
+        }
         &:first-child {
           border-right: 1px solid #fff;
+          i{
+            display: inline-block;
+            width: pc2rem(22);
+            height: pc2rem(22);
+            background: url('~@/assets/images/responsibility/preview-usual.png') 0 0 / pc2rem(22) auto no-repeat;
+          }
+          &:hover, &.active {
+            background: #fff;
+            color: #2862ae;
+            i{
+              background: url('~@/assets/images/responsibility/preview-active.png') 0 0 / pc2rem(22) auto no-repeat;
+            }
+          }
         }
-        &:hover {
-          background: #fff;
-          color: #2862ae;
+        &:nth-child(2){
+          i{
+            display: inline-block;
+            width: pc2rem(22);
+            height: pc2rem(22);
+            background: url('~@/assets/images/responsibility/download-usual.png') 0 0 / pc2rem(22) auto no-repeat;
+          }
+          &:hover, &.active {
+            background: #fff;
+            color: #2862ae;
+            i{
+              background: url('~@/assets/images/responsibility/download-active.png') 0 0 / pc2rem(22) auto no-repeat;
+            }
+          }
         }
       }
     }
