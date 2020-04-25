@@ -17,15 +17,19 @@ export default function ProductList({ data }) {
           <CardColumns className="lists-1">
             {
               lists && lists.length ? lists.map((item, index) => (
-                <Card className="item" key={index}>
-                  <Card.Img variant="top" src={item.image} alt={item.title} />
-                  <Card.Body>
-                    <div className="d-flex">
-                      <h3 className="t">{item.title}</h3>
-                      <Link className="read" to={`/products/${item.id}`} />
-                    </div>
-                  </Card.Body>
-                </Card>
+                <Link to={`/products/${item.id}`} key={index}>
+                  <Card className="item">
+                    <Card.Img variant="top" src={item.image} alt={item.title} />
+                    <Card.Body>
+                      <div className="d-flex">
+                        <h3 className="t">{item.title}</h3>
+                        <span className="read-wrap">
+                          <i className="read" to={`/products/${item.id}`} />
+                        </span>
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </Link>
               )) : '暂无产品'
             }
 

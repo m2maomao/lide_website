@@ -10,6 +10,7 @@
       padding: pc2rem(22) pc2rem(50);
       border-top: 1px solid #f7f7f7;
       border-bottom: 1px solid #f7f7f7;
+      cursor: pointer;
       &.active {
         background: #e8ecf2;
       }
@@ -43,7 +44,7 @@
   margin: pc2rem(56) 0;
 
   .lists-1 {
-    column-count: 4;
+    column-count: 3;
     .item {
       border-radius: 0;
       border: none;
@@ -63,12 +64,18 @@
       .d-flex {
         justify-content: space-between;
         align-items: center;
+        min-height: pc2rem(38);
       }
     }
     .t {
       margin-bottom: 0;
       font-family: 'sc-r';
       font-size: 16px;
+    }
+    .read-wrap{
+      width: pc2rem(50);
+      display: flex;
+      flex-direction: row-reverse;
     }
     .read {
       display: none;

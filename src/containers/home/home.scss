@@ -16,6 +16,7 @@
 
 .banner {
   margin-top: -68px;
+  z-index: 0;
 }
 
 @media screen and (max-width: 576px) {
@@ -157,10 +158,13 @@
 
   /* 新闻动态 */
   .news {
+    z-index: 10000;
     margin-top: -6.25rem;
     background: #0187d0;
+    position: relative;
     a {
       color: #fff;
+      display: block;
     }
   }
   .logo {

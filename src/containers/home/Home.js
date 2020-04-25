@@ -86,12 +86,12 @@ export default function Home({ lng, t }) {
             </Col>
             <Col sm={4}>
               <div className="news">
-                <p className="more-news">
-                  <Link className="title" to="/">
-                    {t('news')}
-                  </Link>
-                  <img src={trueLeft} alt="more" />
-                </p>
+                <Link className="title" to="/news">
+                  <p className="more-news">
+                    <span className="title">{t('news')}</span>
+                    <img src={trueLeft} alt="more" />
+                  </p>
+                </Link>
                 <ul>
                   {state.news.length
                     && state.news.map((item) => (

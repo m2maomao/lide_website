@@ -26,6 +26,9 @@ export default function Culture() {
     })
   }
 
+  // const { content } = state
+  console.log('state.content[0]', state.content[0])
+  console.log('state', state)
   useEffect(() => {
     getData()
   }, [])
@@ -45,13 +48,13 @@ export default function Culture() {
           <div className="culture-body">
             <div className="d-flex culture-item">
               <img src={imgCulture1} alt="images" />
-              <Texts icon={imgBrand} title="品牌理念" />
+              <Texts icon={imgBrand} title="品牌理念" list={state.content[0]} />
               <img src={imgCulture3} alt="images" />
             </div>
             <div className="d-flex culture-item">
-              <Texts icon={imgBrand} title="价值理念" />
+              <Texts icon={imgBrand} title="价值理念" list={state.content[1]} />
               <img src={imgCulture2} alt="images" />
-              <Texts icon={imgBrand} title="社会责任" />
+              <Texts icon={imgBrand} title="社会责任" list={state.content[2]} />
             </div>
           </div>
           <img className="bottom-image" src={imgCulture4} alt="ima" />
@@ -61,7 +64,9 @@ export default function Culture() {
   )
 }
 
-function Texts({ icon, title }) {
+function Texts({
+  icon, title, list,
+}) {
   return (
     <div className="d-flex flex-column texts">
       <div className="d-flex t">
@@ -69,14 +74,24 @@ function Texts({ icon, title }) {
         <h3 className="head">{title}</h3>
       </div>
       <div>
-        <div className="d-flex words">
+        {
+          list && list.map((item, index) => (
+            <div className="d-flex words" key={index}>
+              {
+                item.blueWord
+                  ? <span className="blue-text">{item.blueWord}</span>
+                  : <span className="blue-text" style={{ padding: '3px', minWidth: '0' }}>{item.blueWord}</span>
+              }
+
+              <p>{item.blackWord}</p>
+            </div>
+          ))
+        }
+
+        {/* <div className="d-flex words">
           <span className="blue-text">使命</span>
           <p>成为和饭卡和饭卡和饭卡和</p>
-        </div>
-        <div className="d-flex words">
-          <span className="blue-text">使命</span>
-          <p>成为和饭卡和饭卡和饭卡和</p>
-        </div>
+        </div> */}
       </div>
     </div>
   )

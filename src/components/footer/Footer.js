@@ -75,50 +75,50 @@ export default function Footer({ t, i18n }) {
               <ul className="nav-list left">
                 <p>{t('product')}</p>
                 <li>
-                  <Link to="/">{t('center')}</Link>
+                  <Link to="/products">{t('center')}</Link>
                 </li>
                 <li>
-                  <Link to="/">{t('mservice')}</Link>
+                  <Link to="/products/market">{t('mservice')}</Link>
                 </li>
               </ul>
               <ul className="nav-list center">
                 <p>{t('welcome')}</p>
                 <li>
-                  <Link to="/">{t('introduction')}</Link>
+                  <Link to="/welcome/introduce">{t('introduction')}</Link>
                 </li>
                 <li>
-                  <Link to="/">{t('culture')}</Link>
+                  <Link to="/welcome/culture">{t('culture')}</Link>
                 </li>
                 <li>
-                  <Link to="/">{t('qualification')}</Link>
+                  <Link to="/welcome/qualification">{t('qualification')}</Link>
                 </li>
                 <li>
-                  <Link to="/">{t('history')}</Link>
+                  <Link to="/welcome/history">{t('history')}</Link>
                 </li>
                 <li>
-                  <Link to="/">{t('structure')}</Link>
+                  <Link to="/welcome/organ">{t('structure')}</Link>
                 </li>
                 <li>
-                  <Link to="/">{t('scientific')}</Link>
+                  <Link to="/welcome/evolution">{t('scientific')}</Link>
                 </li>
                 {i18n.language === 'en' ? (
                   ''
                 ) : (
                   <li>
-                    <Link to="/">《我与立得同行》</Link>
+                    <Link to="/welcome/magazine">《我与立得同行》</Link>
                   </li>
                 )}
               </ul>
               <ul className="nav-list right">
                 <p>{t('positions')}</p>
                 <li>
-                  <Link to="/">{t('information')}</Link>
+                  <Link to="/responsibility/info">{t('information')}</Link>
                 </li>
                 <li>
-                  <Link to="/">{t('responsibility')}</Link>
+                  <Link to="/responsibility/community">{t('responsibility')}</Link>
                 </li>
                 <li>
-                  <Link to="/">{t('employee')}</Link>
+                  <Link to="/responsibility/staff">{t('employee')}</Link>
                 </li>
               </ul>
             </div>
@@ -156,6 +156,7 @@ export default function Footer({ t, i18n }) {
               </div>
             </div>
             <p className="copyright">
+              &copy;
               {t('companyname')}
               {' '}
               {t('copyright')}

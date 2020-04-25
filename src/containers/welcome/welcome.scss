@@ -15,12 +15,13 @@ $colorSky :#0187d0;
   margin: pc2rem(56) 0;
   /* 公司介绍 */
   .company-summary {
-    // & > div {
-    //   width: 50%;
-    //   padding: pc2rem(30);
-    //   justify-content: space-around;
-    //   background: #fff;
-    // }
+    & > div {
+      width: 50%;
+      padding: pc2rem(30);
+      padding-top: 0;
+      justify-content: space-around;
+      background: #fff;
+    }
   }
   .company-name {
     font-weight: 'sc-m';
@@ -231,6 +232,7 @@ $colorSky :#0187d0;
         font-family: 'sc-b';
         font-size: 24px;
         color: #2d2d2d;
+        font-weight: bold;
       }
     }
     .texts {
@@ -251,10 +253,13 @@ $colorSky :#0187d0;
       font-family: 'sc-m';
       font-size: 16px;
       border-radius: 8px;
+      min-width: 80px;
+      text-align: center;
       & + p {
         flex: 1;
         font-size: 12px;
         color: #333;
+        line-height: 1.2em;
       }
     }
   }
