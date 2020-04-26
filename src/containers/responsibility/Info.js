@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom'
 import { Breadcrumb } from 'react-bootstrap'
+import { useFetch } from '@/hooks/useFetch'
 
 import coverImage from '@/assets/images/responsibility-c.png'
 import pdfIcon from '@/assets/images/responsibility/pdf.png'
 
 export default function Info() {
+  const data = useFetch('/home/Responsibility/info', {
+    list: [],
+  })
+  const { list } = data
+
   return (
     <>
       <Breadcrumb>
@@ -22,10 +28,7 @@ export default function Info() {
           </div>
           <div className="report-lists">
             <ul>
-              <ReportItem />
-              <ReportItem />
-              <ReportItem />
-              <ReportItem />
+              <ReportItem list={list} />
             </ul>
           </div>
         </div>
@@ -64,22 +67,30 @@ function Sider() {
   )
 }
 
-function ReportItem() {
+function ReportItem({ list }) {
   return (
-    <li className="d-flex report-item">
-      <img className="file-type-icon" src={pdfIcon} alt="cover" />
-      <div className="t">
-        <h3 className="t-t">2019年第三季度报告全文</h3>
-        <span className="format">格式：PDF</span>
-      </div>
-      <div className="options">
-        <button type="button" className="preview-btn">
-          在线预览
-        </button>
-        <button type="button" className="download-btn">
-          文件下载
-        </button>
-      </div>
-    </li>
+    // <>
+    //   { list
+    //     ? list.map((item, index) => {
+    //       (
+    //         <li className="d-flex report-item">
+    //           <img className="file-type-icon" src={pdfIcon} alt="cover" />
+    //           <div className="t">
+    //             <h3 className="t-t">{item.title}</h3>
+    //             <span className="format">格式：PDF</span>
+    //           </div>
+    //           <div className="options">
+    //             <button type="button" className="preview-btn">
+    //               在线预览
+    //             </button>
+    //             <button type="button" className="download-btn">
+    //               文件下载
+    //             </button>
+    //           </div>
+    //         </li>
+    //       )
+    //     })
+    //     : ''}
+    // </>
   )
 }
