@@ -54,7 +54,7 @@ export default function Market({ data = [] }) {
                   />
                   <div className="d-flex experts">
                     <div className="experts-items">
-                      <img alt="专家" />
+                      <img src={midData.images[0].image} alt={midData.title} />
                     </div>
                     <div className="experts-items">
                       <h3 className="exports-text">
@@ -62,19 +62,19 @@ export default function Market({ data = [] }) {
                       </h3>
                     </div>
                     <div className="experts-items">
-                      <img alt="专家" />
+                      <img src={midData.images[1].image} alt={midData.title} />
                     </div>
                     <div className="experts-items">
                       <h3 className="exports-text">
-                        {midData.summary[0]}
+                        {midData.summary[1]}
                       </h3>
                     </div>
                     <div className="experts-items">
-                      <img alt="专家" />
+                      <img src={midData.images[2].image} alt={midData.title} />
                     </div>
                     <div className="experts-items">
                       <h3 className="exports-text">
-                        {midData.summary[0]}
+                        {midData.summary[2]}
                       </h3>
                     </div>
                   </div>

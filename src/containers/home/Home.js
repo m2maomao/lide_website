@@ -55,7 +55,7 @@ export default function Home({ lng, t }) {
                 <Col className="title" sm={6}>
                   <span>{t('product')}</span>
                   <img className="line" src={line} alt="" />
-                  <Link to="/more">{'more >'}</Link>
+                  <Link to="/products">{'more >'}</Link>
                 </Col>
               </Row>
               <Row>
@@ -96,7 +96,7 @@ export default function Home({ lng, t }) {
                   {state.news.length
                     && state.news.map((item) => (
                       <li className="news-item" key={item.id}>
-                        <Link to="/">
+                        <Link to={`/news/${item.id}`}>
                           <img
                             src={item.image}
                             // src={newsImg}
