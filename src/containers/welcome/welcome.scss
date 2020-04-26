@@ -23,6 +23,15 @@ $colorSky :#0187d0;
       background: #fff;
     }
   }
+  .organ-summary {
+    & > div {
+      width: 100%;
+      padding: pc2rem(30);
+      padding-top: 0;
+      justify-content: space-around;
+      background: #fff;
+    }
+  }
   .company-name {
     font-weight: 'sc-m';
     font-size: pc2rem(30);
@@ -222,10 +231,9 @@ $colorSky :#0187d0;
         background: #2862ae;
       }
       .icon {
-        width: pc2rem(42);
-        height: pc2rem(39);
+        width: pc2rem(50);
+        height: pc2rem(50);
         margin-right: 8px;
-        margin-top: -5px;
       }
       .head {
         margin: 0;
@@ -296,6 +304,10 @@ $colorSky :#0187d0;
         height: pc2rem(390);
         padding: 20px;
         background: #f3f5f8;
+        &:hover{
+          opacity: 0.5;
+          background-color: #0a6df0;
+        }
       }
       .certificate {
         width: 100%;
@@ -447,6 +459,7 @@ $colorSky :#0187d0;
     }
 
     .t {
+      font-size: pc2rem(25);
       margin-bottom: pc2rem(20);
     }
     .post-image {
@@ -460,6 +473,7 @@ $colorSky :#0187d0;
       font-family: 'sc-l';
     }
     .date {
+      color:#d2d2d2;
       position: relative;
       text-align: right;
       font-family: 'mo-s-h';

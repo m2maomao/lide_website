@@ -138,13 +138,7 @@
     &:hover {
       box-shadow: 0px 1px 4px 1px #e7e7ea;
       .options {
-        button {
-          &.download-btn {
-            background: url('~@/assets/images/responsibility/download-active.png')
-              no-repeat top center;
-            background-size: 34px 34px;
-          }
-        }
+        
       }
     }
     .file-type-icon {
@@ -178,6 +172,16 @@
         line-height: 92px;
         &:hover {
           color: #2862ae;
+            &.download-btn {
+              background: url('~@/assets/images/responsibility/download-active.png')
+                no-repeat top center;
+              background-size: 34px 34px;
+            }
+            &.preview-btn {
+              background: url('~@/assets/images/responsibility/preview-active.png')
+                no-repeat top center;
+              background-size: 34px 34px;
+            }
         }
         &.preview-btn {
           background: url('~@/assets/images/responsibility/preview.png')
@@ -185,6 +189,7 @@
           background-size: 34px 34px;
         }
         &.download-btn {
+          margin-left: pc2rem(5);
           background: url('~@/assets/images/responsibility/download.png')
             no-repeat top center;
           background-size: 34px 34px;

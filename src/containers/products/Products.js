@@ -9,6 +9,7 @@ import { Cover, Side } from 'com'
 import { useFetch } from '@/hooks/useFetch'
 
 import coverImg from '@/assets/images/products/banner.png'
+import productIndex from '@/assets/images/products/product_index.png'
 
 import ProductList from './ProductList'
 import Detail from './Detail'
@@ -95,6 +96,7 @@ export default function Products() {
                   }
                 </Accordion>
               </Side>
+              <img className="products-index" src={productIndex} alt="" />
             </Col>
             <Col sm={9}>
               <div className="products-main-body">

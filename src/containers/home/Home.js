@@ -60,24 +60,28 @@ export default function Home({ lng, t }) {
               </Row>
               <Row>
                 <Col sm={6} className="animation-wrapper">
-                  <div className="animation-div product">
-                    <img className="bg" src={productBg} alt="" />
-                    <img className="bg-ph" src={productBgPh} alt="" />
-                    <img className="jt jt1" src={jt1} alt="" />
-                    <img className="jt jt2" src={jt2} alt="" />
-                    <img className="jt jt3" src={jt3} alt="" />
-                    <img className="icon" src={productIcon} alt="产品中心" />
-                    <span>{t('center')}</span>
-                  </div>
-                  <div className="animation-div service">
-                    <img className="bg" src={marketBg} alt="" />
-                    <img className="bg-ph" src={marketBgPh} alt="" />
-                    <img className="jt jt1" src={jt1} alt="" />
-                    <img className="jt jt2" src={jt2} alt="" />
-                    <img className="jt jt3" src={jt3} alt="" />
-                    <img className="icon" src={marketIcon} alt="市场服务" />
-                    <span>{t('mservice')}</span>
-                  </div>
+                  <Link to="/products">
+                    <div className="animation-div product">
+                      <img className="bg" src={productBg} alt="" />
+                      <img className="bg-ph" src={productBgPh} alt="" />
+                      <img className="jt jt1" src={jt1} alt="" />
+                      <img className="jt jt2" src={jt2} alt="" />
+                      <img className="jt jt3" src={jt3} alt="" />
+                      <img className="icon" src={productIcon} alt="产品中心" />
+                      <span>{t('center')}</span>
+                    </div>
+                  </Link>
+                  <Link to="/products/market">
+                    <div className="animation-div service">
+                      <img className="bg" src={marketBg} alt="" />
+                      <img className="bg-ph" src={marketBgPh} alt="" />
+                      <img className="jt jt1" src={jt1} alt="" />
+                      <img className="jt jt2" src={jt2} alt="" />
+                      <img className="jt jt3" src={jt3} alt="" />
+                      <img className="icon" src={marketIcon} alt="市场服务" />
+                      <span>{t('mservice')}</span>
+                    </div>
+                  </Link>
                 </Col>
                 <Col sm={6}>
                   <Player mp4={state.mp4} />

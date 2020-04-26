@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Breadcrumb } from 'react-bootstrap'
 import { WTitle } from 'com'
+import { useFetch } from '@/hooks/useFetch'
 
 import imgQual from '@/assets/images/welcome/qualification.png'
 import imgHonor from '@/assets/images/welcome/honor.png'
@@ -8,6 +9,10 @@ import demo1 from '@/assets/images/welcome/demo1.png'
 import demo2 from '@/assets/images/welcome/demo2.png'
 
 export default function Qualification() {
+  const { content } = useFetch('/home/Enterlide/aptitude', {
+    content: [],
+  })
+
   return (
     <>
       <Breadcrumb>
@@ -24,24 +29,41 @@ export default function Qualification() {
             <div className="qualification">
               <div className="d-flex h">
                 <img className="c" src={imgQual} alt="icon" />
-                <h3 className="t">资质</h3>
+                {
+                   content.map((item, index) => (
+                     index === 0 ? <h3 className="t">{item.name}</h3> : ''
+                   ))
+                }
+
               </div>
               <div className="d-flex wrapper">
-                <Item src={demo1} info="高新技术企业" />
-                <Item src={demo2} info="高新技术企业" />
-                <Item info="高新技术企业" />
-                <Item info="高新技术企业" />
-                <Item info="高新技术企业" />
+                {
+                   content.map((item, index) => (
+                     index === 0 ? item.imgs.map((item, index) => (
+                       <Item src={item} />
+                     )) : ''
+                   ))
+                }
               </div>
             </div>
             <div className="borders" />
             <div className="honor">
               <div className="d-flex h">
                 <img className="c" src={imgHonor} alt="icon" />
-                <h3 className="t">荣誉</h3>
+                {
+                   content.map((item, index) => (
+                     index === 1 ? <h3 className="t">{item.name}</h3> : ''
+                   ))
+                }
               </div>
               <div className="d-flex wrapper">
-                <Item info="高新技术企业" />
+                {
+                   content.map((item, index) => (
+                     index === 1 ? item.imgs.map((item, index) => (
+                       <Item src={item} />
+                     )) : ''
+                   ))
+                }
               </div>
             </div>
           </div>
@@ -50,6 +72,7 @@ export default function Qualification() {
     </>
   )
 }
+
 
 function Item({ src, info }) {
   return (
