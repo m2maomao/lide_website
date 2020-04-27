@@ -7,6 +7,9 @@ import $ from 'jquery'
 
 import imgAcquire from '@/assets/images/welcome/imgAcquire.png'
 
+import Limarquee from 'limarquee'
+import 'limarquee/lib/style.css'
+
 export default function Evolution() {
   const { content: { development = {}, acquire = {} } } = useFetch('/home/Enterlide/evolution', {
     content: {
@@ -21,11 +24,24 @@ export default function Evolution() {
 
   useEffect(() => {
     scroll()
+    $(() => {
+      console.log('jquery~~~')
+      const limarquee = new Limarquee('.img-carousel')
+      limarquee.render({
+        direction: 'left',
+        loop: -1,
+        scrolldelay: 0,
+        scrollamount: 50,
+        circular: true,
+        drag: true,
+        runshort: true,
+        hoverstop: true,
+        xml: false,
+        inverthover: false,
+      })
+    })
   }, [])
 
-  // console.log('data is:', data)
-
-  // const { }
   return (
     <>
       <Breadcrumb>

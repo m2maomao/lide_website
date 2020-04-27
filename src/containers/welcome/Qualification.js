@@ -2,16 +2,24 @@ import { Link } from 'react-router-dom'
 import { Breadcrumb } from 'react-bootstrap'
 import { WTitle } from 'com'
 import { useFetch } from '@/hooks/useFetch'
+import { useEffect } from 'react'
 
 import imgQual from '@/assets/images/welcome/qualification.png'
 import imgHonor from '@/assets/images/welcome/honor.png'
 import demo1 from '@/assets/images/welcome/demo1.png'
 import demo2 from '@/assets/images/welcome/demo2.png'
+import $ from 'jquery'
+import { lightbox2 } from 'lightbox2'
+import 'lightbox2/dist/css/lightbox.css'
 
 export default function Qualification() {
   const { content } = useFetch('/home/Enterlide/aptitude', {
     content: [],
   })
+
+  useEffect(() => {
+    console.log('useEffect')
+  }, [])
 
   return (
     <>
@@ -25,13 +33,15 @@ export default function Qualification() {
       <div className="p-1r">
         <div className="p-1r-content">
           <WTitle title="资质与荣誉" enTitle="Qualificationandhonor" />
-          <div className="qualification-honor">
+          <div className="qualification-honor" id="lightgallery">
             <div className="qualification">
               <div className="d-flex h">
-                <img className="c" src={imgQual} alt="icon" />
+                <a href={imgQual}>
+                  <img className="c" src={imgQual} alt="icon" />
+                </a>
                 {
                    content.map((item, index) => (
-                     index === 0 ? <h3 className="t">{item.name}</h3> : ''
+                     index === 0 ? <h3 className="t" key={index}>{item.name}</h3> : ''
                    ))
                 }
 
@@ -40,7 +50,7 @@ export default function Qualification() {
                 {
                    content.map((item, index) => (
                      index === 0 ? item.imgs.map((item, index) => (
-                       <Item src={item} />
+                       <Item src={item} key={index} />
                      )) : ''
                    ))
                 }
@@ -52,7 +62,7 @@ export default function Qualification() {
                 <img className="c" src={imgHonor} alt="icon" />
                 {
                    content.map((item, index) => (
-                     index === 1 ? <h3 className="t">{item.name}</h3> : ''
+                     index === 1 ? <h3 className="t" key={index}>{item.name}</h3> : ''
                    ))
                 }
               </div>
@@ -60,7 +70,7 @@ export default function Qualification() {
                 {
                    content.map((item, index) => (
                      index === 1 ? item.imgs.map((item, index) => (
-                       <Item src={item} />
+                       <Item src={item} key={index} />
                      )) : ''
                    ))
                 }
@@ -78,7 +88,9 @@ function Item({ src, info }) {
   return (
     <div className="item">
       <div className="img-c">
-        <img className="certificate" src={src} alt="证书" />
+        <a href={src} data-lightbox="images">
+          <img className="certificate" src={src} alt="证书" />
+        </a>
       </div>
       <p className="i-intro">{info}</p>
     </div>

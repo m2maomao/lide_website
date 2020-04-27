@@ -77,7 +77,7 @@ function ReportItem({ title, download }) {
   }
 
   function handleClickDownload(download) {
-    window.open(`${download}download`)
+    window.open(`${download} download`)
   }
   return (
     <li className="d-flex report-item">
@@ -90,9 +90,9 @@ function ReportItem({ title, download }) {
         <button type="button" className="preview-btn" onClick={() => handleClickPreview(download)}>
           在线预览
         </button>
-        <button type="button" className="download-btn" onClick={() => handleClickPreview(download)}>
+        <a href="###" className="download-btn" download={download}>
           文件下载
-        </button>
+        </a>
       </div>
     </li>
   )

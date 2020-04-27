@@ -3,15 +3,17 @@ import {
   Nav, Navbar, NavDropdown, Col,
 } from 'react-bootstrap'
 
+import { useState } from 'react'
 import Logo from '../logo/Logo'
 import SearchButton from '../search/SearchButton'
 import MobileNavbars from './MobileNavbars'
 
 import './navbars.scss'
 
+
 function Navbars(props) {
   const { pathname } = useLocation()
-
+  const [showNav, setShowNav] = useState(false)
   function changeCls(path) {
     const cls = pathname.includes(path) ? 'nav-link active' : 'nav-link'
     return cls
@@ -57,8 +59,45 @@ function Navbars(props) {
             >
               {t('home')}
             </Link>
-            <Link to="/welcome/introduce" className={changeCls('welcome')}>
+            <Link to="/welcome/introduce" className={changeCls('welcome')} onMouseOver={() => { setShowNav(true) }} onFocus={() => 0}>
               {t('welcome')}
+              {
+                showNav
+                  ? (
+                    <ul className="welcome" onMouseOut={() => { setShowNav(false) }} onBlur={() => 0}>
+                      <li>
+                        <Link to="/welcome/introduce" />
+                        公司介绍
+                      </li>
+                      <li>
+                        <Link to="/welcome/culture" />
+                        企业文化
+                      </li>
+                      <li>
+                        <Link to="/welcome/qualification" />
+                        资质与荣誉
+                      </li>
+                      <li>
+                        <Link to="/welcome/history" />
+                        发展历程
+                      </li>
+                      <li>
+                        <Link to="/welcome/organ" />
+                        组织架构
+                      </li>
+                      <li>
+                        <Link to="/welcome/evolution" />
+                        科研开发
+                      </li>
+                      <li>
+                        <Link to="/welcome/magazine" />
+                        我与立得同行
+                      </li>
+                    </ul>
+                  )
+                  : ''
+              }
+
             </Link>
             <Link to="/products" className={changeCls('products')}>
               {t('product')}

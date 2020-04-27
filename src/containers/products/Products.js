@@ -100,7 +100,6 @@ export default function Products() {
                               </Accordion.Collapse>
                             )) : ''
                         }
-
                       </div>
                     )) : ''
                   }

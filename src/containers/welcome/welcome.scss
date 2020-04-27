@@ -8,6 +8,17 @@ $colorSky :#0187d0;
   padding: 0 1rem;
   .p-1r-content {
     background: #fff;
+    position: relative;
+    &.with-line:after{
+      content: "";
+      width: pc2rem(1);
+      border-left: 1px solid #f3f3f3;
+      position: absolute;
+      left: pc2rem(-25);
+      top: pc2rem(230);
+      height: 80%;
+      z-index: 0;
+    }
   }
 }
 
@@ -15,6 +26,22 @@ $colorSky :#0187d0;
   margin: pc2rem(56) 0;
   /* 公司介绍 */
   .company-summary {
+    position: relative;
+    &:after{
+      width:pc2rem(40);
+      height: pc2rem(46);
+      content: "1";
+      text-align: center;
+      line-height: pc2rem(46);
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+      background: url(~@/assets/images/welcome/num_bg2.png);
+      position: absolute;
+      left: pc2rem(-45);
+      top: pc2rem(30);
+      z-index: 999;
+    }
     & > div {
       width: 50%;
       padding: pc2rem(30);
@@ -81,6 +108,21 @@ $colorSky :#0187d0;
     }
   }
   .second-container{
+    &:after{
+      width:pc2rem(40);
+      height: pc2rem(46);
+      content: "2";
+      text-align: center;
+      line-height: pc2rem(46);
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+      background: url(~@/assets/images/welcome/num_bg1.png);
+      position: absolute;
+      left: pc2rem(-45);
+      top: pc2rem(30);
+      z-index: 999;
+    }
     position: relative;
     .img-wrap{
       padding-top: pc2rem(100);
@@ -108,10 +150,26 @@ $colorSky :#0187d0;
     }
   }
   .third-fourth-area{
+    position: relative;
     display: flex;
     justify-content: space-between;
   }
   .third-container{
+    &:after{
+      width:pc2rem(40);
+      height: pc2rem(46);
+      content: "3";
+      text-align: center;
+      line-height: pc2rem(46);
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+      background: url(~@/assets/images/welcome/num_bg1.png);
+      position: absolute;
+      left: pc2rem(-45);
+      top: pc2rem(30);
+      z-index: 999;
+    }
     margin-top:30px;
     padding-left: 38px;
     .content-wrap{
@@ -139,8 +197,22 @@ $colorSky :#0187d0;
   .fourth-container{
     display: flex;
     flex-direction: row-reverse;
-    position: relative;
     margin-top: 130px;
+    &:after{
+      width:pc2rem(40);
+      height: pc2rem(46);
+      content: "4";
+      text-align: center;
+      line-height: pc2rem(46);
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+      background: url(~@/assets/images/welcome/num_bg1.png);
+      position: absolute;
+      left: pc2rem(-45);
+      top: pc2rem(180);
+      z-index: 999;
+    }
     .img-singular-wrap{
       width: 527px;
       display: flex;
@@ -167,6 +239,22 @@ $colorSky :#0187d0;
     }
   }
   .fifth-container{
+    position: relative;
+    &:after{
+      width:pc2rem(40);
+      height: pc2rem(46);
+      content: "5";
+      text-align: center;
+      line-height: pc2rem(46);
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+      background: url(~@/assets/images/welcome/num_bg1.png);
+      position: absolute;
+      left: pc2rem(-45);
+      top: pc2rem(30);
+      z-index: 999;
+    }
     .img-wrap{
       img{width: 100%; vertical-align: top;}
       position: relative;
@@ -184,6 +272,21 @@ $colorSky :#0187d0;
   }
   .sixth-container{
     position: relative;
+    &:after{
+      width:pc2rem(40);
+      height: pc2rem(46);
+      content: "6";
+      text-align: center;
+      line-height: pc2rem(46);
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+      background: url(~@/assets/images/welcome/num_bg1.png);
+      position: absolute;
+      left: pc2rem(-45);
+      top: pc2rem(30);
+      z-index: 999;
+    }
     .img-wrap{
       width: 100%;
       img{
@@ -395,10 +498,20 @@ $colorSky :#0187d0;
     }
   }
   .img-carousel {
-    padding: pc2rem(40) 0;
+    margin: pc2rem(40) 0;
+    height: pc2rem(500);
     ul {
       display: inline-flex;
       overflow: hidden;
+      height: pc2rem(400);
+      &:after {
+        content: '';
+        height: 0;
+        line-height: 0;
+        display: block;
+        visibility: hidden;
+        clear: both;
+      }
       li{
         flex-shrink: 0;
         margin-right: 15px;

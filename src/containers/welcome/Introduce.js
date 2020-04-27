@@ -51,7 +51,7 @@ export default function Introduce() {
         <Breadcrumb.Item active>公司介绍</Breadcrumb.Item>
       </Breadcrumb>
       <div className="p-1r">
-        <div className="p-1r-content">
+        <div className="p-1r-content with-line">
           <WTitle title="公司介绍" enTitle="companyintroduction" />
           {/* 第一区 */}
           <div className="d-flex company-summary">

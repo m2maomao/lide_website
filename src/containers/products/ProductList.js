@@ -14,26 +14,28 @@ export default function ProductList({ data }) {
       </Breadcrumb>
       <div className="main-side-container">
         <div>
-          <CardColumns className="lists-1">
+          <div className="lists-1 row row-cols-1 row-cols-md-3">
+
             {
               lists && lists.length ? lists.map((item, index) => (
-                <Link to={`/products/${item.id}`} key={index}>
-                  <Card className="item">
-                    <Card.Img variant="top" src={item.image} alt={item.title} />
-                    <Card.Body>
-                      <div className="d-flex">
-                        <h3 className="t">{item.title}</h3>
-                        <span className="read-wrap">
-                          <i className="read" to={`/products/${item.id}`} />
-                        </span>
-                      </div>
-                    </Card.Body>
-                  </Card>
-                </Link>
+                <div className="col mb-4">
+                  <Link to={`/products/${item.id}`} key={index}>
+                    <Card className="item">
+                      <Card.Img variant="top" src={item.image} alt={item.title} />
+                      <Card.Body>
+                        <div className="d-flex">
+                          <h3 className="t">{item.title}</h3>
+                          <span className="read-wrap">
+                            <i className="read" to={`/products/${item.id}`} />
+                          </span>
+                        </div>
+                      </Card.Body>
+                    </Card>
+                  </Link>
+                </div>
               )) : '暂无产品'
             }
-
-          </CardColumns>
+          </div>
         </div>
       </div>
     </>

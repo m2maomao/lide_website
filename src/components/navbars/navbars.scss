@@ -27,12 +27,30 @@
 
 .nav-link {
   text-align: center;
+  position: relative;
   &.active {
     color: #2862ae !important;
     border-bottom: 4px solid #2862ae;
   }
   padding-top: pc2rem(18) !important;
   padding-bottom: pc2rem(18) !important;
+}
+.welcome{
+  position: absolute;
+  top: pc2rem(64);
+  left: pc2rem(-18);
+  width: pc2rem(120);
+  background: rgba($color: #fff, $alpha: .9);
+  margin: 0;
+  display: inline-block;
+  li{
+    margin: 0;
+    padding:pc2rem(5) pc2rem(10);
+    // border-bottom: 1px solid #ebebeb;
+    a{
+      color:#666;
+    }
+  }
 }
 
 .navbar-brand {
