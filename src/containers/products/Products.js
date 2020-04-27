@@ -52,6 +52,10 @@ export default function Products() {
     setLists(item.children)
   }
 
+  function handleClickPreview(download) {
+    window.open(download)
+  }
+
   return (
     <div className="products-container">
       <Cover src={coverImg} />
