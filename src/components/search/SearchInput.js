@@ -4,6 +4,7 @@ import './searchInput.scss'
 function SearchInput({ search }) {
   const [inputValue, setInputValue] = useState('')
 
+
   function handleInputChange(e) {
     setInputValue(e.target.value)
   }

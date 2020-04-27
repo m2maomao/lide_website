@@ -32,8 +32,8 @@ function Navbars(props) {
   }
 
   // 搜索
-  function handleSearch() {
-    history.push('/search')
+  function handleSearch(keyword) {
+    history.push(`/search/${keyword}`)
   }
 
   function handleClick(e) {

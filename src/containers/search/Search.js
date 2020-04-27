@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { Row, Col } from 'react-bootstrap'
 import { SearchItem, SearchInput } from 'com'
 import { useFetch } from '@/hooks/useFetch'
+import { useParams } from 'react-router-dom'
 import './search.scss'
 import http from '@/axios/http'
 
 export default function Search() {
+  const { id } = useParams()
+  console.log(id)
   // 声明状态
   const [searchData, setSearchData] = useState([])
   const [searchValue, setSearchValue] = useState(null)

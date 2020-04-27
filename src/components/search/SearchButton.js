@@ -14,6 +14,16 @@ function SearchButton({ search }) {
   //   }
   // }, [isSearch])
 
+  const [inputValue, setInputValue] = useState('')
+
+  function handleInputChange(e) {
+    setInputValue(e.target.value)
+  }
+
+  function handleClick() {
+    search(inputValue)
+  }
+
   return (
     <div className={`d-flex search ${isSearch ? 'search-input-show' : ''}`}>
       <img
@@ -23,8 +33,8 @@ function SearchButton({ search }) {
         onClick={() => toggleClass(true)}
       />
       <div className={`search-input ${isSearch ? 'search-input-show' : ''}`}>
-        <input ref={inputRef} onBlur={() => toggleClass(false)} />
-        <img src={searchIcon} alt="search" onClick={search} />
+        <input ref={inputRef} onBlur={() => toggleClass(false)} onChange={handleInputChange} />
+        <img src={searchIcon} alt="search" onClick={handleClick} />
       </div>
     </div>
   )
