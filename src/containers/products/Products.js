@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Link, Route, useLocation, useHistory, useRouteMatch,
 } from 'react-router-dom'
@@ -56,6 +56,12 @@ export default function Products() {
     window.open(download)
   }
 
+  useEffect(() => {
+    if (content[0]) {
+      setName(content[0].firstChildren[0].secodeName)
+      setLists(content[0].firstChildren[0].children)
+    }
+  }, [content])
   return (
     <div className="products-container">
       <Cover src={coverImg} />
@@ -100,7 +106,9 @@ export default function Products() {
                   }
                 </Accordion>
               </Side>
-              <img className="products-index" src={productIndex} alt="" />
+              <Link to="/uploads/20200427/56e896a45c476a1ae20cc7d7a081ea80.pdf">
+                <img className="products-index" src={productIndex} alt="" />
+              </Link>
             </Col>
             <Col sm={9}>
               <div className="products-main-body">

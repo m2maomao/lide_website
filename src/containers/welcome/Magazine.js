@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 import { Breadcrumb, CardColumns, Card } from 'react-bootstrap'
 import { useFetch } from '@/hooks/useFetch'
+import hot from '@/assets/images/welcome/hot.png'
+import MagazineDetail from './MagazineDetail'
 
 // import imgAcquire from '@/assets/images/welcome/imgAcquire.png'
-import hot from '@/assets/images/welcome/hot.png'
 
 export default function Magazine() {
   const { content } = useFetch('/home/Enterlide/magazine', {
@@ -38,26 +39,28 @@ export default function Magazine() {
 
 function Item({ isIcon, data }) {
   const {
-    title, image, summary, create_time,
+    title, image, summary, create_time, id,
   } = data
   return (
     <Card className="magazine-item">
-      <div className="inner-container">
-        {
-          isIcon === 1 && (
-          <div className="weekly">
-            <span>精选周刊</span>
-            <img src={hot} alt="icon" />
+      <Link to={`/welcome/MagazineDetail/${id}`}>
+        <div className="inner-container">
+          {
+            isIcon === 1 && (
+            <div className="weekly">
+              <span>精选周刊</span>
+              <img src={hot} alt="icon" />
+            </div>
+            )
+          }
+          <img className="post-image" src={image} alt="图片" />
+          <div className="d-flex">
+            <h3 className="t">{title}</h3>
           </div>
-          )
-        }
-        <img className="post-image" src={image} alt="图片" />
-        <div className="d-flex">
-          <h3 className="t">{title}</h3>
+          <p className="content">{summary}</p>
+          <p className="date">{create_time}</p>
         </div>
-        <p className="content">{summary}</p>
-        <p className="date">{create_time}</p>
-      </div>
+      </Link>
     </Card>
   )
 }

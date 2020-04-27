@@ -13,6 +13,7 @@ import History from './History'
 import Evolution from './Evolution'
 import Organ from './Organ'
 import Magazine from './Magazine'
+import MagazineDetail from './MagazineDetail'
 
 
 import './Welcome.scss'
@@ -71,6 +72,7 @@ export default function Welcome() {
                 <Route path="/welcome/organ" component={Organ} />
                 <Route path="/welcome/evolution" component={Evolution} />
                 <Route path="/welcome/magazine" component={Magazine} />
+                <Route path="/welcome/MagazineDetail/:id" component={MagazineDetail} />
               </div>
             </Col>
           </Row>
