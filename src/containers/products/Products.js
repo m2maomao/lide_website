@@ -11,6 +11,7 @@ import { useFetch } from '@/hooks/useFetch'
 import coverImg from '@/assets/images/products/banner.png'
 import productIndex from '@/assets/images/products/product_index.png'
 
+import http from '@/axios/http'
 import ProductList from './ProductList'
 import Detail from './Detail'
 import Market from './Market'
@@ -30,6 +31,20 @@ export default function Products() {
     content: [],
     marketService: [],
   })
+
+  const [searchValue, setSearchValue] = useState(null)
+  const search = (sv) => {
+    setSearchValue(sv)
+    http.get(`/home/Production/search?search=${sv}`).then((res) => {
+      if (res.status === 200) {
+        setLists(res.data.Product)
+      }
+    })
+  }
+
+  // useEffect(() => {
+  //   search(searchValue)
+  // }, [])
 
   function changeCls(path) {
     const cls = pathname.includes(path) ? 'arch-item active' : 'arch-item'
@@ -113,7 +128,7 @@ export default function Products() {
               <div className="products-main-body">
                 {
                   isExact
-                    ? <ProductList data={lists} />
+                    ? <ProductList search={search} data={lists} />
                     : (
                       <>
                         {

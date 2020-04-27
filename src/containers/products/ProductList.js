@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom'
 import { Breadcrumb, CardColumns, Card } from 'react-bootstrap'
+import { SearchItem, SearchInput } from 'com'
 
-export default function ProductList({ data }) {
-  const lists = data[0]
+export default function ProductList({ data, search }) {
+  const lists = Array.isArray(data[0]) ? data[0] : data
+
   return (
     <>
+      <SearchInput search={search} searchbtnvalue="产品搜索" />
       <Breadcrumb>
         <li className="breadcrumb-item">
           <Link to="/">首页</Link>

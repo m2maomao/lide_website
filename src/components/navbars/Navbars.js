@@ -33,7 +33,10 @@ function Navbars(props) {
 
   // 搜索
   function handleSearch(keyword) {
-    history.push(`/search/${keyword}`)
+    let word
+    if (keyword === '') word = '员工'
+    else word = keyword
+    history.push(`/search/${word}`)
   }
 
   function handleClick(e) {

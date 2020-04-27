@@ -7,11 +7,13 @@ import './search.scss'
 import http from '@/axios/http'
 
 export default function Search() {
-  const { id } = useParams()
-  console.log(id)
+  const { keyword } = useParams()
+  console.log(keyword)
+
+
   // 声明状态
   const [searchData, setSearchData] = useState([])
-  const [searchValue, setSearchValue] = useState(null)
+  const [searchValue, setSearchValue] = useState(keyword === undefined ? null : keyword)
   const search = (sv) => {
     setSearchValue(sv)
     http.get(`/home/Index/search?search=${sv}`).then((res) => {
@@ -29,7 +31,7 @@ export default function Search() {
   return (
     <Row className="search-container">
       <Col lg={{ span: 6, offset: 3 }}>
-        <SearchInput search={search} />
+        <SearchInput search={search} keyword={keyword} />
         {/* 有数据遍历 */}
         <div className="search-list">
           {
