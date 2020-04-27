@@ -12,6 +12,7 @@ import imgMobile from '@/assets/images/contact/mobile.png'
 import imgPrinter from '@/assets/images/contact/printer.png'
 import imgWechat from '@/assets/images/contact/wechat.png'
 import qrcode from '@/assets/images/qrcode.png'
+import map from '@/assets/images/contact/map_bg.png'
 
 import './contact.scss'
 
@@ -90,6 +91,7 @@ export default function Contact() {
               title="标题"
             />
           </Map> */}
+          <img src={map} alt="" />
         </div>
       </Row>
     </div>

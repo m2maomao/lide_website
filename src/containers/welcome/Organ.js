@@ -42,7 +42,7 @@ export default function Organ() {
       <div className="p-1r">
         <div className="p-1r-content">
           <WTitle title="组织架构" enTitle="organizationalstructure" />
-          <div className="d-flex company-summary">
+          <div className="d-flex organ-summary">
             <div className="d-flex flex-column">
               <img src={content[0]} alt="" />
             </div>

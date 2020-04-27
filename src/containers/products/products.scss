@@ -40,6 +40,9 @@
     }
   }
 }
+.products-index{
+  margin-top: pc2rem(10);
+}
 .products-main-body {
   margin: pc2rem(56) 0;
 
@@ -50,6 +53,9 @@
       border: none;
       cursor: pointer;
       &:hover {
+        .card-body{
+          background-color: #fff;
+        }
         box-shadow: 0 5px 8px 0px #d8d8d8;
         .read {
           display: block;
@@ -61,11 +67,14 @@
       min-height: 100px;
     }
     .card-body {
+      background-color: #f7f7f7;
+      color:#333;
       .d-flex {
         justify-content: space-between;
         align-items: center;
         min-height: pc2rem(38);
       }
+      
     }
     .t {
       margin-bottom: 0;

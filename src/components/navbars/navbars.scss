@@ -1,3 +1,6 @@
+@function pc2rem($px) {
+  @return #{$px/1920 * 100}rem;
+}
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-collapse {
     justify-content: space-around;
@@ -26,7 +29,10 @@
   text-align: center;
   &.active {
     color: #2862ae !important;
+    border-bottom: 4px solid #2862ae;
   }
+  padding-top: pc2rem(18) !important;
+  padding-bottom: pc2rem(18) !important;
 }
 
 .navbar-brand {

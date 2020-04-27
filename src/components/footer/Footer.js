@@ -57,7 +57,7 @@ export default function Footer({ t, i18n }) {
                 +86-021-57294218 &nbsp;&nbsp; +86-021-57294299
               </p>
               <p>
-                <i className="icon phone2" />
+                <i className="icon message" />
                 +86-021-57292553
               </p>
               <p>
@@ -65,7 +65,7 @@ export default function Footer({ t, i18n }) {
                 {t('address')}
               </p>
               <p>
-                <i className="icon message" />
+                <i className="icon phone2" />
                 Leadercata@leadercata.cn
               </p>
             </div>

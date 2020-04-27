@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom'
 import { Breadcrumb } from 'react-bootstrap'
+import { useFetch } from '@/hooks/useFetch'
 
 import coverImage from '@/assets/images/responsibility-c.png'
 import pdfIcon from '@/assets/images/responsibility/pdf.png'
 
 export default function Info() {
+  const { list } = useFetch('/home/Responsibility/info', {
+    list: [],
+  })
+
+
   return (
     <>
       <Breadcrumb>
@@ -22,10 +28,11 @@ export default function Info() {
           </div>
           <div className="report-lists">
             <ul>
-              <ReportItem />
-              <ReportItem />
-              <ReportItem />
-              <ReportItem />
+              {
+              list.map((item, index) => (
+                <ReportItem title={item.title} download={item.download} />
+              ))
+            }
             </ul>
           </div>
         </div>
@@ -51,11 +58,11 @@ function Sider() {
         2019年四季度环境监测数据公示，一季度环境监测数据公示，2019年一季度环境监测数据公示，一季度环境监测数据公示。
       </div>
       <div className="d-flex buttons">
-        <button className="btns active" type="button">
+        <button className="btns " type="button">
           <i />
           在线预览
         </button>
-        <button className="btns" type="button">
+        <button className="btns " type="button">
           <i />
           文件下载
         </button>
@@ -64,19 +71,26 @@ function Sider() {
   )
 }
 
-function ReportItem() {
+function ReportItem({ title, download }) {
+  function handleClickPreview(download) {
+    window.open(download)
+  }
+
+  function handleClickDownload(download) {
+    window.open(`${download}download`)
+  }
   return (
     <li className="d-flex report-item">
       <img className="file-type-icon" src={pdfIcon} alt="cover" />
       <div className="t">
-        <h3 className="t-t">2019年第三季度报告全文</h3>
+        <h3 className="t-t">{title}</h3>
         <span className="format">格式：PDF</span>
       </div>
       <div className="options">
-        <button type="button" className="preview-btn">
+        <button type="button" className="preview-btn" onClick={() => handleClickPreview(download)}>
           在线预览
         </button>
-        <button type="button" className="download-btn">
+        <button type="button" className="download-btn" onClick={() => handleClickPreview(download)}>
           文件下载
         </button>
       </div>

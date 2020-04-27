@@ -9,6 +9,8 @@ import imgCulture2 from '@/assets/images/welcome/culture2.png'
 import imgCulture3 from '@/assets/images/welcome/culture3.png'
 import imgCulture4 from '@/assets/images/welcome/culture4.png'
 import imgBrand from '@/assets/images/welcome/brand.png'
+import imgValue from '@/assets/images/welcome/value.png'
+import imgSocial from '@/assets/images/welcome/social.png'
 
 export default function Culture() {
   const [state, setState] = useState({
@@ -52,9 +54,9 @@ export default function Culture() {
               <img src={imgCulture3} alt="images" />
             </div>
             <div className="d-flex culture-item">
-              <Texts icon={imgBrand} title="价值理念" list={state.content[1]} />
+              <Texts icon={imgValue} title="价值理念" list={state.content[1]} />
               <img src={imgCulture2} alt="images" />
-              <Texts icon={imgBrand} title="社会责任" list={state.content[2]} />
+              <Texts icon={imgSocial} title="社会责任" list={state.content[2]} />
             </div>
           </div>
           <img className="bottom-image" src={imgCulture4} alt="ima" />
