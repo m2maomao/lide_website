@@ -1,3 +1,10 @@
+.carousel-control-prev-icon{
+    width: 50px!important;
+    height: 50px!important;
+    background-image: url('~@/assets/images/banner_left.png')!important;
+}
 .carousel-control-next-icon{
-    background-image: url('~@/assets/images/banner_left.png');
+    width: 50px!important;
+    height: 50px!important;
+    background-image: url('~@/assets/images/banner_right.png')!important;
 }
