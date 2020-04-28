@@ -28,6 +28,8 @@
 .nav-link {
   text-align: center;
   position: relative;
+  color:#666 !important;
+  font-weight: bold;
   &.active {
     color: #2862ae !important;
     border-bottom: 4px solid #2862ae;

@@ -502,7 +502,7 @@ $colorSky :#0187d0;
     height: pc2rem(500);
     ul {
       display: inline-flex;
-      overflow: hidden;
+      overflow: auto;
       height: pc2rem(400);
       &:after {
         content: '';
@@ -562,6 +562,7 @@ $colorSky :#0187d0;
         display: flex;
         font-size: 22px;
         align-items: center;
+        color:#333;
         margin-bottom: pc2rem(30);
         img{
           margin-left: pc2rem(10);
@@ -574,6 +575,7 @@ $colorSky :#0187d0;
     .t {
       font-size: pc2rem(25);
       margin-bottom: pc2rem(20);
+      color:#333
     }
     .post-image {
       display: block;

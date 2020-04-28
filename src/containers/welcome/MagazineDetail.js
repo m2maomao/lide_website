@@ -22,7 +22,8 @@ export default function MagazineDetail() {
           <Link to="/">首页</Link>
         </li>
         <li className="breadcrumb-item">走进立得</li>
-        <Breadcrumb.Item active>我与立得同行</Breadcrumb.Item>
+        <Breadcrumb.Item active>《我与立得同行》</Breadcrumb.Item>
+        <Breadcrumb.Item active>{title}</Breadcrumb.Item>
       </Breadcrumb>
       <div className="news-detail-body">
         <div className="d-flex news-header">

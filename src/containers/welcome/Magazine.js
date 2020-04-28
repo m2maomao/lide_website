@@ -18,7 +18,7 @@ export default function Magazine() {
           <Link to="/">首页</Link>
         </li>
         <li className="breadcrumb-item">走进立得</li>
-        <Breadcrumb.Item active>我与立得同行</Breadcrumb.Item>
+        <Breadcrumb.Item active>《我与立得同行》</Breadcrumb.Item>
       </Breadcrumb>
       <div className="p-1r">
         <div className="magazine-container">

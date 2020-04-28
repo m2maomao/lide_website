@@ -69,6 +69,10 @@
         padding: 0 pc2rem(30);
         height: pc2rem(150);
         color: #fff;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
       }
     }
     .buttons {
