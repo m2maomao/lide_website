@@ -26,6 +26,8 @@ export default function Search() {
         setPage(page + 1)
         if (res.data.count / pageSize > page) {
           setLoadMore(true)
+        } else {
+          setLoadMore(false)
         }
       }
     })
