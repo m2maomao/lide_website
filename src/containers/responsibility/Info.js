@@ -40,7 +40,7 @@ export default function Info() {
             <ul>
               {
               list.map((item, index) => (
-                <ReportItem title={item.title} download={item.download} />
+                <ReportItem title={item.title} download={item.download} key={index} />
               ))
             }
             </ul>

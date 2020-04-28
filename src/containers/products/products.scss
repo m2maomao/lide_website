@@ -94,4 +94,17 @@
       background-size: 100% 100%;
     }
   }
+  .load-more{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    span{
+      display: inline-flex;
+      align-items:center;
+      height: pc2rem(44);
+      padding-left: pc2rem(50);
+      background: url('~@/assets/images/load_more.png') 0 0 / pc2rem(40) pc2rem(44) no-repeat;
+    }
+  }
 }
