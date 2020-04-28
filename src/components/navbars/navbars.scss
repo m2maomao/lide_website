@@ -40,8 +40,8 @@
 .welcome{
   position: absolute;
   top: pc2rem(64);
-  left: pc2rem(-18);
-  width: pc2rem(120);
+  left: -24%;
+  width: 150%;
   background: rgba($color: #fff, $alpha: .9);
   margin: 0;
   display: inline-block;
@@ -99,5 +99,21 @@
   .switch-language-btn {
     display: block;
     margin: 0 auto;
+  }
+}
+.navbar-nav{
+  cursor: pointer;
+  li{
+    position: relative;
+  }
+  .welcome{
+    border-left: 3px solid #fff;
+    border-right: 3px solid #fff;
+    li{
+      text-align: center;
+      &:hover{
+        background: #efefef;
+      }
+    }
   }
 }

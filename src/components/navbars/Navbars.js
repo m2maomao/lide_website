@@ -56,67 +56,83 @@ function Navbars(props) {
             <Logo />
           </Navbar.Brand>
           <Nav onSelect={handleSelect} onClick={handleClick}>
-            <Link
-              className={pathname === '/' ? 'nav-link active' : 'nav-link'}
-              to="/"
-            >
-              {t('home')}
-            </Link>
-            <Link to="/welcome/introduce" className={changeCls('welcome')} onMouseOver={() => { setShowNav(true) }} onFocus={() => 0}>
-              {t('welcome')}
-              {
-                showNav
-                  ? (
-                    <ul className="welcome" onMouseOut={() => { setShowNav(false) }} onBlur={() => 0}>
-                      <li>
-                        <Link to="/welcome/introduce" />
-                        公司介绍
-                      </li>
-                      <li>
-                        <Link to="/welcome/culture" />
-                        企业文化
-                      </li>
-                      <li>
-                        <Link to="/welcome/qualification" />
-                        资质与荣誉
-                      </li>
-                      <li>
-                        <Link to="/welcome/history" />
-                        发展历程
-                      </li>
-                      <li>
-                        <Link to="/welcome/organ" />
-                        组织架构
-                      </li>
-                      <li>
-                        <Link to="/welcome/evolution" />
-                        科研开发
-                      </li>
-                      <li>
-                        <Link to="/welcome/magazine" />
-                        我与立得同行
-                      </li>
-                    </ul>
-                  )
-                  : ''
-              }
-
-            </Link>
-            <Link to="/products" className={changeCls('products')}>
-              {t('product')}
-            </Link>
-            <Link to="/news" className={changeCls('news')}>
-              {t('news')}
-            </Link>
-            <Link
-              to="/responsibility/info"
-              className={changeCls('responsibility')}
-            >
-              {t('positions')}
-            </Link>
-            <Link to="/contact" className={changeCls('contact')}>
-              {t('contact')}
-            </Link>
+            <ul className="navbar-nav">
+              <li>
+                <Link
+                  className={pathname === '/' ? 'nav-link active' : 'nav-link'}
+                  to="/"
+                  onClick={() => { setShowNav(false) }}
+                >
+                  {t('home')}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/welcome/introduce"
+                  className={changeCls('welcome')}
+                  onMouseOver={() => { setShowNav(true) }}
+                  onFocus={() => 0}
+                  onClick={() => { setShowNav(false) }}
+                  /* onMouseOut={() => { setShowNav(false) }}
+                  onBlur={() => 0} */
+                >
+                  {t('welcome')}
+                </Link>
+                {
+                  showNav
+                    ? (
+                      <ul className="welcome">
+                        <li>
+                          <Link to="/welcome/introduce" onClick={() => { setShowNav(false) }}>{t('introduction')}</Link>
+                        </li>
+                        <li>
+                          <Link to="/welcome/culture" onClick={() => { setShowNav(false) }}>{t('culture')}</Link>
+                        </li>
+                        <li>
+                          <Link to="/welcome/qualification" onClick={() => { setShowNav(false) }}>{t('qualification')}</Link>
+                        </li>
+                        <li>
+                          <Link to="/welcome/history" onClick={() => { setShowNav(false) }}>{t('history')}</Link>
+                        </li>
+                        <li>
+                          <Link to="/welcome/organ" onClick={() => { setShowNav(false) }}>{t('structure')}</Link>
+                        </li>
+                        <li>
+                          <Link to="/welcome/evolution" onClick={() => { setShowNav(false) }}>{t('scientific')}</Link>
+                        </li>
+                        <li>
+                          <Link to="/welcome/magazine" onClick={() => { setShowNav(false) }}>{t('magazine')}</Link>
+                        </li>
+                      </ul>
+                    )
+                    : ''
+                }
+              </li>
+              <li>
+                <Link to="/products" className={changeCls('products')} onClick={() => { setShowNav(false) }}>
+                  {t('product')}
+                </Link>
+              </li>
+              <li>
+                <Link to="/news" className={changeCls('news')} onClick={() => { setShowNav(false) }}>
+                  {t('news')}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/responsibility/info"
+                  className={changeCls('responsibility')}
+                  onClick={() => { setShowNav(false) }}
+                >
+                  {t('positions')}
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className={changeCls('contact')} onClick={() => { setShowNav(false) }}>
+                  {t('contact')}
+                </Link>
+              </li>
+            </ul>
           </Nav>
           <div className="nav-right">
             <SearchButton search={handleSearch} />
