@@ -55,7 +55,7 @@ export default function Search() {
             ? (
               <div className="n-result">
                 <h4 className="t">没有找到数据</h4>
-                <p>没有搜索到相关数据，试一试搜索其它关键字</p>
+                <p>没有搜索到相关数据，试一试搜索其他关键字</p>
               </div>
             ) : ''
         }

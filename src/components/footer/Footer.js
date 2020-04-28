@@ -23,6 +23,7 @@ import './footer.scss'
 
 export default function Footer({ t, i18n }) {
   const [qr, setQr] = useState(qrcode)
+  const [qrStr, setQrStr] = useState('立得催化剂官方公众号')
 
   const handleClickTop = () => {
     let move = window.scrollY
@@ -39,8 +40,10 @@ export default function Footer({ t, i18n }) {
 
   const handChangeCode = (type) => {
     if (type === 'weibo') {
+      setQrStr('立得催化剂官方微博')
       setQr(weiboCode)
     } else {
+      setQrStr('立得催化剂官方公众号')
       setQr(qrcode)
     }
   }
@@ -144,7 +147,7 @@ export default function Footer({ t, i18n }) {
               </div>
               <div className="code">
                 <img className="code-img" src={qr} alt="二维码" />
-                <p className="qrcode-desc">立得催化剂官方公众号</p>
+                <p className="qrcode-desc">{qrStr}</p>
                 <div className="top-wrapper">
                   <img
                     onClick={handleClickTop}

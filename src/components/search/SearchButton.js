@@ -21,6 +21,7 @@ function SearchButton({ search }) {
   }
 
   function handleClick() {
+    toggleClass(false)
     search(inputValue)
   }
 
@@ -33,7 +34,8 @@ function SearchButton({ search }) {
         onClick={() => toggleClass(true)}
       />
       <div className={`search-input ${isSearch ? 'search-input-show' : ''}`}>
-        <input ref={inputRef} onBlur={() => toggleClass(false)} onChange={handleInputChange} />
+        <input ref={inputRef} onChange={handleInputChange} />
+        {/** onBlur={() => toggleClass(false)} */}
         <img src={searchIcon} alt="search" onClick={handleClick} />
       </div>
     </div>

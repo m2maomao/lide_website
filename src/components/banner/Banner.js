@@ -1,8 +1,9 @@
 import { Carousel } from 'react-bootstrap'
+import './banner.scss'
 
 export default function Banner({ lists }) {
   return (
-    <Carousel interval={3000}>
+    <Carousel interval={3000} nextIcon={() => (<span aria-hidden="true" className="carousel-control-next-icon" />)}>
       {lists.length
         && lists.map((list, index) => (
           <Carousel.Item key={index}>
