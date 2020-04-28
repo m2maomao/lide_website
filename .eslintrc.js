@@ -36,7 +36,8 @@ module.exports = {
     'jsx-a11y/media-has-caption': 0,
     'react/no-array-index-key': 0,
     'react/no-danger': 0,
-    'no-shadow': [0]
+    'no-shadow': [0],
+    'max-len' : ["error", {code : 300}]
   },
   settings: {
     // 允许在项目中使用webpack配置的路径别名
