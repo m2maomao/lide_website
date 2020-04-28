@@ -12,6 +12,7 @@ import coverImg from '@/assets/images/products/banner.png'
 import productIndex from '@/assets/images/products/product_index.png'
 
 import http from '@/axios/http'
+import '@/axios/config'
 import ProductList from './ProductList'
 import Detail from './Detail'
 import Market from './Market'
@@ -120,9 +121,9 @@ export default function Products() {
                   }
                 </Accordion>
               </Side>
-              <Link to="/uploads/20200427/56e896a45c476a1ae20cc7d7a081ea80.pdf">
+              <a target="_blank" href={`${global.url.baseUrl}/uploads/20200427/56e896a45c476a1ae20cc7d7a081ea80.pdf`} rel="noopener noreferrer">
                 <img className="products-index" src={productIndex} alt="" />
-              </Link>
+              </a>
             </Col>
             <Col sm={9}>
               <div className="products-main-body">

@@ -37,45 +37,6 @@ export default function ProductList({ data, search }) {
     }
   }
 
-
-  const scrollEvent = (event) => {
-    if (!event.srcElement.scrollTop) {
-      // 处理向上使劲滚动的时候scrollTop为undefined
-      return undefined
-    }
-    // 滚动的高度
-    const scrollTop = (event.srcElement ? event.srcElement.scrollTop : false)
-       || window.pageYOffset
-       || (event.srcElement ? event.srcElement.body.scrollTop : 0)
-    // 视窗高度
-    const clientHeight = (event.srcElement && event.srcElement.clientHeight) || document.body.clientHeight
-    // 页面高度
-    const scrollHeight = (event.srcElement && event.srcElement.scrollHeight) || document.body.scrollHeight
-    // 距离页面底部的高度
-    const height = scrollHeight - scrollTop - clientHeight
-
-    return height
-  }
-
-  const handleScroll = useCallback(
-    (event) => {
-      const height = scrollEvent(event)
-
-      if (loadMore && height <= 100) {
-        loadMoreData()
-      }
-    },
-    [loadMore, page],
-  )
-
-  useEffect(() => {
-    const scrollDom = document.getElementById('layoutContentContainer')
-    scrollDom.addEventListener('scroll', handleScroll)
-
-    return () => scrollDom.removeEventListener('scroll', handleScroll)
-  }, [handleScroll])
-
-
   return (
     <>
       <SearchInput search={search} searchbtnvalue="产品搜索" />

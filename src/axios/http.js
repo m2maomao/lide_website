@@ -1,7 +1,8 @@
 // import { Component } from 'react'
 import axios from 'axios'
+import './config'
 
-const base = 'http://120.76.157.227:10001'
+// const base = 'http://120.76.157.227:10001'
 
 // 请求前拦截
 axios.interceptors.request.use(
@@ -39,7 +40,7 @@ class http {
   }
 
   static get(url) {
-    return axios.get(`${base}${url}`, {
+    return axios.get(`${global.url.baseUrl}${url}`, {
       headers: { 'Accept-Language': this.i18nextLng === 'en' ? 'en' : 'zh' },
     })
   }
