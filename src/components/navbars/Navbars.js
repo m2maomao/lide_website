@@ -29,6 +29,7 @@ function Navbars(props) {
     i18n.changeLanguage(lng)
     const lngs = i18n.language === 'en' ? 'en' : 'zh'
     emitLanguage(lngs)
+    window.location.reload()
   }
 
   // 搜索

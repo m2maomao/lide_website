@@ -38,6 +38,7 @@ export default function Introduce() {
     getData()
   }, [])
 
+
   console.log(state)
   const { content, specWork } = state
 
