@@ -14,7 +14,7 @@ export default function Magazine() {
   })
 
   // 分组总数据
-  const listTotal = _.chunk(content, 2)
+  const listTotal = _.chunk(content, 5)
   // 当前页
   const [page, setPage] = useState(0)
   // 总页数

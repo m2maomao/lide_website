@@ -25,7 +25,33 @@ $colorSky :#0187d0;
 .welcome-main-body {
   margin: pc2rem(56) 0;
   /* 公司介绍 */
-  .company-summary {
+  .first-container-bg1 {
+    position: relative;
+    &:after{
+      width:pc2rem(40);
+      height: pc2rem(46);
+      content: "1";
+      text-align: center;
+      line-height: pc2rem(46);
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+      background: url(~@/assets/images/welcome/num_bg1.png);
+      background-size: cover;
+      position: absolute;
+      left: pc2rem(-45);
+      top: pc2rem(30);
+      z-index: 999;
+    }
+    & > div {
+      width: 50%;
+      padding: pc2rem(30);
+      padding-top: 0;
+      justify-content: space-around;
+      background: #fff;
+    }
+  }
+  .first-container-bg2 {
     position: relative;
     &:after{
       width:pc2rem(40);
@@ -108,7 +134,7 @@ $colorSky :#0187d0;
       }
     }
   }
-  .second-container{
+  .second-container-bg1{
     &:after{
       width:pc2rem(40);
       height: pc2rem(46);
@@ -151,12 +177,55 @@ $colorSky :#0187d0;
       }
     }
   }
+  .second-container-bg2{
+    &:after{
+      width:pc2rem(40);
+      height: pc2rem(46);
+      content: "2";
+      text-align: center;
+      line-height: pc2rem(46);
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+      background: url(~@/assets/images/welcome/num_bg2.png);
+      background-size: cover;
+      position: absolute;
+      left: pc2rem(-45);
+      top: pc2rem(30);
+      z-index: 999;
+    }
+    position: relative;
+    .img-wrap{
+      padding-top: pc2rem(100);
+      img{
+        width: 100%;
+      }
+    }
+    .tip{
+      position: absolute;
+      top: 14.5px;
+      left: 95px;
+      .header{
+        width: 324px;
+        height: 65px;
+        background: url('~@/assets/images/welcome/companyintro1.jpg') 0 0 no-repeat;
+      }
+      .content{
+        background: rgba($color: $colorSky, $alpha: .8);
+        color: #fff;
+        padding: 40px;
+        line-height: 24px;
+        width: 324px;
+        text-align: justify;
+      }
+    }
+  }
   .third-fourth-area{
     position: relative;
     display: flex;
     justify-content: space-between;
   }
-  .third-container{
+  .third-container-bg1{
     &:after{
       width:pc2rem(40);
       height: pc2rem(46);
@@ -197,7 +266,48 @@ $colorSky :#0187d0;
       
     }
   }
-  .fourth-container{
+  .third-container-bg2{
+    &:after{
+      width:pc2rem(40);
+      height: pc2rem(46);
+      content: "3";
+      text-align: center;
+      line-height: pc2rem(46);
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+      background: url(~@/assets/images/welcome/num_bg2.png);
+      background-size: cover;
+      position: absolute;
+      left: pc2rem(-45);
+      top: pc2rem(30);
+      z-index: 999;
+    }
+    margin-top:30px;
+    padding-left: 38px;
+    .content-wrap{
+      width: 426px;
+      position: relative;
+      .img-wrap{
+        width: 100%;
+        img{
+          width:100%;
+        }
+      }
+      .tip{
+        position: relative;
+        margin-left: 74px;
+        left: 0;
+        top: -60px;
+        background: rgba($color: #fff, $alpha: 0.95);
+        padding: 40px 30px 0 40px;
+        box-sizing: border-box;
+        text-align: justify;
+      }
+      
+    }
+  }
+  .fourth-container-bg1{
     display: flex;
     flex-direction: row-reverse;
     margin-top: 130px;
@@ -242,7 +352,52 @@ $colorSky :#0187d0;
       }
     }
   }
-  .fifth-container{
+  .fourth-container-bg2{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 130px;
+    &:after{
+      width:pc2rem(40);
+      height: pc2rem(46);
+      content: "4";
+      text-align: center;
+      line-height: pc2rem(46);
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+      background: url(~@/assets/images/welcome/num_bg2.png);
+      background-size: cover;
+      position: absolute;
+      left: pc2rem(-45);
+      top: pc2rem(180);
+      z-index: 999;
+    }
+    .img-singular-wrap{
+      width: 527px;
+      display: flex;
+      .img{
+        flex: 1;
+        img{
+          width: 100%;
+        }
+        .content{
+          margin-left: 35px;
+          padding: 50px 40px 40px;
+          position: relative;
+          margin-top: -90px;
+          background: rgba($color: #fff, $alpha: .95);
+          text-align: justify;
+        }
+      }
+      .bg{
+        width: 83px;
+        img{
+          width: 100%;
+        }
+      }
+    }
+  }
+  .fifth-container-bg1{
     position: relative;
     &:after{
       width:pc2rem(40);
@@ -275,7 +430,40 @@ $colorSky :#0187d0;
       }
     }
   }
-  .sixth-container{
+  .fifth-container-bg2{
+    position: relative;
+    &:after{
+      width:pc2rem(40);
+      height: pc2rem(46);
+      content: "5";
+      text-align: center;
+      line-height: pc2rem(46);
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+      background: url(~@/assets/images/welcome/num_bg2.png);
+      background-size: cover;
+      position: absolute;
+      left: pc2rem(-45);
+      top: pc2rem(30);
+      z-index: 999;
+    }
+    .img-wrap{
+      img{width: 100%; vertical-align: top;}
+      position: relative;
+      .content{
+        width: 410px;
+        height: 250px;
+        position: absolute;
+        right: 110px;
+        bottom: 0px;
+        background: rgba($color: $colorSky, $alpha: .8);
+        color: #fff;
+        padding: 40px 30px;
+      }
+    }
+  }
+  .sixth-container-bg1{
     position: relative;
     &:after{
       width:pc2rem(40);
@@ -287,6 +475,39 @@ $colorSky :#0187d0;
       font-weight: bold;
       color: #fff;
       background: url(~@/assets/images/welcome/num_bg1.png);
+      background-size: cover;
+      position: absolute;
+      left: pc2rem(-45);
+      top: pc2rem(30);
+      z-index: 999;
+    }
+    .img-wrap{
+      width: 100%;
+      img{
+        width:100%;
+      }
+    };
+    .content{
+      width: 450px;
+      position: absolute;
+      right: 80px;
+      top:110px;
+      line-height: 24px;
+      color: #fff;
+    }
+  }
+  .sixth-container-bg2{
+    position: relative;
+    &:after{
+      width:pc2rem(40);
+      height: pc2rem(46);
+      content: "6";
+      text-align: center;
+      line-height: pc2rem(46);
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+      background: url(~@/assets/images/welcome/num_bg2.png);
       background-size: cover;
       position: absolute;
       left: pc2rem(-45);

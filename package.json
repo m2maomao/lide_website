@@ -8,6 +8,7 @@
     "build": "cross-env NODE_ENV=production webpack --config ./build/webpack.config.js"
   },
   "dependencies": {
+    "@1eeing/scroll-listener": "^0.1.0",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "i18next": "^19.3.4",
@@ -21,6 +22,7 @@
     "react-baidu-maps": "^1.0.11",
     "react-bmap": "^1.0.117",
     "react-bootstrap": "^1.0.0",
+    "react-bottom-scroll-listener": "^3.0.0",
     "react-dom": "^16.4.1",
     "react-i18next": "^11.3.4",
     "react-player": "^1.15.3",

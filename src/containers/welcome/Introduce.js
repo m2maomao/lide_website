@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { Breadcrumb } from 'react-bootstrap'
 import { WTitle } from 'com'
@@ -13,6 +13,11 @@ import ci2 from '@/assets/images/welcome/ci2.jpg'
 import ci3 from '@/assets/images/welcome/ci3.jpg'
 import ci4 from '@/assets/images/welcome/ci4.jpg'
 import ci5 from '@/assets/images/welcome/ci5.jpg'
+
+import num_bg1 from '@/assets/images/welcome/num_bg1.png'
+import num_bg2 from '@/assets/images/welcome/num_bg2.png'
+
+import { createListener } from '@1eeing/scroll-listener'
 
 // import companyCover from '@/assets/images/welcome/company-cover.png'
 
@@ -38,6 +43,54 @@ export default function Introduce() {
     getData()
   }, [])
 
+  const [numPosition, setNumPosition] = useState(1)
+
+
+  useEffect(() => {
+    const listener = createListener({
+      triggerType: 'appearing',
+      offset: -500,
+      positions: ['first', 'second', 'thrid', 'fourth', 'fifth', 'sixth'],
+      actions: [
+        (e, position) => {
+          switch (e.id) {
+            case 'first':
+              setNumPosition(2)
+              break
+            case 'second':
+              setNumPosition(3)
+              break
+            case 'thrid':
+              setNumPosition(4)
+              break
+            default:
+              setNumPosition(2)
+              break
+          }
+          console.log('e:', e.id)
+        },
+        (e, position) => {
+          setNumPosition(5)
+          console.log('2e:', e.id)
+        },
+        (e, position) => {
+          console.log('3e:', e.id)
+        },
+        (e, position) => {
+          console.log('4e:', e.id)
+        },
+        (e, position) => {
+          console.log('5e:', e.id)
+        },
+        (e, position) => {
+          console.log('6e:', e.id)
+        },
+      ],
+    })
+
+    listener.start()
+    return () => listener.stop()
+  }, [])
 
   console.log(state)
   const { content, specWork } = state
@@ -55,7 +108,7 @@ export default function Introduce() {
         <div className="p-1r-content with-line">
           <WTitle title="公司介绍" enTitle="companyintroduction" />
           {/* 第一区 */}
-          <div className="d-flex company-summary">
+          <div className={['d-flex', numPosition === 1 ? 'first-container-bg2' : 'first-container-bg1'].join(' ')} id="first">
             <div style={{ width: '50%' }}>
               <img
                 style={{ width: '100%' }}
@@ -86,7 +139,7 @@ export default function Introduce() {
             }
           </div>
           {/* 第二区 */}
-          <div className="second-container">
+          <div className={numPosition === 2 ? 'second-container-bg2' : 'second-container-bg1'} id="second">
             <div className="img-wrap">
               <img src={ci1} alt="" />
             </div>
@@ -103,7 +156,7 @@ export default function Introduce() {
           </div>
           <div className="third-fourth-area">
             {/* 第三区 */}
-            <div className="third-container">
+            <div className={numPosition === 3 ? 'third-container-bg2' : 'third-container-bg1'} id="thrid">
               <div className="content-wrap">
                 <div className="img-wrap">
                   <img src={ci2} alt="" />
@@ -121,7 +174,7 @@ export default function Introduce() {
             </div>
 
             {/* 第四区 */}
-            <div className="fourth-container">
+            <div className={numPosition === 4 ? 'fourth-container-bg2' : 'fourth-container-bg1'} id="fourth">
               <div className="img-singular-wrap">
                 <div className="img">
                   <img src={ci3} alt="" />
@@ -142,7 +195,7 @@ export default function Introduce() {
 
 
           {/* 第五区 */}
-          <div className="fifth-container">
+          <div className={numPosition === 5 ? 'fifth-container-bg2' : 'fifth-container-bg1'} id="fifth">
             <div className="img-wrap">
               <img src={ci4} alt="" />
               <div
@@ -156,7 +209,7 @@ export default function Introduce() {
           </div>
 
           {/* 第六区 */}
-          <div className="sixth-container">
+          <div className={numPosition === 6 ? 'sixth-container-bg2' : 'sixth-container-bg1'} id="sixth">
             <div className="img-wrap">
               <img src={ci5} alt="" />
               <div
