@@ -14,14 +14,29 @@ export default function Search() {
   // 声明状态
   const [searchData, setSearchData] = useState([])
   const [searchValue, setSearchValue] = useState(keyword === undefined ? null : keyword)
-  const search = (sv) => {
-    setSearchValue(sv)
-    http.get(`/home/Index/search?search=${sv}`).then((res) => {
+  // 入参
+  const [page, setPage] = useState(1)
+  const [totalPage, setTotalPage] = useState(1)
+  const [pageSize, setPageSize] = useState(10)
+  const [loadMore, setLoadMore] = useState(false)
+  const getSearchData = () => {
+    http.get(`/home/Index/search?search=${searchValue}&page=${page}&page_size=${pageSize}`).then((res) => {
       if (res.status === 200) {
-        setSearchData(res.data.data)
+        setSearchData(searchData.concat(res.data.data))
+        setPage(page + 1)
+        if (res.data.count / pageSize > page) {
+          setLoadMore(true)
+        } else {
+          setLoadMore(false)
+        }
       }
     })
   }
+  const search = (sv) => {
+    setSearchValue(sv)
+    getSearchData()
+  }
+
 
   useEffect(() => {
     search(searchValue)
@@ -47,6 +62,15 @@ export default function Search() {
                   secondColumn={item.secondColumn}
                 />
               )) : ''
+          }
+          {
+            loadMore
+              ? (
+                <div className="load-more" onClick={getSearchData}>
+                  <span>加载更多</span>
+                </div>
+              )
+              : ''
           }
         </div>
         {/* 无数据 */}
