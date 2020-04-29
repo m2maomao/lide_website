@@ -38,6 +38,7 @@
   padding-bottom: pc2rem(18) !important;
 }
 .welcome{
+  width: pc2rem(150);
   position: absolute;
   top: pc2rem(64);
   left: -24%;
@@ -46,9 +47,11 @@
   margin: 0;
   display: inline-block;
   li{
+    font-weight: bold;
     margin: 0;
     padding:pc2rem(5) pc2rem(10);
     // border-bottom: 1px solid #ebebeb;
+    color: #333;
     a{
       color:#666;
     }
