@@ -20,7 +20,7 @@ export default function Detail() {
         <div className="d-flex">
           <div className="header">
             <h2 className="t">{title}</h2>
-            <span className="date">{create_time}</span>
+            <span className="date">{create_time === undefined ? '' : create_time.slice(0, 10)}</span>
           </div>
           <button type="button" className="return" onClick={handleBack}>
             返回列表

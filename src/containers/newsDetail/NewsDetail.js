@@ -27,7 +27,7 @@ export default function NewsDetail() {
           <div className="d-flex">
             <div className="header">
               <h2 className="t">{title}</h2>
-              <span className="date">{create_time}</span>
+              <span className="date">{create_time === undefined ? '' : create_time.slice(0, 10)}</span>
             </div>
             <Link to="/news" className="return">
               返回列表

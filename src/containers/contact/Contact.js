@@ -35,9 +35,9 @@ export default function Contact() {
                 <FormControl placeholder="联系方式" />
                 <FormControl placeholder="所属单位" require={false} />
                 <FormControl placeholder="留言" type="textarea" />
-                <Button className="submit" onClick={handleSubmit}>
+                <button type="button" className="submit" onClick={handleSubmit}>
                   提交
-                </Button>
+                </button>
               </div>
             </div>
             <div>
