@@ -35,7 +35,9 @@ export default function News() {
                       <div key={item.id}>
                         <div className="preview-news">
                           <span className="date">{item.create_time}</span>
-                          <h3 className="t">{item.title}</h3>
+                          <Link to={`/news/${item.id}`}>
+                            <h3 className="t">{item.title}</h3>
+                          </Link>
                           <p className="content">{item.summary}</p>
                           <div className="clx">
                             <Link to={`/news/${item.id}`} className="more" />
