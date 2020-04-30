@@ -21,8 +21,8 @@ export default function MagazineDetail() {
         <li className="breadcrumb-item">
           <Link to="/">首页</Link>
         </li>
-        <li className="breadcrumb-item">走进立得</li>
-        <Breadcrumb.Item active>《我与立得同行》</Breadcrumb.Item>
+        <li className="breadcrumb-item"><Link to="/welcome/magazine">走进立得</Link></li>
+        <Breadcrumb.Item active><Link to="/welcome/magazine">《我与立得同行》</Link></Breadcrumb.Item>
         <Breadcrumb.Item active>{title}</Breadcrumb.Item>
       </Breadcrumb>
       <div className="news-detail-body">

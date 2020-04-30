@@ -4,7 +4,9 @@ import { Breadcrumb, CardColumns, Card } from 'react-bootstrap'
 import { SearchItem, SearchInput } from 'com'
 import _ from 'lodash'
 
-export default function ProductList({ data, search }) {
+export default function ProductList({
+  data, search, secondName, firstName,
+}) {
   // 父组件传入数据
   const lists = Array.isArray(data[0]) ? data[0] : data
   // 分组总数据
@@ -45,7 +47,8 @@ export default function ProductList({ data, search }) {
           <Link to="/">首页</Link>
         </li>
         <li className="breadcrumb-item">产品与服务</li>
-        <Breadcrumb.Item active>催化剂产品</Breadcrumb.Item>
+        <li className="breadcrumb-item">{firstName}</li>
+        <Breadcrumb.Item active>{secondName}</Breadcrumb.Item>
       </Breadcrumb>
       <div className="main-side-container">
         <div>

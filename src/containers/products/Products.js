@@ -26,6 +26,8 @@ export default function Products() {
 
   const [idx, setIdx] = useState(0)
   const [lists, setLists] = useState([])
+  const [changeFirstName, setChangeFirstName] = useState('')
+  const [firstName, setFirstName] = useState('')
   const [secodeName, setName] = useState('')
 
   const { content, marketService } = useFetch('/home/Production/index', {
@@ -54,6 +56,7 @@ export default function Products() {
 
   function handleClick(eventKey, firstName) {
     setIdx(eventKey)
+    setChangeFirstName(firstName)
     if (firstName === '市场服务') {
       history.push('/products/market')
     }
@@ -61,9 +64,10 @@ export default function Products() {
 
   function handleOnClick(item) {
     // console.log(item)
-    if (!item.secodeName.includes('系统')) {
-      history.push('/products')
-    }
+    // if (!item.secodeName.includes('系统')) {
+    history.push('/products')
+    // }
+    setFirstName(changeFirstName)
     setName(item.secodeName)
     setLists(item.children)
   }
@@ -74,6 +78,8 @@ export default function Products() {
 
   useEffect(() => {
     if (content[0]) {
+      setChangeFirstName(content[0].firstName)
+      setFirstName(content[0].firstName)
       setName(content[0].firstChildren[0].secodeName)
       setLists(content[0].firstChildren[0].children)
     }
@@ -129,7 +135,7 @@ export default function Products() {
               <div className="products-main-body">
                 {
                   isExact
-                    ? <ProductList search={search} data={lists} />
+                    ? <ProductList search={search} data={lists} secondName={secodeName} firstName={firstName} />
                     : (
                       <>
                         {
@@ -140,7 +146,13 @@ export default function Products() {
                                 render={(prop) => <Market data={marketService} {...prop} />}
                               />
                             )
-                            : <Route path="/products/:id" component={Detail} />
+                            : (
+                              <Route
+                                path="/products/:id"
+                            // component={Detail}
+                                render={(prop) => <Detail data={[firstName, secodeName]} {...prop} />}
+                              />
+                            )
                         }
                       </>
                     )
