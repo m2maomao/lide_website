@@ -67,13 +67,13 @@ function Navbars(props) {
                   {t('home')}
                 </Link>
               </li>
-              <li>
+              <li className="welcome_li">
                 <Link
                   to="/welcome/introduce"
                   className={changeCls('welcome')}
+                  onClick={() => { setShowNav(false) }}
                   onMouseOver={() => { setShowNav(true) }}
                   onFocus={() => 0}
-                  onClick={() => { setShowNav(false) }}
                   /* onMouseOut={() => { setShowNav(false) }}
                   onBlur={() => 0} */
                 >
@@ -109,24 +109,63 @@ function Navbars(props) {
                     : ''
                 }
               </li>
-              <li>
-                <Link to="/products" className={changeCls('products')} onClick={() => { setShowNav(false) }}>
+              <li className="products_li">
+                <Link
+                  to="/products"
+                  className={changeCls('products')}
+                  onClick={() => { setShowNav(false) }}
+                  onMouseOver={() => { setShowNav(true) }}
+                  onFocus={() => 0}
+                >
                   {t('product')}
                 </Link>
+                {
+                  showNav
+                    ? (
+                      <ul className="products">
+                        <li>
+                          <Link to="/products" onClick={() => { setShowNav(false) }}>{t('center')}</Link>
+                        </li>
+                        <li>
+                          <Link to="/products/market" onClick={() => { setShowNav(false) }}>{t('mservice')}</Link>
+                        </li>
+                      </ul>
+                    )
+                    : ''
+                }
               </li>
               <li>
                 <Link to="/news" className={changeCls('news')} onClick={() => { setShowNav(false) }}>
                   {t('news')}
                 </Link>
               </li>
-              <li>
+              <li className="responsibility_li">
                 <Link
                   to="/responsibility/info"
                   className={changeCls('responsibility')}
                   onClick={() => { setShowNav(false) }}
+                  onMouseOver={() => { setShowNav(true) }}
+                  onFocus={() => 0}
                 >
                   {t('positions')}
                 </Link>
+                {
+                  showNav
+                    ? (
+                      <ul className="responsibility">
+                        <li>
+                          <Link to="/responsibility/info" onClick={() => { setShowNav(false) }}>{t('information')}</Link>
+                        </li>
+                        <li>
+                          <Link to="/responsibility/community" onClick={() => { setShowNav(false) }}>{t('responsibility')}</Link>
+                        </li>
+                        <li>
+                          <Link to="/responsibility/staff" onClick={() => { setShowNav(false) }}>{t('employee')}</Link>
+                        </li>
+                      </ul>
+                    )
+                    : ''
+                }
               </li>
               <li>
                 <Link to="/contact" className={changeCls('contact')} onClick={() => { setShowNav(false) }}>
