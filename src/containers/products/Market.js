@@ -70,7 +70,7 @@ export default function Market({ data = [] }) {
                       </h3>
                     </div>
                     <div className="experts-items">
-                      <img src={midData.images[2].image} alt={midData.title} />
+                      <Banner lists={[midData.images[2], midData.images[3]]} />
                     </div>
                     <div className="experts-items">
                       <h3 className="exports-text">

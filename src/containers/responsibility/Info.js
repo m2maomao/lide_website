@@ -31,7 +31,7 @@ export default function Info() {
           <div className="p-banner">
             {
               list.map((item, index) => (
-                index === currentIndex ? <Sider item={item} setIndex={setIndex} currentIndex={currentIndex} listLength={list.length} /> : ''
+                index === currentIndex ? <Sider item={item} setIndex={setIndex} currentIndex={currentIndex} listLength={list.length} key={index} /> : ''
               ))
             }
             <img className="covers" src={coverImage} alt="img" />

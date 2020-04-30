@@ -45,51 +45,52 @@ export default function Introduce() {
 
   const [numPosition, setNumPosition] = useState(1)
 
+  const listener = createListener({
+    triggerType: 'appearing',
+    offset: -500,
+    positions: ['first', 'second', 'thrid', 'fourth', 'fifth', 'sixth'],
+    actions: [
+      (e, position) => {
+        switch (e.id) {
+          case 'first':
+            setNumPosition(2)
+            break
+          case 'second':
+            setNumPosition(3)
+            break
+          case 'thrid':
+            setNumPosition(4)
+            break
+          default:
+            setNumPosition(2)
+            break
+        }
+        console.log('e:', e.id)
+      },
+      (e, position) => {
+        setNumPosition(5)
+        console.log('2e:', e.id)
+      },
+      (e, position) => {
+        console.log('3e:', e.id)
+      },
+      (e, position) => {
+        console.log('4e:', e.id)
+      },
+      (e, position) => {
+        console.log('5e:', e.id)
+      },
+      (e, position) => {
+        console.log('6e:', e.id)
+      },
+    ],
+  })
 
   useEffect(() => {
-    const listener = createListener({
-      triggerType: 'appearing',
-      offset: -500,
-      positions: ['first', 'second', 'thrid', 'fourth', 'fifth', 'sixth'],
-      actions: [
-        (e, position) => {
-          switch (e.id) {
-            case 'first':
-              setNumPosition(2)
-              break
-            case 'second':
-              setNumPosition(3)
-              break
-            case 'thrid':
-              setNumPosition(4)
-              break
-            default:
-              setNumPosition(2)
-              break
-          }
-          console.log('e:', e.id)
-        },
-        (e, position) => {
-          setNumPosition(5)
-          console.log('2e:', e.id)
-        },
-        (e, position) => {
-          console.log('3e:', e.id)
-        },
-        (e, position) => {
-          console.log('4e:', e.id)
-        },
-        (e, position) => {
-          console.log('5e:', e.id)
-        },
-        (e, position) => {
-          console.log('6e:', e.id)
-        },
-      ],
-    })
-
     listener.start()
-    return () => listener.stop()
+    return () => {
+      listener.stop()
+    }
   }, [])
 
   console.log(state)

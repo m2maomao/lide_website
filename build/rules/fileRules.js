@@ -14,7 +14,8 @@ module.exports = [
   {
     test: /\.(png|jpg|jpeg|gif|svg)$/,
     use: [
-      getUrlLoader('images'),
+      // getUrlLoader('images'), // 注释
+      'url-loader' // 注释后直接替换为url-loader
       // !IS_DEV && {
       //   // 压缩图片
       //   loader: 'image-webpack-loader',
@@ -33,7 +34,8 @@ module.exports = [
       //     }
       //   }
       // }
-    ].filter(Boolean)
+    ].filter(Boolean) // 注释
+    // ]
   },
   {
     test: /\.(woff|woff2|eot|ttf|otf|TTF)$/,
