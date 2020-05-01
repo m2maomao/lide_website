@@ -2,8 +2,11 @@ import { Link, Route } from 'react-router-dom'
 import { Breadcrumb, CardColumns, Card } from 'react-bootstrap'
 import { useFetch } from '@/hooks/useFetch'
 import hot from '@/assets/images/welcome/hot.png'
-import { useState, useEffect } from 'react'
+import {
+  useState, useEffect, useImperativeHandle, useCallback, useRef,
+} from 'react'
 import _ from 'lodash'
+import { useBottomScrollListener } from 'react-bottom-scroll-listener'
 import MagazineDetail from './MagazineDetail'
 
 // import imgAcquire from '@/assets/images/welcome/imgAcquire.png'
@@ -22,9 +25,23 @@ export default function Magazine() {
   // 临时数据
   const [listTemp, setListTemp] = useState([])
   // 是否显示分页
-  const [loadMore, setLoadMore] = useState(false)
+  const [loadMore, setLoadMore] = useState(true)
+
+
+  useEffect(() => {
+    setListTemp(listTotal[page])
+    if (pageTotal > 1) {
+      console.log('Magazine setloadMore true')
+      setLoadMore(true)
+    } else {
+      console.log('Magazine setloadMore false')
+      setLoadMore(false)
+    }
+  }, [content])
 
   const loadMoreData = () => {
+    console.log('Magazine loadMoreData:', loadMore)
+    if (!loadMore) return
     setListTemp([...listTemp, ...listTotal[page + 1]])
     if ((pageTotal !== page + 2) && pageTotal > 1) {
       setPage(page + 1)
@@ -34,15 +51,19 @@ export default function Magazine() {
     }
   }
 
-  useEffect(() => {
-    setListTemp(listTotal[page])
-    if (pageTotal > 1) {
-      setLoadMore(true)
-    } else {
-      setLoadMore(false)
-    }
-  }, [content])
+  const isInBottomRef = useRef(null)
+  // const loadMore = () => isInBottomRef.current.loadMore()
+  const handleOnDocumentBottom = useCallback(() => {
+    console.log(`Magazine I am at bottom! ${Math.round(performance.now())}`)
+    isInBottomRef.current.loadMore()
+  }, [])
 
+  /* This will trigger handleOnDocumentBottom when the body of the page hits the bottom */
+  useBottomScrollListener(handleOnDocumentBottom)
+
+  useImperativeHandle(isInBottomRef, () => ({
+    loadMore: () => loadMoreData(),
+  }))
 
   return (
     <>

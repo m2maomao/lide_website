@@ -3,6 +3,7 @@ import {
 } from 'react-router-dom'
 import { Row, Col } from 'react-bootstrap'
 import { Cover, Side } from 'com'
+import { useRef } from 'react'
 
 import coverImg from '@/assets/images/responsibility-cover.png'
 
