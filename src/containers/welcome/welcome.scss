@@ -726,11 +726,11 @@ $colorSky :#0187d0;
   }
   .img-carousel {
     margin: pc2rem(40) 0;
-    height: pc2rem(500);
+    height: pc2rem(550);
     ul {
       display: inline-flex;
       overflow: auto;
-      height: pc2rem(400);
+      height: pc2rem(550);
       &:after {
         content: '';
         height: 0;
@@ -743,6 +743,7 @@ $colorSky :#0187d0;
         flex-shrink: 0;
         margin-right: 15px;
         display: flex;
+        width: 260px;
         &:nth-child(odd){
           flex-direction: column;
         }

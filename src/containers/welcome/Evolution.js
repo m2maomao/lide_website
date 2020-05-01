@@ -8,7 +8,7 @@ import $ from 'jquery'
 import imgAcquire from '@/assets/images/welcome/imgAcquire.png'
 
 import Limarquee from 'limarquee'
-import 'limarquee/lib/style.css'
+import './evolution.css'
 
 export default function Evolution() {
   const { content: { development = {}, acquire = {} } } = useFetch('/home/Enterlide/evolution', {
@@ -18,12 +18,7 @@ export default function Evolution() {
     },
   })
 
-  function scroll() {
-    console.log('执行钩子函数!')
-  }
-
   useEffect(() => {
-    scroll()
     $(() => {
       console.log('jquery~~~')
       const limarquee = new Limarquee('.img-carousel')
@@ -34,13 +29,13 @@ export default function Evolution() {
         scrollamount: 100, // 滚动速度，越大越快
         circular: true, // 无缝滚动，如果为 false， 则和 marquee 效果一样
         drag: true, // 鼠标可拖动
-        runshort: true, // 内容不足是否滚动
+        runshort: false, // 内容不足是否滚动
         hoverstop: true, // 鼠标悬停暂停
         xml: false, // 加载 xml 文件
         inverthover: false, // 反向，即默认不滚动，鼠 标悬停滚动
       })
     })
-  }, [])
+  }, [acquire])
 
   return (
     <>
