@@ -160,7 +160,7 @@ $colorSky :#0187d0;
     }
     .tip{
       position: absolute;
-      top: 14.5px;
+      top: pc2rem(20);
       left: 95px;
       .header{
         width: 324px;
@@ -203,7 +203,7 @@ $colorSky :#0187d0;
     }
     .tip{
       position: absolute;
-      top: 14.5px;
+      top: pc2rem(20);
       left: 95px;
       .header{
         width: 324px;
@@ -419,10 +419,10 @@ $colorSky :#0187d0;
       img{width: 100%; vertical-align: top;}
       position: relative;
       .content{
-        width: 410px;
+        width: 39%;
+        right: 11%;
         height: 250px;
         position: absolute;
-        right: 110px;
         bottom: 0px;
         background: rgba($color: $colorSky, $alpha: .8);
         color: #fff;
@@ -452,10 +452,10 @@ $colorSky :#0187d0;
       img{width: 100%; vertical-align: top;}
       position: relative;
       .content{
-        width: 410px;
+        width: 39%;
+        right: 11%;
         height: 250px;
         position: absolute;
-        right: 110px;
         bottom: 0px;
         background: rgba($color: $colorSky, $alpha: .8);
         color: #fff;
@@ -488,12 +488,13 @@ $colorSky :#0187d0;
       }
     };
     .content{
-      width: 450px;
+      width: 42.5%;
+      right: 7.5%;
       position: absolute;
-      right: 80px;
-      top:110px;
+      top: pc2rem(110);
       line-height: 24px;
       color: #fff;
+      font-size: 14px;
     }
   }
   .sixth-container-bg2{
@@ -521,12 +522,13 @@ $colorSky :#0187d0;
       }
     };
     .content{
-      width: 450px;
+      width: 42.5%;
+      right: 7.5%;
       position: absolute;
-      right: 80px;
-      top:110px;
+      top: pc2rem(110);
       line-height: 24px;
       color: #fff;
+      font-size: 14px;
     }
   }
   /* 企业文化 */
@@ -729,7 +731,7 @@ $colorSky :#0187d0;
     height: pc2rem(500);
     ul {
       display: inline-flex;
-      overflow: auto;
+      overflow: hidden;
       height: pc2rem(400);
       &:after {
         content: '';
