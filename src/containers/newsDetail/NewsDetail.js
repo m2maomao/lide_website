@@ -34,6 +34,12 @@ export default function NewsDetail() {
             </Link>
           </div>
         </div>
+        <div className="index-1">
+          <div className="index-2" />
+          <div className="index-content">测试未添加</div>
+
+          <div className="index-3" />
+        </div>
         <div
           className="content"
           dangerouslySetInnerHTML={{

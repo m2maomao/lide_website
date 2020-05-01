@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, {
+  useState, useEffect, useImperativeHandle, useCallback, useRef,
+} from 'react'
 import { Row, Col } from 'react-bootstrap'
 import { SearchItem, SearchInput } from 'com'
 import { useFetch } from '@/hooks/useFetch'
 import { useParams } from 'react-router-dom'
 import './search.scss'
 import http from '@/axios/http'
+import { useBottomScrollListener } from 'react-bottom-scroll-listener'
 
 export default function Search() {
   const { keyword } = useParams()
-  console.log(keyword)
 
 
   // 声明状态
@@ -33,6 +35,10 @@ export default function Search() {
     })
   }
   const search = (sv) => {
+    console.log('page before:', page)
+    setPage(1)
+    console.log('page after:', page)
+
     setSearchValue(sv)
     getSearchData()
   }
@@ -40,13 +46,27 @@ export default function Search() {
 
   useEffect(() => {
     search(searchValue)
-  }, [])
+  }, [searchValue])
+
+  // const isInBottomRef = useRef(null)
+  // // const loadMore = () => isInBottomRef.current.loadMore()
+  // const handleOnDocumentBottom = useCallback(() => {
+  //   console.log(`Magazine I am at bottom! ${Math.round(performance.now())}`)
+  //   if (!loadMore) isInBottomRef.current.loadMore()
+  // }, [])
+
+  // /* This will trigger handleOnDocumentBottom when the body of the page hits the bottom */
+  // useBottomScrollListener(handleOnDocumentBottom)
+
+  // useImperativeHandle(isInBottomRef, () => ({
+  //   loadMore: () => getSearchData(),
+  // }))
 
 
   return (
     <Row className="search-container">
       <Col lg={{ span: 6, offset: 3 }}>
-        <SearchInput search={search} keyword={keyword} />
+        <SearchInput search={search} keyword={searchValue} />
         {/* 有数据遍历 */}
         <div className="search-list">
           {

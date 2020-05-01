@@ -1,11 +1,13 @@
-import { useCallback, useState, useEffect } from 'react'
+import {
+  useCallback, useState, useEffect, useImperativeHandle,
+} from 'react'
 import { Link } from 'react-router-dom'
 import { Breadcrumb, CardColumns, Card } from 'react-bootstrap'
 import { SearchItem, SearchInput } from 'com'
 import _ from 'lodash'
 
 export default function ProductList({
-  data, search, secondName, firstName,
+  data, search, secondName, firstName, isInBottomRef,
 }) {
   // 父组件传入数据
   const lists = Array.isArray(data[0]) ? data[0] : data
@@ -28,8 +30,8 @@ export default function ProductList({
       setLoadMore(false)
     }
   }, [lists])
-
   const loadMoreData = () => {
+    if (!loadMore) return
     setListTemp([...listTemp, ...listTotal[page + 1]])
     if ((pageTotal !== page + 2) && pageTotal > 1) {
       setPage(page + 1)
@@ -38,6 +40,14 @@ export default function ProductList({
       setPage(0)
     }
   }
+
+  useImperativeHandle(isInBottomRef, () => ({
+    loadMore: () => loadMoreData(),
+  }))
+
+  // useEffect(() => {
+  //   loadMoreData()
+  // }, [isInBottom])
 
   return (
     <>

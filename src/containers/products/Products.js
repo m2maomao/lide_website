@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react'
+import {
+  useState, useEffect, useCallback, useRef,
+} from 'react'
 import {
   Link, Route, useLocation, useHistory, useRouteMatch,
 } from 'react-router-dom'
@@ -13,9 +15,11 @@ import productIndex from '@/assets/images/products/product_index.png'
 
 import http from '@/axios/http'
 import '@/axios/config'
+import { useBottomScrollListener } from 'react-bottom-scroll-listener'
 import ProductList from './ProductList'
 import Detail from './Detail'
 import Market from './Market'
+
 
 import './products.scss'
 
@@ -44,6 +48,16 @@ export default function Products() {
       }
     })
   }
+
+  const isInBottomRef = useRef(null)
+  const loadMore = () => isInBottomRef.current.loadMore()
+  const handleOnDocumentBottom = useCallback(() => {
+    console.log(`I am at bottom! ${Math.round(performance.now())}`)
+    loadMore()
+  }, [])
+
+  /* This will trigger handleOnDocumentBottom when the body of the page hits the bottom */
+  useBottomScrollListener(handleOnDocumentBottom)
 
   // useEffect(() => {
   //   search(searchValue)
@@ -135,7 +149,7 @@ export default function Products() {
               <div className="products-main-body">
                 {
                   isExact
-                    ? <ProductList search={search} data={lists} secondName={secodeName} firstName={firstName} />
+                    ? <ProductList search={search} data={lists} secondName={secodeName} firstName={firstName} isInBottomRef={isInBottomRef} />
                     : (
                       <>
                         {
