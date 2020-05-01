@@ -39,6 +39,10 @@ module.exports = [
   },
   {
     test: /\.(woff|woff2|eot|ttf|otf|TTF)$/,
-    use: [getUrlLoader('fonts')]
+    use: [
+      // getUrlLoader('fonts')
+      'url-loader'
+    ]
+    .filter(Boolean)
   }
 ]
