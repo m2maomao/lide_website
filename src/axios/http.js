@@ -1,5 +1,6 @@
 // import { Component } from 'react'
 import axios from 'axios'
+import Qs from 'qs'
 import url from './config'
 
 // const base = 'http://120.76.157.227:10001'
@@ -45,6 +46,12 @@ class http {
     return axios.get(`${global.url.baseUrl}${url}`, {
       headers: { 'Accept-Language': this.i18nextLng === 'en' ? 'en' : 'zh' },
     })
+  }
+
+  static post(url, data) {
+    this.i18nextLng = localStorage.getItem('i18nextLng')
+    return axios.post(`${global.url.baseUrl}${url}`, Qs.stringify(data),
+      { headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' } })
   }
 }
 

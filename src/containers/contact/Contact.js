@@ -1,9 +1,13 @@
 import { Row, Col, Button } from 'react-bootstrap'
+import { useState } from 'react'
+
 // import {
 //   Map, Marker, NavigationControl, InfoWindow,
 // } from 'react-bmap'
 
 import { Cover } from 'com'
+import http from '@/axios/http'
+
 
 import coverImg from '@/assets/images/contact-cover.png'
 import imgAddress from '@/assets/images/contact/address.png'
@@ -17,11 +21,39 @@ import map from '@/assets/images/contact/map_bg.png'
 import './contact.scss'
 
 export default function Contact() {
+  const [values, setValues] = useState({
+    name: '',
+    contact: '',
+    content: '',
+    company: '',
+  })
+
   function handleSubmit() {
-    console.log('1111')
+    http.post('/home/Index/message', {
+      name: values.name,
+      contact: values.contact,
+      content: values.content,
+      company: values.company,
+    }).then((res) => {
+      console.log('res', res)
+      if (res.status === 200) {
+        // 清空值，需要设置成功提示
+        setValues({
+          name: '',
+          contact: '',
+          content: '',
+          company: '',
+        })
+      }
+    })
   }
 
   function handleClick() {}
+
+  const onChange = (event) => {
+    // 使用es6扩展运算  [event.target.name] 获取绑定的key
+    setValues({ ...values, [event.target.name]: event.target.value })
+  }
 
   return (
     <div className="contact-container">
@@ -31,10 +63,10 @@ export default function Contact() {
           <div className="d-flex com">
             <div className="d-flex fo-c">
               <div className="form-body">
-                <FormControl placeholder="姓名" />
-                <FormControl placeholder="联系方式" />
-                <FormControl placeholder="所属单位" require={false} />
-                <FormControl placeholder="留言" type="textarea" />
+                <FormControl placeholder="姓名" name="name" value={values.name} onChange={onChange} />
+                <FormControl placeholder="联系方式" name="contact" value={values.contact} onChange={onChange} />
+                <FormControl placeholder="所属单位" name="company" value={values.company} onChange={onChange} require={false} />
+                <FormControl placeholder="留言" name="content" value={values.content} onChange={onChange} type="textarea" />
                 <button type="button" className="submit" onClick={handleSubmit}>
                   提交
                 </button>
@@ -98,14 +130,16 @@ export default function Contact() {
   )
 }
 
-function FormControl({ require = true, type = 'input', placeholder }) {
+function FormControl({
+  require = true, type = 'input', placeholder, value, onChange, name,
+}) {
   return (
     <div className={`d-flex form-item ${type !== 'input' ? 'textarea' : ''}`}>
       <span className={`${require ? '' : 'n'}`} />
       {type === 'input' ? (
-        <input placeholder={placeholder} />
+        <input placeholder={placeholder} value={value} name={name} onChange={onChange} />
       ) : (
-        <textarea placeholder={placeholder} />
+        <textarea placeholder={placeholder} value={value} name={name} onChange={onChange} />
       )}
     </div>
   )
