@@ -62,7 +62,10 @@ export default function ProductList({
                       <Card.Img variant="top" src={item.image} alt={item.title} />
                       <Card.Body>
                         <div className="d-flex">
-                          <h3 className="t">{item.title}</h3>
+                          <div>
+                            <h3 className="t">{item.title}</h3>
+                            <h3 className="t-2">{item.keywords}</h3>
+                          </div>
                           <span className="read-wrap">
                             <i className="read" to={`/products/${item.id}`} />
                           </span>
