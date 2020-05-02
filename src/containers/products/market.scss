@@ -3,11 +3,11 @@
 }
 
 .market-container {
-  padding: pc2rem(50);
+  // padding: pc2rem(50);
   background: #fff;
   .top {
-    padding: pc2rem(35) 0 !important;
-    padding-top: 0 !important;
+    padding: pc2rem(50) 0 pc2rem(35) !important;
+    // padding-top: 0 !important;
     .sum {
       padding: pc2rem(35);
       width: 50%;
@@ -19,9 +19,41 @@
       color: #2862ae;
     }
   }
-  .middle,
+  .middle{
+    padding: pc2rem(35) pc2rem(50);
+    .t-t {
+      margin-bottom: pc2rem(30);
+    } 
+    .indicators{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    margin-right: 15%;
+    margin-left: 15%;
+    list-style: none;
+    }
+    .banner-circle{
+      margin: 5px;
+      width: 15px;
+      height: 15px;
+      background: #bed0e7;
+      border-radius: 7.5px;
+      cursor: pointer;
+      &.active{
+        width: 20px;
+        height: 20px;
+        background: #2862ae;
+        border-radius: 10px;
+      }
+    }
+  }
   .bottom {
-    padding: pc2rem(35) 0;
+    padding: pc2rem(50) 0 pc2rem(35) !important;
     .t-t {
       margin-bottom: pc2rem(30);
     }
@@ -50,6 +82,10 @@
       overflow: hidden;
       .carousel {
         height: 100%;
+      }
+      .w-80{
+        padding-left: 10%;
+        padding-right: 10%;
       }
     }
   }
@@ -107,4 +143,20 @@
       background: #fff;
     }
   }
+  .carousel-control-prev-icon{
+    width: 12px!important;
+    height: 20px!important;
+    background-image: url('~@/assets/images/products/market_banner_left.png')!important;
+    &:hover{
+      background-image: url('~@/assets/images/products/market_banner_left_hover.png')!important;
+    }
+}
+.carousel-control-next-icon{
+    width: 12px!important;
+    height: 20px!important;
+    background-image: url('~@/assets/images/products/market_banner_right.png')!important;
+    &:hover{
+      background-image: url('~@/assets/images/products/market_banner_right_hover.png')!important;
+    }
+}
 }
