@@ -11,29 +11,23 @@ export default function Market({ data = [] }) {
 
   const [listTotalIndex, setListTotalIndex] = useState([])
   const [listCurrentIndex, setListCurrentIndex] = useState(0)
-  const [middle1, setMiddle1Images] = useState([])
-  const [middle2, setMiddle2Images] = useState([])
-  const [middle3, setMiddle3Images] = useState([])
 
-  useEffect(() => {
-    setMiddle1Images([])
-    setMiddle2Images([])
-    setMiddle3Images([])
-    setListTotalIndex([])
-    if (midData && midData.images.length) {
-      midData.images.map((list, index) => (
-        // index % 3 === 0 ? setListTotalIndex(listTotalIndex.concat(index)) : ''
-        index % 3 === 0 ? (
-          setListTotalIndex(listTotalIndex.concat(index)),
-          setMiddle1Images(middle1.concat(list.image))
-          // index % 3 === 1 ? setMiddle2Images(middle2.concat(list)) : '',
-          // index % 3 === 2 ? setMiddle3Images(middle3.concat(list)) : ''
-        ) : ''
-        // (index % 3 === 1 ? setMiddle2Images(middle2.concat(list)) : '')
-        // (index % 3 === 2 ? setMiddle3Images(middle3.concat(list)) : '')
-      ))
-    }
-  }, [midData])
+  // useEffect(() => {
+  //   setListTotalIndex([])
+  //   if (midData && midData.images.length) {
+  //     midData.images.map((list, index) => (
+  //       // index % 3 === 0 ? setListTotalIndex(listTotalIndex.concat(index)) : ''
+  //       index % 3 === 0 ? (
+  //         setListTotalIndex(listTotalIndex.concat(index)),
+  //         setMiddle1Images(middle1.concat(list.image))
+  //         // index % 3 === 1 ? setMiddle2Images(middle2.concat(list)) : '',
+  //         // index % 3 === 2 ? setMiddle3Images(middle3.concat(list)) : ''
+  //       ) : ''
+  //       // (index % 3 === 1 ? setMiddle2Images(middle2.concat(list)) : '')
+  //       // (index % 3 === 2 ? setMiddle3Images(middle3.concat(list)) : '')
+  //     ))
+  //   }
+  // }, [midData])
 
   const handleSelect = (selectedIndex) => {
     setListCurrentIndex(selectedIndex)
@@ -122,9 +116,11 @@ export default function Market({ data = [] }) {
                   <div className="d-flex">
                     <ol className="indicators">
                       {
-                        listTotalIndex.map((list, index) => (
-                          <li className="banner-circle active" onClick={() => handleSelect(index)} />
-                        ))
+                         midData.images.map((list, index) => (
+                           index === 1 ? list.map((list, index) => (
+                             <li className="banner-circle active" onClick={() => handleSelect(index)} />
+                           )) : ''
+                         ))
                       }
                       {/* <li className="banner-circle active" />
                       <li className="banner-circle" />
