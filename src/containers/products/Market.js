@@ -1,12 +1,44 @@
 import { Link } from 'react-router-dom'
-import { Breadcrumb } from 'react-bootstrap'
+import { Breadcrumb, Carousel } from 'react-bootstrap'
 import { Banner } from 'com'
 import './market.scss'
+import { useState, useEffect } from 'react'
 
 export default function Market({ data = [] }) {
   console.log('data is:', data)
 
   const [topData, midData, bottomData] = data
+
+  const [listTotalIndex, setListTotalIndex] = useState([])
+  const [listCurrentIndex, setListCurrentIndex] = useState(0)
+  const [middle1, setMiddle1Images] = useState([])
+  const [middle2, setMiddle2Images] = useState([])
+  const [middle3, setMiddle3Images] = useState([])
+
+  useEffect(() => {
+    setMiddle1Images([])
+    setMiddle2Images([])
+    setMiddle3Images([])
+    setListTotalIndex([])
+    if (midData && midData.images.length) {
+      midData.images.map((list, index) => (
+        // index % 3 === 0 ? setListTotalIndex(listTotalIndex.concat(index)) : ''
+        index % 3 === 0 ? (
+          setListTotalIndex(listTotalIndex.concat(index)),
+          setMiddle1Images(middle1.concat(list.image))
+          // index % 3 === 1 ? setMiddle2Images(middle2.concat(list)) : '',
+          // index % 3 === 2 ? setMiddle3Images(middle3.concat(list)) : ''
+        ) : ''
+        // (index % 3 === 1 ? setMiddle2Images(middle2.concat(list)) : '')
+        // (index % 3 === 2 ? setMiddle3Images(middle3.concat(list)) : '')
+      ))
+    }
+  }, [midData])
+
+  const handleSelect = (selectedIndex) => {
+    setListCurrentIndex(selectedIndex)
+  }
+
   return (
     <>
       <Breadcrumb>
@@ -28,7 +60,15 @@ export default function Market({ data = [] }) {
                   />
                   <div className="d-flex">
                     <div className="inner-carousel">
-                      <Banner lists={topData.images} />
+                      {/* <Carousel interval={3000} indicators={false}>
+                        {topData.images.length
+        && topData.images.map((list, index) => (
+          <Carousel.Item key={index}>
+            <img className="d-block w-80" src={list.image} alt="banner" />
+          </Carousel.Item>
+        ))}
+                      </Carousel> */}
+                      <TopBottomBanner lists={topData.images} />
                     </div>
                     <div className="sum">
                       <Title
@@ -54,6 +94,7 @@ export default function Market({ data = [] }) {
                   />
                   <div className="d-flex experts">
                     <div className="experts-items">
+                      {/* <MiddleBanner lists={middle1} listCurrentIndex={listCurrentIndex} /> */}
                       <img src={midData.images[0].image} alt={midData.title} />
                     </div>
                     <div className="experts-items">
@@ -78,6 +119,19 @@ export default function Market({ data = [] }) {
                       </h3>
                     </div>
                   </div>
+                  <div className="d-flex">
+                    <ol className="indicators">
+                      {
+                        listTotalIndex.map((list, index) => (
+                          <li className="banner-circle active" onClick={() => handleSelect(index)} />
+                        ))
+                      }
+                      {/* <li className="banner-circle active" />
+                      <li className="banner-circle" />
+                      <li className="banner-circle" />
+                      <li className="banner-circle" /> */}
+                    </ol>
+                  </div>
                 </>
               ) : ''
             }
@@ -100,7 +154,15 @@ export default function Market({ data = [] }) {
                       }
                     </ul>
                     <div className="inner-carousel">
-                      <Banner lists={bottomData.images} />
+                      {/* <Carousel interval={3000} indicators={false}>
+                        {bottomData.images.length
+        && bottomData.images.map((list, index) => (
+          <Carousel.Item key={index}>
+            <img className="d-block w-80" src={list.image} alt="banner" />
+          </Carousel.Item>
+        ))}
+                      </Carousel> */}
+                      <TopBottomBanner lists={bottomData.images} />
                     </div>
                   </div>
                 </div>
@@ -111,6 +173,33 @@ export default function Market({ data = [] }) {
         </div>
       </div>
     </>
+  )
+}
+
+function MiddleBanner({ lists, listCurrentIndex }) {
+  return (
+    <Carousel activeIndex={listCurrentIndex} interval={3000} indicators={false} nextIcon={<span aria-hidden="true" />} prevIcon={<span aria-hidden="true" />}>
+      {lists.length
+        && lists.map((list, index) => (
+          <Carousel.Item key={index}>
+            <img className="d-block w-80" src={list.image} alt="banner" />
+          </Carousel.Item>
+        ))}
+    </Carousel>
+  )
+}
+
+
+function TopBottomBanner({ lists }) {
+  return (
+    <Carousel interval={null} indicators={false}>
+      {lists.length
+        && lists.map((list, index) => (
+          <Carousel.Item key={index}>
+            <img className="d-block w-80" src={list.image} alt="banner" />
+          </Carousel.Item>
+        ))}
+    </Carousel>
   )
 }
 

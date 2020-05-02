@@ -14,7 +14,9 @@ export default function MagazineDetail() {
   const data = useFetch(`/home/Enterlide/detail?id=${id}`, {
     Detail: {},
   })
-  const { title = '', create_time = '', content = '' } = data.Detail
+  const {
+    title = '', create_time = '', content = '', summary,
+  } = data.Detail
   return (
     <>
       <Breadcrumb>
@@ -36,6 +38,11 @@ export default function MagazineDetail() {
               返回列表
             </button>
           </div>
+        </div>
+        <div className="index-1">
+          <div className="index-2" />
+          <div className="index-content">{summary}</div>
+          <div className="index-3" />
         </div>
         <div
           className="content"

@@ -9,7 +9,9 @@ export default function NewsDetail() {
 
   const data = useFetch(`/home/Journalism/detail?id=${id}`, { Detail: {} })
 
-  const { title, create_time, content } = data.Detail
+  const {
+    title, create_time, content, summary,
+  } = data.Detail
 
   return (
     <>
@@ -36,8 +38,7 @@ export default function NewsDetail() {
         </div>
         <div className="index-1">
           <div className="index-2" />
-          <div className="index-content">测试未添加</div>
-
+          <div className="index-content">{summary}</div>
           <div className="index-3" />
         </div>
         <div

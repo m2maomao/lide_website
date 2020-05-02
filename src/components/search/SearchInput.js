@@ -12,7 +12,9 @@ function SearchInput({ search, keyword, searchbtnvalue }) {
   }
 
   function handleClick() {
-    search(inputValue)
+    console.log('inputValue:', inputValue)
+
+    search(inputValue === '' ? undefined : inputValue)
   }
 
   return (
