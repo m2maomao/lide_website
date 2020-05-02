@@ -34,8 +34,8 @@ class App extends Component {
               path="/"
               render={(prop) => <Home lng={lng} {...prop} {...props} />}
             />
-            <Route path="/welcome" component={Welcome} />
-            <Route path="/search/:keyword" component={Search} />
+            <Route path="/welcome" render={(prop) => <Welcome {...props} />} />
+            <Route path="/search/:keyword" render={(prop) => <Search {...props} />} />
             <Route path="/news" component={News} />
             <Route path="/responsibility" component={Responsibility} />
             <Route path="/contact" component={Contact} />
