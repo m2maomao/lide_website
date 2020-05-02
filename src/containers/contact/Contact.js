@@ -21,6 +21,8 @@ import qrcode from '@/assets/images/qrcode.png'
 import map from '@/assets/images/contact/map_bg.png'
 
 import './contact.scss'
+import { message } from 'antd'
+import 'antd/dist/antd.css'
 
 export default function Contact() {
   const [values, setValues] = useState({
@@ -30,14 +32,16 @@ export default function Contact() {
     company: '',
   })
 
-  function handleSubmit() {
+  const handleSubmit = () => {
+    message.loading('感谢您的留言', 2.5).then(
+      () => message.success('留言成功!'),
+    )
     http.post('/home/Index/message', {
       name: values.name,
       contact: values.contact,
       content: values.content,
       company: values.company,
     }).then((res) => {
-      console.log('res', res)
       if (res.status === 200) {
         // 清空值，需要设置成功提示
         setValues({
