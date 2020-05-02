@@ -21,7 +21,7 @@ import { createListener } from '@1eeing/scroll-listener'
 
 // import companyCover from '@/assets/images/welcome/company-cover.png'
 
-export default function Introduce() {
+export default function Introduce({ t }) {
   const [state, setState] = useState({
     seo: '',
     content: '',
@@ -100,14 +100,14 @@ export default function Introduce() {
     <>
       <Breadcrumb>
         <li className="breadcrumb-item">
-          <Link to="/">首页</Link>
+          <Link to="/">{t('home')}</Link>
         </li>
-        <li className="breadcrumb-item">走进立得</li>
-        <Breadcrumb.Item active>公司介绍</Breadcrumb.Item>
+        <li className="breadcrumb-item">{t('welcome')}</li>
+        <Breadcrumb.Item active>{t('introduction')}</Breadcrumb.Item>
       </Breadcrumb>
       <div className="p-1r">
         <div className="p-1r-content with-line">
-          <WTitle title="公司介绍" enTitle="companyintroduction" />
+          <WTitle title={t('introduction')} enTitle="companyintroduction" />
           {/* 第一区 */}
           <div className={['d-flex', numPosition === 1 ? 'first-container-bg2' : 'first-container-bg1'].join(' ')} id="first">
             <div style={{ width: '50%' }}>

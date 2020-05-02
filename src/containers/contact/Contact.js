@@ -33,9 +33,27 @@ export default function Contact() {
   })
 
   const handleSubmit = () => {
-    message.loading('感谢您的留言', 2.5).then(
-      () => message.success('留言成功!'),
-    )
+    if (values.name === undefined || values.name === '') {
+      message.config({
+        top: 500,
+      })
+      message.warning('请输入姓名')
+      return
+    }
+    if (values.contact === undefined || values.contact === '') {
+      message.config({
+        top: 500,
+      })
+      message.warning('请输入联系方式')
+      return
+    }
+    if (values.content === undefined || values.content === '') {
+      message.config({
+        top: 500,
+      })
+      message.warning('请输入留言')
+      return
+    }
     http.post('/home/Index/message', {
       name: values.name,
       contact: values.contact,
@@ -43,6 +61,12 @@ export default function Contact() {
       company: values.company,
     }).then((res) => {
       if (res.status === 200) {
+        message.config({
+          top: 500,
+        })
+        message.loading('感谢您的留言', 2.5).then(
+          () => message.success('留言成功!'),
+        )
         // 清空值，需要设置成功提示
         setValues({
           name: '',

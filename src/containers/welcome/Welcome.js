@@ -19,14 +19,13 @@ import MagazineDetail from './MagazineDetail'
 
 import './Welcome.scss'
 
-export default function Welcome() {
+export default function Welcome({ t }) {
   const { pathname } = useLocation()
 
   function changeCls(path) {
     const cls = pathname === path ? 'arch-item active' : 'arch-item'
     return cls
   }
-
   return (
     <div className="responsibility-container">
       <Cover src={coverImg} />
@@ -34,28 +33,28 @@ export default function Welcome() {
         <Col lg={{ span: 10, offset: 1 }}>
           <Row>
             <Col sm={3}>
-              <Side title="走进立得">
+              <Side title={t('welcome')}>
                 <ul className="responsibility-arch">
                   <li className={changeCls('/welcome/introduce')}>
-                    <Link to="/welcome/introduce">公司介绍</Link>
+                    <Link to="/welcome/introduce">{t('introduction')}</Link>
                   </li>
                   <li className={changeCls('/welcome/culture')}>
-                    <Link to="/welcome/culture">企业文化</Link>
+                    <Link to="/welcome/culture">{t('culture')}</Link>
                   </li>
                   <li className={changeCls('/welcome/qualification')}>
-                    <Link to="/welcome/qualification">资质与荣誉</Link>
+                    <Link to="/welcome/qualification">{t('qualification')}</Link>
                   </li>
                   <li className={changeCls('/welcome/history')}>
-                    <Link to="/welcome/history">发展历程</Link>
+                    <Link to="/welcome/history">{t('history')}</Link>
                   </li>
                   <li className={changeCls('/welcome/organ')}>
-                    <Link to="/welcome/organ">组织架构</Link>
+                    <Link to="/welcome/organ">{t('structure')}</Link>
                   </li>
                   <li className={changeCls('/welcome/evolution')}>
-                    <Link to="/welcome/evolution">科研开发</Link>
+                    <Link to="/welcome/evolution">{t('scientific')}</Link>
                   </li>
                   <li className={changeCls('/welcome/magazine')}>
-                    <Link to="/welcome/magazine">《我与立得同行》</Link>
+                    <Link to="/welcome/magazine">{t('magazine')}</Link>
                   </li>
                 </ul>
               </Side>
@@ -63,8 +62,8 @@ export default function Welcome() {
             <Col sm={9}>
               <div className="welcome-main-body">
                 {/* <Redirect to="/welcome/introduce" /> */}
-                <Route path="/welcome/introduce" component={Introduce} />
-                <Route path="/welcome/culture" component={Culture} />
+                <Route path="/welcome/introduce" render={(prop) => <Introduce t={t} />} />
+                <Route path="/welcome/culture" render={(prop) => <Culture t={t} />} />
                 <Route
                   path="/welcome/qualification"
                   component={Qualification}

@@ -12,7 +12,7 @@ import imgBrand from '@/assets/images/welcome/brand.png'
 import imgValue from '@/assets/images/welcome/value.png'
 import imgSocial from '@/assets/images/welcome/social.png'
 
-export default function Culture() {
+export default function Culture({ t }) {
   const [state, setState] = useState({
     content: [],
   })
@@ -39,14 +39,14 @@ export default function Culture() {
     <>
       <Breadcrumb>
         <li className="breadcrumb-item">
-          <Link to="/">首页</Link>
+          <Link to="/">{t('home')}</Link>
         </li>
-        <li className="breadcrumb-item">走进立得</li>
-        <Breadcrumb.Item active>企业文化</Breadcrumb.Item>
+        <li className="breadcrumb-item">{t('welcome')}</li>
+        <Breadcrumb.Item active>{t('culture')}</Breadcrumb.Item>
       </Breadcrumb>
       <div className="p-1r">
         <div className="p-1r-content">
-          <WTitle title="企业文化" enTitle="corporateculture" />
+          <WTitle title={t('culture')} enTitle="corporateculture" />
           <div className="culture-body">
             <div className="d-flex culture-item">
               <img src={imgCulture1} alt="images" />
