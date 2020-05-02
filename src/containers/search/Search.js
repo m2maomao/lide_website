@@ -18,16 +18,20 @@ export default function Search() {
   const [searchValue, setSearchValue] = useState(keyword === undefined ? null : keyword)
   // 入参
   const [page, setPage] = useState(1)
-  const [totalPage, setTotalPage] = useState(1)
   const [pageSize, setPageSize] = useState(10)
   const [loadMore, setLoadMore] = useState(false)
   const getSearchData = () => {
     http.get(`/home/Index/search?search=${searchValue}&page=${page}&page_size=${pageSize}`).then((res) => {
       if (res.status === 200) {
-        setSearchData(searchData.concat(res.data.data))
-        setPage(page + 1)
+        if (page === 1) {
+          setSearchData([])
+          setSearchData(res.data.data)
+        } else if (loadMore) {
+          setSearchData(searchData.concat(res.data.data))
+        }
         if (res.data.count / pageSize > page) {
           setLoadMore(true)
+          setPage(page + 1)
         } else {
           setLoadMore(false)
         }
@@ -35,32 +39,38 @@ export default function Search() {
     })
   }
   const search = (sv) => {
-    console.log('page before:', page)
+    // 每次搜索先清空数据仓
+    setSearchData([])
     setPage(1)
-    console.log('page after:', page)
-
     setSearchValue(sv)
-    getSearchData()
   }
 
 
   useEffect(() => {
-    search(searchValue)
+    setPage(+1)
+    setSearchData([])
+    setSearchValue(searchValue)
+    // search(searchValue)
+    getSearchData()
   }, [searchValue])
 
-  // const isInBottomRef = useRef(null)
-  // // const loadMore = () => isInBottomRef.current.loadMore()
-  // const handleOnDocumentBottom = useCallback(() => {
-  //   console.log(`Magazine I am at bottom! ${Math.round(performance.now())}`)
-  //   if (!loadMore) isInBottomRef.current.loadMore()
-  // }, [])
+  useEffect(() => {
+    search(searchValue)
+  }, [])
 
-  // /* This will trigger handleOnDocumentBottom when the body of the page hits the bottom */
-  // useBottomScrollListener(handleOnDocumentBottom)
+  const isInBottomRef = useRef(null)
+  // const loadMore = () => isInBottomRef.current.loadMore()
+  const handleOnDocumentBottom = useCallback(() => {
+    console.log(`Magazine I am at bottom! ${Math.round(performance.now())}`)
+    if (!loadMore) isInBottomRef.current.loadMore()
+  }, [])
 
-  // useImperativeHandle(isInBottomRef, () => ({
-  //   loadMore: () => getSearchData(),
-  // }))
+  /* This will trigger handleOnDocumentBottom when the body of the page hits the bottom */
+  useBottomScrollListener(handleOnDocumentBottom)
+
+  useImperativeHandle(isInBottomRef, () => ({
+    loadMore: () => getSearchData(),
+  }))
 
 
   return (
