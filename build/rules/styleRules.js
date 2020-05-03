@@ -5,7 +5,13 @@ module.exports = [
   {
     test: /\.(c|sa|sc)ss$/,
     use: [
-      IS_DEV ? 'style-loader' : MiniCssExtractPlugin.loader,
+      IS_DEV ? 'style-loader' : 
+      {
+        loader: MiniCssExtractPlugin.loader,
+        options: {
+            publicPath: '../',
+        }
+    },
       {
         loader: 'css-loader',
         options: {
