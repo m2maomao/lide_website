@@ -17,7 +17,7 @@ i18n
         translations: translationEn,
       },
     },
-    fallbackLng: 'en',
+    fallbackLng: 'ch',
     debug: true,
     ns: ['translations'],
     defaultNS: 'translations',

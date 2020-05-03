@@ -39,8 +39,6 @@ export default function Search() {
     })
   }
   const search = (sv) => {
-    // 每次搜索先清空数据仓
-    setSearchData([])
     setPage(1)
     setSearchValue(sv)
   }
@@ -54,9 +52,6 @@ export default function Search() {
     getSearchData()
   }, [searchValue])
 
-  useEffect(() => {
-    search(searchValue)
-  }, [])
 
   const isInBottomRef = useRef(null)
   // const loadMore = () => isInBottomRef.current.loadMore()
