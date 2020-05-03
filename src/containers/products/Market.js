@@ -9,7 +9,6 @@ export default function Market({ data = [] }) {
 
   const [topData, midData, bottomData] = data
 
-  const [listTotalIndex, setListTotalIndex] = useState([])
   const [listCurrentIndex, setListCurrentIndex] = useState(0)
 
   // useEffect(() => {
@@ -89,7 +88,7 @@ export default function Market({ data = [] }) {
                   <div className="d-flex experts">
                     <div className="experts-items">
                       {/* <MiddleBanner lists={middle1} listCurrentIndex={listCurrentIndex} /> */}
-                      <img src={midData.images[0].image} alt={midData.title} />
+                      <MiddleBanner lists={midData.images[0]} alt={midData.title} listCurrentIndex={listCurrentIndex} />
                     </div>
                     <div className="experts-items">
                       <h3 className="exports-text">
@@ -97,7 +96,7 @@ export default function Market({ data = [] }) {
                       </h3>
                     </div>
                     <div className="experts-items">
-                      <img src={midData.images[1].image} alt={midData.title} />
+                      <MiddleBanner lists={midData.images[1]} alt={midData.title} listCurrentIndex={listCurrentIndex} />
                     </div>
                     <div className="experts-items">
                       <h3 className="exports-text">
@@ -105,7 +104,7 @@ export default function Market({ data = [] }) {
                       </h3>
                     </div>
                     <div className="experts-items">
-                      <Banner lists={[midData.images[2], midData.images[3]]} />
+                      <MiddleBanner lists={midData.images[2]} listCurrentIndex={listCurrentIndex} />
                     </div>
                     <div className="experts-items">
                       <h3 className="exports-text">
@@ -117,8 +116,8 @@ export default function Market({ data = [] }) {
                     <ol className="indicators">
                       {
                          midData.images.map((list, index) => (
-                           index === 1 ? list.map((list, index) => (
-                             <li className="banner-circle active" onClick={() => handleSelect(index)} />
+                           index === 0 ? list.map((list, index) => (
+                             <li className={index === listCurrentIndex ? 'banner-circle active' : 'banner-circle'} onClick={() => handleSelect(index)} />
                            )) : ''
                          ))
                       }
