@@ -88,7 +88,7 @@ export default function Market({ data = [] }) {
                   <div className="d-flex experts">
                     <div className="experts-items">
                       {/* <MiddleBanner lists={middle1} listCurrentIndex={listCurrentIndex} /> */}
-                      <MiddleBanner lists={midData.images[0]} alt={midData.title} listCurrentIndex={listCurrentIndex} />
+                      <MiddleBanner lists={midData.images[0]} alt={midData.title} listCurrentIndex={listCurrentIndex} setListCurrentIndex={setListCurrentIndex} />
                     </div>
                     <div className="experts-items">
                       <h3 className="exports-text">
@@ -96,7 +96,7 @@ export default function Market({ data = [] }) {
                       </h3>
                     </div>
                     <div className="experts-items">
-                      <MiddleBanner lists={midData.images[1]} alt={midData.title} listCurrentIndex={listCurrentIndex} />
+                      <MiddleBanner lists={midData.images[1]} alt={midData.title} listCurrentIndex={listCurrentIndex} setListCurrentIndex={setListCurrentIndex} />
                     </div>
                     <div className="experts-items">
                       <h3 className="exports-text">
@@ -104,7 +104,7 @@ export default function Market({ data = [] }) {
                       </h3>
                     </div>
                     <div className="experts-items">
-                      <MiddleBanner lists={midData.images[2]} listCurrentIndex={listCurrentIndex} />
+                      <MiddleBanner lists={midData.images[2]} listCurrentIndex={listCurrentIndex} setListCurrentIndex={setListCurrentIndex} />
                     </div>
                     <div className="experts-items">
                       <h3 className="exports-text">
@@ -171,9 +171,9 @@ export default function Market({ data = [] }) {
   )
 }
 
-function MiddleBanner({ lists, listCurrentIndex }) {
+function MiddleBanner({ lists, listCurrentIndex, setListCurrentIndex }) {
   return (
-    <Carousel activeIndex={listCurrentIndex} interval={3000} indicators={false} nextIcon={<span aria-hidden="true" />} prevIcon={<span aria-hidden="true" />}>
+    <Carousel activeIndex={listCurrentIndex} onSelect={setListCurrentIndex} interval={3000} indicators={false} nextIcon={<span aria-hidden="true" />} prevIcon={<span aria-hidden="true" />}>
       {lists.length
         && lists.map((list, index) => (
           <Carousel.Item key={index}>

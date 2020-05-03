@@ -12,7 +12,9 @@ export default function Detail() {
   const data = useFetch(`/home/Responsibility/detail?id=${id}`, {
     Detail: {},
   })
-  const { title = '', create_time = '', content = '' } = data.Detail
+  const {
+    title = '', create_time = '', content = '', summary,
+  } = data.Detail
 
   return (
     <div className="news-detail-body">
@@ -26,6 +28,11 @@ export default function Detail() {
             返回列表
           </button>
         </div>
+      </div>
+      <div className="index-1">
+        <div className="index-2" />
+        <div className="index-content">{summary}</div>
+        <div className="index-3" />
       </div>
       <div
         className="content"

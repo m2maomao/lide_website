@@ -53,9 +53,15 @@ export default function Welcome({ t }) {
                   <li className={changeCls('/welcome/evolution')}>
                     <Link to="/welcome/evolution">{t('scientific')}</Link>
                   </li>
-                  <li className={changeCls('/welcome/magazine')}>
-                    <Link to="/welcome/magazine">{t('magazine')}</Link>
-                  </li>
+                  {
+                    localStorage.getItem('i18nextLng') !== 'en'
+                      ? (
+                        <li className={changeCls('/welcome/magazine')}>
+                          <Link to="/welcome/magazine">{t('magazine')}</Link>
+                        </li>
+                      ) : ''
+                  }
+
                 </ul>
               </Side>
             </Col>

@@ -101,9 +101,15 @@ function Navbars(props) {
                         <li>
                           <Link to="/welcome/evolution" onClick={() => { setShowNav(false) }}>{t('scientific')}</Link>
                         </li>
-                        <li>
-                          <Link to="/welcome/magazine" onClick={() => { setShowNav(false) }}>{t('magazine')}</Link>
-                        </li>
+                        {
+                           i18n.language !== 'en'
+                             ? (
+                               <li>
+                                 <Link to="/welcome/magazine" onClick={() => { setShowNav(false) }}>{t('magazine')}</Link>
+                               </li>
+                             ) : ''
+                        }
+
                       </ul>
                     )
                     : ''
