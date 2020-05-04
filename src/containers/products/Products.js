@@ -19,6 +19,7 @@ import { useBottomScrollListener } from 'react-bottom-scroll-listener'
 import ProductList from './ProductList'
 import Detail from './Detail'
 import Market from './Market'
+import Indexes from './Indexes'
 
 
 import './products.scss'
@@ -59,9 +60,9 @@ export default function Products() {
   /* This will trigger handleOnDocumentBottom when the body of the page hits the bottom */
   useBottomScrollListener(handleOnDocumentBottom)
 
-  // useEffect(() => {
-  //   search(searchValue)
-  // }, [])
+  useEffect(() => {
+    search(searchValue)
+  }, [searchValue])
 
   function changeCls(path) {
     const cls = pathname.includes(path) ? 'arch-item active' : 'arch-item'
@@ -98,6 +99,13 @@ export default function Products() {
       setLists(content[0].firstChildren[0].children)
     }
   }, [content])
+
+  useEffect(() => {
+    console.log('history::::::', history)
+    if (history.location.state) {
+      setSearchValue(history.location.state.sv)
+    }
+  }, [history.location.state])
   return (
     <div className="products-container">
       <Cover src={coverImg} />
@@ -141,9 +149,9 @@ export default function Products() {
                   }
                 </Accordion>
               </Side>
-              <a target="_blank" href={`${global.url.baseUrl}/uploads/20200427/56e896a45c476a1ae20cc7d7a081ea80.pdf`} rel="noopener noreferrer">
+              <Link to="/products/indexes">
                 <img className="products-index" src={productIndex} alt="" />
-              </a>
+              </Link>
             </Col>
             <Col sm={9}>
               <div className="products-main-body">
@@ -153,19 +161,32 @@ export default function Products() {
                     : (
                       <>
                         {
-                          pathname.includes('/market')
+                          pathname.includes('/indexes')
                             ? (
                               <Route
-                                path="/products/market"
-                                render={(prop) => <Market data={marketService} {...prop} />}
+                                path="/products/indexes"
+                                render={(prop) => <Indexes search={search} data={[]} {...prop} />}
                               />
                             )
                             : (
-                              <Route
-                                path="/products/:id"
+                              <>
+                                {
+                                pathname.includes('/market')
+                                  ? (
+                                    <Route
+                                      path="/products/market"
+                                      render={(prop) => <Market data={marketService} {...prop} />}
+                                    />
+                                  )
+                                  : (
+                                    <Route
+                                      path="/products/:id"
                             // component={Detail}
-                                render={(prop) => <Detail data={[firstName, secodeName]} {...prop} />}
-                              />
+                                      render={(prop) => <Detail data={[firstName, secodeName]} {...prop} />}
+                                    />
+                                  )
+                              }
+                              </>
                             )
                         }
                       </>

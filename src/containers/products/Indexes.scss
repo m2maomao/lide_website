@@ -1,0 +1,21 @@
+.main-side-container{
+    .table .thead-dark th{
+        background-color: #2862ae;
+        border-color: #2862ae;
+        font-size: 16px;
+    }
+    .table-striped tbody{
+        font-size: 14px;
+        color: #414141;
+    }
+    .table-striped tbody tr:nth-of-type(even){
+        background-color: rgba($color: #ffffff, $alpha: 1.0);
+        border-left: 2px solid #e8ecf2;
+        td, th{
+            padding: 0.5rem 0.75rem;
+        }
+    }
+    .table-striped tbody tr:nth-of-type(odd){
+        background: none;
+    }
+}
