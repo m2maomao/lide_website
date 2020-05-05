@@ -165,7 +165,7 @@ export default function Products() {
                             ? (
                               <Route
                                 path="/products/indexes"
-                                render={(prop) => <Indexes search={search} data={[]} {...prop} />}
+                                render={(prop) => <Indexes search={search} data={[]} isInBottomRef={isInBottomRef} {...prop} />}
                               />
                             )
                             : (

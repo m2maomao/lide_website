@@ -45,10 +45,6 @@ export default function ProductList({
     loadMore: () => loadMoreData(),
   }))
 
-  // useEffect(() => {
-  //   loadMoreData()
-  // }, [isInBottom])
-
   return (
     <>
       <SearchInput search={search} searchbtnvalue="产品搜索" />

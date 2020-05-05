@@ -4,17 +4,21 @@ import {
 import { Link, useHistory } from 'react-router-dom'
 import { Breadcrumb, CardColumns, Card } from 'react-bootstrap'
 import { SearchItem, SearchInput } from 'com'
-import _ from 'lodash'
 import './Indexes.scss'
 import { useFetch } from '@/hooks/useFetch'
+import _ from 'lodash'
 
 export default function Indexes({
   data, isInBottomRef,
 }) {
-  // 父组件传入数据
-  const lists = Array.isArray(data[0]) ? data[0] : data
+  const [lists, setLists] = useState([])
+  // 请求数据
+  const { content, marketService } = useFetch('/home/Production/index', {
+    content: [],
+    marketService: [],
+  })
   // 分组总数据
-  const listTotal = _.chunk(lists, 9)
+  const [listTotal, setListTotal] = useState([])
   // 当前页
   const [page, setPage] = useState(0)
   // 总页数
@@ -24,32 +28,36 @@ export default function Indexes({
   // 是否显示分页
   const [loadMore, setLoadMore] = useState(false)
 
-  // 请求数据
-  const { content, marketService } = useFetch('/home/Production/index', {
-    content: [],
-    marketService: [],
-  })
-
-  const [tempListArray, setListArray] = useState([])
-
   useEffect(() => {
+    console.log('1111111')
     if (content[0]) {
-      console.log('content', content)
-      content.map((a) => a.firstChildren.map((b) => b.children.map((c) => c.map((d) => tempListArray.push(d)))))
-      console.log('d', tempListArray)
+      const tempData = []
+      content.map((a) => a.firstChildren.map((b) => b.children.map((c) => c.map((d) => tempData.push(d)))))
+      setLists(tempData)
+      console.log('tempData', tempData)
     }
   }, [content])
 
   useEffect(() => {
+    console.log('2222222')
+    console.log('lists', lists)
+    setListTotal(_.chunk(lists, 20))
+  }, [lists])
+
+  useEffect(() => {
+    console.log('listTotal', listTotal)
     setListTemp(listTotal[page])
     if (pageTotal > 1) {
       setLoadMore(true)
     } else {
       setLoadMore(false)
     }
-  }, [lists])
+  }, [listTotal])
+
   const loadMoreData = () => {
+    console.log(1)
     if (!loadMore) return
+    console.log(1)
     setListTemp([...listTemp, ...listTotal[page + 1]])
     if ((pageTotal !== page + 2) && pageTotal > 1) {
       setPage(page + 1)
@@ -95,19 +103,29 @@ export default function Indexes({
           </thead>
           <tbody>
             {
-                tempListArray.length && tempListArray.map((item, index) => (
-                  <tr key={index}>
-                    <th scope="row">{item.id}</th>
-                    <td>{item.serialtype}</td>
-                    <td>{item.title}</td>
-                    <td>{item.kind}</td>
-                    <td>{item.replaceproduct}</td>
-                    <td>{item.adapttech}</td>
-                  </tr>
-                ))
-              }
+              listTemp && listTemp.map((item, index) => (
+                <tr key={index}>
+                  <th scope="row">{item.id}</th>
+                  <td>{item.serialtype}</td>
+                  <td>{item.title}</td>
+                  <td>{item.kind}</td>
+                  <td>{item.replaceproduct}</td>
+                  <td>{item.adapttech}</td>
+                </tr>
+              ))
+            }
+
           </tbody>
         </table>
+        {
+          loadMore
+            ? (
+              <div className="load-more" onClick={loadMoreData}>
+                <span>加载更多</span>
+              </div>
+            )
+            : ''
+        }
       </div>
     </>
 
