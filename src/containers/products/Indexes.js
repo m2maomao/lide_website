@@ -6,6 +6,7 @@ import { Breadcrumb, CardColumns, Card } from 'react-bootstrap'
 import { SearchItem, SearchInput } from 'com'
 import _ from 'lodash'
 import './Indexes.scss'
+import { useFetch } from '@/hooks/useFetch'
 
 export default function Indexes({
   data, isInBottomRef,
@@ -22,6 +23,22 @@ export default function Indexes({
   const [listTemp, setListTemp] = useState([])
   // 是否显示分页
   const [loadMore, setLoadMore] = useState(false)
+
+  // 请求数据
+  const { content, marketService } = useFetch('/home/Production/index', {
+    content: [],
+    marketService: [],
+  })
+
+  const [tempListArray, setListArray] = useState([])
+
+  useEffect(() => {
+    if (content[0]) {
+      console.log('content', content)
+      content.map((a) => a.firstChildren.map((b) => b.children.map((c) => c.map((d) => tempListArray.push(d)))))
+      console.log('d', tempListArray)
+    }
+  }, [content])
 
   useEffect(() => {
     setListTemp(listTotal[page])
@@ -55,57 +72,6 @@ export default function Indexes({
     })
   }
 
-  const tempList = [
-    {
-      id: 1,
-      type: 'SCG',
-      name1: 'SCG-1(I)',
-      name2: '干粉催化剂',
-      name3: 'UCAT A-4520',
-      name4: 'Univcation、GPE',
-    },
-    {
-      id: 2,
-      type: 'SCG',
-      name1: 'SCG-1(I)',
-      name2: '干粉催化剂',
-      name3: 'UCAT A-4520',
-      name4: 'Univcation、GPE',
-    },
-    {
-      id: 3,
-      type: 'SCG',
-      name1: 'SCG-1(I)',
-      name2: '干粉催化剂',
-      name3: 'UCAT A-4520',
-      name4: 'Univcation、GPE',
-    },
-    {
-      id: 4,
-      type: 'SCG',
-      name1: 'SCG-1(I)',
-      name2: '干粉催化剂',
-      name3: 'UCAT A-4520',
-      name4: 'Univcation、GPE',
-    },
-    {
-      id: 5,
-      type: 'SCG',
-      name1: 'SCG-1(I)',
-      name2: '干粉催化剂',
-      name3: 'UCAT A-4520',
-      name4: 'Univcation、GPE',
-    },
-    {
-      id: 6,
-      type: 'SCG',
-      name1: 'SCG-1(I)',
-      name2: '干粉催化剂',
-      name3: 'UCAT A-4520',
-      name4: 'Univcation、GPE',
-    },
-  ]
-
   return (
     <>
       <SearchInput search={search} searchbtnvalue="产品搜索" />
@@ -119,24 +85,24 @@ export default function Indexes({
         <table className="table table-striped table-borderless">
           <thead className="thead-dark">
             <tr>
-              <th scope="col">序号</th>
+              <th scope="col" width="70">序号</th>
               <th scope="col">系列</th>
               <th scope="col">名称</th>
               <th scope="col">种类</th>
-              <th scope="col">可替代进口同类产品</th>
+              <th scope="col" width="180">可替代进口同类产品</th>
               <th scope="col">适用工艺</th>
             </tr>
           </thead>
           <tbody>
             {
-                tempList.map((item, index) => (
+                tempListArray.length && tempListArray.map((item, index) => (
                   <tr key={index}>
                     <th scope="row">{item.id}</th>
-                    <td>{item.type}</td>
-                    <td>{item.name1}</td>
-                    <td>{item.name2}</td>
-                    <td>{item.name3}</td>
-                    <td>{item.name4}</td>
+                    <td>{item.serialtype}</td>
+                    <td>{item.title}</td>
+                    <td>{item.kind}</td>
+                    <td>{item.replaceproduct}</td>
+                    <td>{item.adapttech}</td>
                   </tr>
                 ))
               }
