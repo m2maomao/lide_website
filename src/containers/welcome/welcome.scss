@@ -496,6 +496,17 @@ $colorSky :#0187d0;
       color: #fff;
       font-size: 14px;
     }
+    .bigContent{
+      position: absolute;
+      left: 9%;
+      top: 32%;
+      span{
+        font-size: pc2rem(30)!important;
+        background: none!important;
+        width: pc2rem(330);
+        display: block;
+      }
+    }
   }
   .sixth-container-bg2{
     position: relative;

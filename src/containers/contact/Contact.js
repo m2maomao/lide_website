@@ -1,7 +1,7 @@
 import {
   Row, Col, Button, Alert,
 } from 'react-bootstrap'
-import { useState } from 'react'
+import { useState, setState, useEffect } from 'react'
 
 // import {
 //   Map, Marker, NavigationControl, InfoWindow,
@@ -31,6 +31,29 @@ export default function Contact() {
     content: '',
     company: '',
   })
+
+  const [contentH, setContentH] = useState({
+    banner: [],
+    connectUs: {},
+  })
+
+  function getData() {
+    http.get('/home/index/connect').then((res) => {
+      if (res.status === 200) {
+        setContentH(res.data)
+        console.log('res.data', res.data)
+        console.log('contentH', contentH)
+      }
+    })
+  }
+
+  useEffect(() => {
+    console.log('contentH', contentH)
+  }, [contentH])
+
+  useEffect(() => {
+    getData()
+  }, [])
 
   const handleSubmit = () => {
     if (values.name === undefined || values.name === '') {
@@ -104,11 +127,10 @@ export default function Contact() {
             </div>
             <div>
               <div className="address">
-                <h3 className="company-name">上海立得催化剂有限公司</h3>
+                <h3 className="company-name">{contentH.connectUs.title}</h3>
                 <div className="d-flex">
                   <img src={imgAddress} alt="icon" />
-                  <span>地址：</span>
-                  <p>上海市金山区金环路288号</p>
+                  <span>{contentH.connectUs.add}</span>
                 </div>
                 <div className="d-flex" style={{ alignItems: 'flex-start' }}>
                   <img
@@ -116,27 +138,21 @@ export default function Contact() {
                     alt="icon"
                     style={{ marginTop: '4px' }}
                   />
-                  <span>电话：</span>
-                  <div>
-                    <p>综合管理部：(+86) 021-57294218</p>
-                    <p>综合管理部：(+86) 021-57294299</p>
-                  </div>
+                  <span>{contentH.connectUs.telephone}</span>
                 </div>
                 <div className="d-flex">
                   <img src={imgPrinter} alt="icon" />
-                  <span>传真：</span>
-                  <p>(+86) 021-57292553</p>
+                  <span>{contentH.connectUs.Fax}</span>
                 </div>
                 <div className="d-flex">
                   <img src={imgEmail} alt="icon" />
-                  <span>邮箱：</span>
-                  <p>Leadercata@leadercata.cn</p>
+                  <span>{contentH.connectUs.email}</span>
                 </div>
               </div>
               <div className="d-flex wechat">
                 <img src={imgWechat} alt="wechat" />
-                <p>立得催化剂官方公众号</p>
-                <img className="qrcode" src={qrcode} alt="qrcode" />
+                <p>{contentH.connectUs.wechatname}</p>
+                <img className="qrcode" src={contentH.connectUs.ercode} alt="qrcode" />
               </div>
             </div>
           </div>

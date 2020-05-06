@@ -25,6 +25,13 @@ function SearchButton({ search }) {
     search(inputValue)
   }
 
+  function keyDownHandle(e) {
+    if (e.keyCode === 13) {
+      toggleClass(false)
+      search(inputValue)
+    }
+  }
+
   return (
     <div className={`d-flex search ${isSearch ? 'search-input-show' : ''}`}>
       <img
@@ -34,7 +41,7 @@ function SearchButton({ search }) {
         onClick={() => toggleClass(true)}
       />
       <div className={`search-input ${isSearch ? 'search-input-show' : ''}`}>
-        <input ref={inputRef} onChange={handleInputChange} />
+        <input ref={inputRef} onChange={handleInputChange} onKeyDown={keyDownHandle} />
         {/** onBlur={() => toggleClass(false)} */}
         <img src={searchIcon} alt="search" onClick={handleClick} />
       </div>

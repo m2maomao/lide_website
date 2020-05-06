@@ -80,6 +80,13 @@ export default function Indexes({
     })
   }
 
+  function goto(url) {
+    console.log('url', url)
+    history.push({
+      pathname: url,
+    })
+  }
+
   return (
     <>
       <SearchInput search={search} searchbtnvalue="产品搜索" />
@@ -104,10 +111,14 @@ export default function Indexes({
           <tbody>
             {
               listTemp && listTemp.map((item, index) => (
-                <tr key={index}>
+                <tr key={index} onClick={() => goto(`/products/${item.id}`)}>
                   <th scope="row">{item.id}</th>
                   <td>{item.serialtype}</td>
-                  <td>{item.title}</td>
+                  <td>
+                    {item.title}
+                    {' '}
+                    {item.keywords}
+                  </td>
                   <td>{item.kind}</td>
                   <td>{item.replaceproduct}</td>
                   <td>{item.adapttech}</td>

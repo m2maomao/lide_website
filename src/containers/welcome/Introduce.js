@@ -213,6 +213,12 @@ export default function Introduce({ t }) {
           <div className={numPosition === 6 ? 'sixth-container-bg2' : 'sixth-container-bg1'} id="sixth">
             <div className="img-wrap">
               <img src={ci5} alt="" />
+              <span
+                className="bigContent"
+                dangerouslySetInnerHTML={{
+                  __html: content ? content[6].content : '',
+                }}
+              />
               <div
                 className="content"
                 dangerouslySetInnerHTML={{
