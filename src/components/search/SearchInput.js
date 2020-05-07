@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import './searchInput.scss'
 
-function SearchInput({ search, keyword, searchbtnvalue }) {
+function SearchInput({
+  search, keyword, searchbtnvalue, t,
+}) {
   console.log('keyword:', keyword)
   console.log('searchbtnvalue:', searchbtnvalue)
   const [inputValue, setInputValue] = useState(keyword)
-  const [btnValue, setsearchbtnvalue] = useState(searchbtnvalue === undefined ? '搜索' : searchbtnvalue)
+  const [btnValue, setsearchbtnvalue] = useState(searchbtnvalue === undefined ? t('search') : searchbtnvalue)
 
   function handleInputChange(e) {
     setInputValue(e.target.value)

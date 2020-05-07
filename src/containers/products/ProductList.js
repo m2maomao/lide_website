@@ -48,7 +48,7 @@ export default function ProductList({
 
   return (
     <>
-      <SearchInput search={search} searchbtnvalue={t('productsearch')} />
+      <SearchInput t={t} search={search} searchbtnvalue={t('productsearch')} />
       <Breadcrumb>
         <li className="breadcrumb-item">
           <Link to="/">{t('home')}</Link>

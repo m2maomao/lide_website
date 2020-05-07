@@ -56,5 +56,8 @@
 	"unitbelongs":"所属单位",
 	"leavemessage":"留言",
 	"submit":"提交",
+	"search":"搜索",
+	"nodatafound":"没有找到数据",
+	"nodatatryother":"没有搜索到相关数据，试一试搜索其他关键字",
 	"newsdetails":"新闻详情"
 }

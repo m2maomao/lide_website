@@ -55,5 +55,8 @@
 	"unitbelongs":"Unit to which it belongs",
 	"leavemessage":"Leave a message",
 	"submit":"Submit",
+	"search":"Search",
+	"nodatafound":"No data found",
+	"nodatatryother":"No relevant data was found. Try searching for other keywords.",
 	"newsdetails":"News details"
 }

@@ -9,7 +9,7 @@ import './search.scss'
 import http from '@/axios/http'
 import { useBottomScrollListener } from 'react-bottom-scroll-listener'
 
-export default function Search() {
+export default function Search({ t }) {
   const { keyword } = useParams()
 
 
@@ -71,13 +71,14 @@ export default function Search() {
   return (
     <Row className="search-container">
       <Col lg={{ span: 6, offset: 3 }}>
-        <SearchInput search={search} keyword={searchValue} />
+        <SearchInput t={t} search={search} keyword={searchValue} />
         {/* 有数据遍历 */}
         <div className="search-list">
           {
             searchValue && searchData.length
               ? searchData.map((item, index) => (
                 <SearchItem
+                  t={t}
                   key={`${item.id}${index}`}
                   id={item.id}
                   title={item.title}
@@ -92,7 +93,7 @@ export default function Search() {
             loadMore
               ? (
                 <div className="load-more" onClick={getSearchData}>
-                  <span>加载更多</span>
+                  <span>{t('loadmore')}</span>
                 </div>
               )
               : ''
@@ -103,8 +104,8 @@ export default function Search() {
           searchValue && !searchData.length
             ? (
               <div className="n-result">
-                <h4 className="t">没有找到数据</h4>
-                <p>没有搜索到相关数据，试一试搜索其他关键字</p>
+                <h4 className="t">{t('nodatafound')}</h4>
+                <p>{t('nodatatryother')}</p>
               </div>
             ) : ''
         }
