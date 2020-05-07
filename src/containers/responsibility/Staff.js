@@ -10,7 +10,7 @@ import arrowLeft from '@/assets/images/responsibility/arrow-left.png'
 import arrowRight from '@/assets/images/responsibility/arrow-right.png'
 import Detail from './Detail'
 
-export default function Staff() {
+export default function Staff({ t }) {
   const { isExact } = useRouteMatch()
   const history = useHistory()
   const [idx, setIdx] = useState(0)
@@ -46,10 +46,10 @@ export default function Staff() {
           <>
             <Breadcrumb>
               <li className="breadcrumb-item">
-                <Link to="/">首页</Link>
+                <Link to="/">{t('home')}</Link>
               </li>
-              <li className="breadcrumb-item">责任与关怀</li>
-              <Breadcrumb.Item active>员工与关怀</Breadcrumb.Item>
+              <li className="breadcrumb-item">{t('positions')}</li>
+              <Breadcrumb.Item active>{t('employee')}</Breadcrumb.Item>
             </Breadcrumb>
             <div className="responsibility-main-container">
               <div className="r-main-container">
@@ -66,6 +66,7 @@ export default function Staff() {
                     {list.length
                       ? list.map((item, index) => (
                         <ReportItem
+                          t={t}
                           key={item.id}
                           data={item}
                           onClick={() => handleClick(index)}
@@ -82,15 +83,15 @@ export default function Staff() {
           <>
             <Breadcrumb>
               <li className="breadcrumb-item">
-                <Link to="/">首页</Link>
+                <Link to="/">{t('home')}</Link>
               </li>
-              <li className="breadcrumb-item">责任与关怀</li>
+              <li className="breadcrumb-item">{t('positions')}</li>
               <li className="breadcrumb-item">
-                <Link to="/responsibility/staff">员工关怀</Link>
+                <Link to="/responsibility/staff">{t('employee')}</Link>
               </li>
-              <Breadcrumb.Item active>员工关怀详情</Breadcrumb.Item>
+              <Breadcrumb.Item active>{t('employeedetail')}</Breadcrumb.Item>
             </Breadcrumb>
-            <Route path="/responsibility/staff/:id" component={Detail} />
+            <Route path="/responsibility/staff/:id" render={(prop) => <Detail t={t} />} />
           </>
         )
       }
@@ -131,7 +132,9 @@ function StaffOpen({
   )
 }
 
-function ReportItem({ data, onClick, jump }) {
+function ReportItem({
+  data, onClick, jump, t,
+}) {
   const { title, create_time } = data
   return (
     <li className="d-flex report-item" onClick={onClick}>
@@ -140,7 +143,7 @@ function ReportItem({ data, onClick, jump }) {
         <span className="format">{create_time}</span>
       </div>
       <div className="options">
-        <button type="button" className="read-btn" onClick={jump}>阅读详情</button>
+        <button type="button" className="read-btn" onClick={jump}>{t('readdetail')}</button>
       </div>
     </li>
   )

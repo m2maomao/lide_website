@@ -24,7 +24,7 @@ import './contact.scss'
 import { message } from 'antd'
 import 'antd/dist/antd.css'
 
-export default function Contact() {
+export default function Contact({ t }) {
   const [values, setValues] = useState({
     name: '',
     contact: '',
@@ -60,21 +60,21 @@ export default function Contact() {
       message.config({
         top: 500,
       })
-      message.warning('请输入姓名')
+      message.warning(t('pleasename'))
       return
     }
     if (values.contact === undefined || values.contact === '') {
       message.config({
         top: 500,
       })
-      message.warning('请输入联系方式')
+      message.warning(t('pleasecontact'))
       return
     }
     if (values.content === undefined || values.content === '') {
       message.config({
         top: 500,
       })
-      message.warning('请输入留言')
+      message.warning(t('pleasemessage'))
       return
     }
     http.post('/home/Index/message', {
@@ -87,8 +87,8 @@ export default function Contact() {
         message.config({
           top: 500,
         })
-        message.loading('感谢您的留言', 2.5).then(
-          () => message.success('留言成功!'),
+        message.loading(t('thankmessage'), 2.5).then(
+          () => message.success(t('messagesuccessful')),
         )
         // 清空值，需要设置成功提示
         setValues({
@@ -116,12 +116,12 @@ export default function Contact() {
           <div className="d-flex com">
             <div className="d-flex fo-c">
               <div className="form-body">
-                <FormControl placeholder="姓名" name="name" value={values.name} onChange={onChange} />
-                <FormControl placeholder="联系方式" name="contact" value={values.contact} onChange={onChange} />
-                <FormControl placeholder="所属单位" name="company" value={values.company} onChange={onChange} require={false} />
-                <FormControl placeholder="留言" name="content" value={values.content} onChange={onChange} type="textarea" />
+                <FormControl placeholder={t('name')} name="name" value={values.name} onChange={onChange} />
+                <FormControl placeholder={t('contactway')} name="contact" value={values.contact} onChange={onChange} />
+                <FormControl placeholder={t('unitbelongs')} name="company" value={values.company} onChange={onChange} require={false} />
+                <FormControl placeholder={t('leavemessage')} name="content" value={values.content} onChange={onChange} type="textarea" />
                 <button type="button" className="submit" onClick={handleSubmit}>
-                  提交
+                  {t('submit')}
                 </button>
               </div>
             </div>

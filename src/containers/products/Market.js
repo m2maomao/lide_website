@@ -4,7 +4,7 @@ import { Banner } from 'com'
 import './market.scss'
 import { useState, useEffect } from 'react'
 
-export default function Market({ data = [] }) {
+export default function Market({ data = [], t }) {
   console.log('data is:', data)
 
   const [topData, midData, bottomData] = data
@@ -36,10 +36,10 @@ export default function Market({ data = [] }) {
     <>
       <Breadcrumb>
         <li className="breadcrumb-item">
-          <Link to="/">首页</Link>
+          <Link to="/">{t('home')}</Link>
         </li>
-        <li className="breadcrumb-item">产品与服务</li>
-        <Breadcrumb.Item active>市场服务</Breadcrumb.Item>
+        <li className="breadcrumb-item">{t('product')}</li>
+        <Breadcrumb.Item active>{t('mservice')}</Breadcrumb.Item>
       </Breadcrumb>
       <div className="main-side-container">
         <div className="market-container">

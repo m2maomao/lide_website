@@ -4,7 +4,7 @@ import { useFetch } from '@/hooks/useFetch'
 
 import Detail from './Detail'
 
-export default function Community() {
+export default function Community({ t }) {
   const { isExact } = useRouteMatch()
 
   const data = useFetch('/home/Responsibility/society', {
@@ -17,17 +17,17 @@ export default function Community() {
         <>
           <Breadcrumb>
             <li className="breadcrumb-item">
-              <Link to="/">首页</Link>
+              <Link to="/">{t('home')}</Link>
             </li>
-            <li className="breadcrumb-item">责任与关怀</li>
-            <Breadcrumb.Item active>社会责任</Breadcrumb.Item>
+            <li className="breadcrumb-item">{t('positions')}</li>
+            <Breadcrumb.Item active>{t('responsibility')}</Breadcrumb.Item>
           </Breadcrumb>
           <div className="responsibility-main-container">
             <div className="r-main-container">
               <ul>
                 {data.list.length
                   ? data.list.map((item, index) => (
-                    <Item key={index} data={item} idx={index} />
+                    <Item t={t} key={index} data={item} idx={index} />
                   ))
                   : ''}
               </ul>
@@ -38,22 +38,25 @@ export default function Community() {
         <>
           <Breadcrumb>
             <li className="breadcrumb-item">
-              <Link to="/">首页</Link>
+              <Link to="/">{t('home')}</Link>
             </li>
-            <li className="breadcrumb-item">责任与关怀</li>
+            <li className="breadcrumb-item">{t('positions')}</li>
             <li className="breadcrumb-item">
-              <Link to="/responsibility/community">社会责任</Link>
+              <Link to="/responsibility/community">{t('responsibility')}</Link>
             </li>
-            <Breadcrumb.Item active>责任详情</Breadcrumb.Item>
+            <Breadcrumb.Item active>{t('responsibilitydetail')}</Breadcrumb.Item>
           </Breadcrumb>
-          <Route path="/responsibility/community/:id" component={Detail} />
+          <Route
+            path="/responsibility/community/:id"
+            render={(prop) => <Detail t={t} />}
+          />
         </>
       )}
     </>
   )
 }
 
-function Item({ data, idx }) {
+function Item({ data, idx, t }) {
   const {
     title, summary, create_time, image, id,
   } = data
@@ -66,7 +69,7 @@ function Item({ data, idx }) {
         <p className="text">{summary}</p>
         <p className="date">{create_time}</p>
         <Link to={`/responsibility/community/${id}`} className="read-datail">
-          查看详情
+          {t('viewdetails')}
         </Link>
       </div>
       {idx % 2 !== 0 && <img src={image} alt="cover" className="cover" />}

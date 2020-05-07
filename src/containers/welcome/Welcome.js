@@ -72,11 +72,17 @@ export default function Welcome({ t }) {
                 <Route path="/welcome/culture" render={(prop) => <Culture t={t} />} />
                 <Route
                   path="/welcome/qualification"
-                  component={Qualification}
+                  render={(prop) => <Qualification t={t} />}
                 />
-                <Route path="/welcome/history" component={History} />
-                <Route path="/welcome/organ" component={Organ} />
-                <Route path="/welcome/evolution" component={Evolution} />
+                <Route
+                  path="/welcome/history"
+                  render={(prop) => <History t={t} />}
+                />
+                <Route
+                  path="/welcome/organ"
+                  render={(prop) => <Organ t={t} />}
+                />
+                <Route path="/welcome/evolution" render={(prop) => <Evolution t={t} />} />
                 <Route path="/welcome/magazine" component={Magazine} />
                 <Route path="/welcome/MagazineDetail/:id" component={MagazineDetail} />
               </div>

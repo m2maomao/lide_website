@@ -4,7 +4,7 @@ import { useFetch } from '@/hooks/useFetch'
 
 import './newsDetail.scss'
 
-export default function NewsDetail() {
+export default function NewsDetail({ t }) {
   const { id } = useParams()
 
   const data = useFetch(`/home/Journalism/detail?id=${id}`, { Detail: {} })
@@ -17,12 +17,12 @@ export default function NewsDetail() {
     <>
       <Breadcrumb>
         <li className="breadcrumb-item">
-          <Link to="/">首页</Link>
+          <Link to="/">{t('home')}</Link>
         </li>
         <li className="breadcrumb-item">
-          <Link to="/news">新闻动态</Link>
+          <Link to="/news">{t('news')}</Link>
         </li>
-        <Breadcrumb.Item active>新闻详情</Breadcrumb.Item>
+        <Breadcrumb.Item active>{t('newsdetails')}</Breadcrumb.Item>
       </Breadcrumb>
       <div className="news-detail-body">
         <div className="d-flex news-header">
@@ -32,7 +32,7 @@ export default function NewsDetail() {
               <span className="date">{create_time === undefined ? '' : create_time.slice(0, 10)}</span>
             </div>
             <Link to="/news" className="return">
-              返回列表
+              {t('returnlist')}
             </Link>
           </div>
         </div>

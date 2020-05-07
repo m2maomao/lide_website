@@ -4,7 +4,7 @@ import { WTitle, Timeline } from 'com'
 import { useFetch } from '@/hooks/useFetch'
 
 
-export default function History() {
+export default function History({ t }) {
   const { content } = useFetch('/home/Enterlide/devlopment', {
     content: [],
   })
@@ -13,14 +13,14 @@ export default function History() {
     <>
       <Breadcrumb>
         <li className="breadcrumb-item">
-          <Link to="/">首页</Link>
+          <Link to="/">{t('home')}</Link>
         </li>
-        <li className="breadcrumb-item">走进立得</li>
-        <Breadcrumb.Item active>发展历程</Breadcrumb.Item>
+        <li className="breadcrumb-item">{t('welcome')}</li>
+        <Breadcrumb.Item active>{t('history')}</Breadcrumb.Item>
       </Breadcrumb>
       <div className="p-1r">
         <div className="p-1r-content history-1r-content">
-          <WTitle title="发展历程" enTitle="developmenthistory" />
+          <WTitle title={t('history')} enTitle="developmenthistory" />
           <div className="timeline">
             {/* <TimelineItem /> */}
             {/* <Timeline list={content} /> */}

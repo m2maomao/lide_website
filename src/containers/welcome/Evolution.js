@@ -10,7 +10,7 @@ import imgAcquire from '@/assets/images/welcome/imgAcquire.png'
 import Limarquee from 'limarquee'
 import './evolution.css'
 
-export default function Evolution() {
+export default function Evolution({ t }) {
   const { content: { development = {}, acquire = {} } } = useFetch('/home/Enterlide/evolution', {
     content: {
       development: {},
@@ -41,14 +41,14 @@ export default function Evolution() {
     <>
       <Breadcrumb>
         <li className="breadcrumb-item">
-          <Link to="/">首页</Link>
+          <Link to="/">{t('home')}</Link>
         </li>
-        <li className="breadcrumb-item">走进立得</li>
-        <Breadcrumb.Item active>科研开发</Breadcrumb.Item>
+        <li className="breadcrumb-item">{t('welcome')}</li>
+        <Breadcrumb.Item active>{t('scientific')}</Breadcrumb.Item>
       </Breadcrumb>
       <div className="p-1r">
         <div className="p-1r-content">
-          <WTitle title="科研开发" enTitle="scientificresearch" />
+          <WTitle title={t('scientific')} enTitle="scientificresearch" />
           <div className="scientificre-search-wrapper">
             <p className="text">{development.summary}</p>
             <div className="d-flex development-images">
@@ -67,7 +67,7 @@ export default function Evolution() {
             <div className="acquire">
               <div className="d-flex h">
                 <img className="c" src={imgAcquire} alt="icon" />
-                <h3 className="t">所获奖项</h3>
+                <h3 className="t">{t('awardswon')}</h3>
               </div>
               <p className="text">{acquire.summary}</p>
               <div className="img-carousel">

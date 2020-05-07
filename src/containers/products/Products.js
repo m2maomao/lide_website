@@ -24,7 +24,7 @@ import Indexes from './Indexes'
 
 import './products.scss'
 
-export default function Products() {
+export default function Products({ t }) {
   const { pathname } = useLocation()
   const { isExact } = useRouteMatch()
   const history = useHistory()
@@ -72,7 +72,7 @@ export default function Products() {
   function handleClick(eventKey, firstName) {
     setIdx(eventKey)
     setChangeFirstName(firstName)
-    if (firstName === '市场服务') {
+    if (firstName === t('mservice')) {
       history.push('/products/market')
     }
   }
@@ -113,7 +113,7 @@ export default function Products() {
         <Col lg={{ span: 10, offset: 1 }}>
           <Row>
             <Col sm={3}>
-              <Side title="产品与服务">
+              <Side title={t('product')}>
                 <Accordion defaultActiveKey="0">
                   {
                     content.length ? content.map((item, index) => (
@@ -157,7 +157,7 @@ export default function Products() {
               <div className="products-main-body">
                 {
                   isExact
-                    ? <ProductList search={search} data={lists} secondName={secodeName} firstName={firstName} isInBottomRef={isInBottomRef} />
+                    ? <ProductList t={t} search={search} data={lists} secondName={secodeName} firstName={firstName} isInBottomRef={isInBottomRef} />
                     : (
                       <>
                         {
@@ -165,7 +165,7 @@ export default function Products() {
                             ? (
                               <Route
                                 path="/products/indexes"
-                                render={(prop) => <Indexes search={search} data={[]} isInBottomRef={isInBottomRef} {...prop} />}
+                                render={(prop) => <Indexes t={t} search={search} data={[]} isInBottomRef={isInBottomRef} {...prop} />}
                               />
                             )
                             : (
@@ -175,14 +175,14 @@ export default function Products() {
                                   ? (
                                     <Route
                                       path="/products/market"
-                                      render={(prop) => <Market data={marketService} {...prop} />}
+                                      render={(prop) => <Market t={t} data={marketService} {...prop} />}
                                     />
                                   )
                                   : (
                                     <Route
                                       path="/products/:id"
                             // component={Detail}
-                                      render={(prop) => <Detail data={[firstName, secodeName]} {...prop} />}
+                                      render={(prop) => <Detail t={t} data={[firstName, secodeName]} {...prop} />}
                                     />
                                   )
                               }

@@ -36,10 +36,10 @@ class App extends Component {
             />
             <Route path="/welcome" render={(prop) => <Welcome {...props} />} />
             <Route path="/search/:keyword" render={(prop) => <Search {...props} />} />
-            <Route path="/news" component={News} />
-            <Route path="/responsibility" component={Responsibility} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/products" component={Products} />
+            <Route path="/news" render={(prop) => <News {...props} />} />
+            <Route path="/responsibility" render={(prop) => <Responsibility {...props} />} />
+            <Route path="/contact" render={(prop) => <Contact {...props} />} />
+            <Route path="/products" render={(prop) => <Products {...props} />} />
 
           </Switch>
           <Footer {...props} />

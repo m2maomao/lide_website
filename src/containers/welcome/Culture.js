@@ -50,13 +50,13 @@ export default function Culture({ t }) {
           <div className="culture-body">
             <div className="d-flex culture-item">
               <img src={imgCulture1} alt="images" />
-              <Texts icon={imgBrand} title="品牌理念" list={state.content[0]} />
+              <Texts icon={imgBrand} title={t('brandconcept')} list={state.content[0]} />
               <img src={imgCulture3} alt="images" />
             </div>
             <div className="d-flex culture-item">
-              <Texts icon={imgValue} title="价值理念" list={state.content[1]} />
+              <Texts icon={imgValue} title={t('valueconcept')} list={state.content[1]} />
               <img src={imgCulture2} alt="images" />
-              <Texts icon={imgSocial} title="社会责任" list={state.content[2]} />
+              <Texts icon={imgSocial} title={t('socialresponsibility')} list={state.content[2]} />
             </div>
           </div>
           <img className="bottom-image" src={imgCulture4} alt="ima" />

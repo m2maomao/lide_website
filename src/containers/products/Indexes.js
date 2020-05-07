@@ -9,7 +9,7 @@ import { useFetch } from '@/hooks/useFetch'
 import _ from 'lodash'
 
 export default function Indexes({
-  data, isInBottomRef,
+  data, isInBottomRef, t,
 }) {
   const [lists, setLists] = useState([])
   // 请求数据
@@ -92,20 +92,20 @@ export default function Indexes({
       <SearchInput search={search} searchbtnvalue="产品搜索" />
       <Breadcrumb>
         <li className="breadcrumb-item">
-          <Link to="/">首页</Link>
+          <Link to="/">{t('home')}</Link>
         </li>
-        <Breadcrumb.Item active>产品索引</Breadcrumb.Item>
+        <Breadcrumb.Item active>{t('productindex')}</Breadcrumb.Item>
       </Breadcrumb>
       <div className="main-side-container">
         <table className="table table-striped table-borderless">
           <thead className="thead-dark">
             <tr>
-              <th scope="col" width="70">序号</th>
-              <th scope="col">系列</th>
-              <th scope="col">名称</th>
-              <th scope="col">种类</th>
-              <th scope="col" width="180">可替代进口同类产品</th>
-              <th scope="col">适用工艺</th>
+              <th scope="col" width="70">{t('no')}</th>
+              <th scope="col">{t('series')}</th>
+              <th scope="col">{t('category')}</th>
+              <th scope="col">{t('type')}</th>
+              <th scope="col" width="180">{t('siptbs')}</th>
+              <th scope="col">{t('applicableprocess')}</th>
             </tr>
           </thead>
           <tbody>
@@ -132,7 +132,7 @@ export default function Indexes({
           loadMore
             ? (
               <div className="load-more" onClick={loadMoreData}>
-                <span>加载更多</span>
+                <span>{t('loadmore')}</span>
               </div>
             )
             : ''

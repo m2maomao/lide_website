@@ -1,7 +1,7 @@
 import { useParams, useHistory } from 'react-router-dom'
 import { useFetch } from '@/hooks/useFetch'
 
-export default function Detail() {
+export default function Detail({ t }) {
   const { id } = useParams()
   const history = useHistory()
 
@@ -25,7 +25,7 @@ export default function Detail() {
             <span className="date">{create_time === undefined ? '' : create_time.slice(0, 10)}</span>
           </div>
           <button type="button" className="return" onClick={handleBack}>
-            返回列表
+            {t('returnlist')}
           </button>
         </div>
       </div>
