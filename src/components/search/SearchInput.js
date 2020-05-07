@@ -28,7 +28,7 @@ function SearchInput({
   return (
     <div className="big-search-input">
       <div className="d-flex ">
-        <input placeholder="关键字查找" value={inputValue} onChange={handleInputChange} onKeyDown={keyDownHandle} />
+        <input placeholder={t('keywordsearch')} value={inputValue} onChange={handleInputChange} onKeyDown={keyDownHandle} />
         <button type="button" onClick={handleClick}>{btnValue}</button>
       </div>
     </div>

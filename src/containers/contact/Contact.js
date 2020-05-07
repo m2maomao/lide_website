@@ -138,7 +138,7 @@ export default function Contact({ t }) {
                     alt="icon"
                     style={{ marginTop: '4px' }}
                   />
-                  <span>{contentH.connectUs.telephone}</span>
+                  <pre className="telephone">{contentH.connectUs.telephone}</pre>
                 </div>
                 <div className="d-flex">
                   <img src={imgPrinter} alt="icon" />

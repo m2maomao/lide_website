@@ -38,8 +38,8 @@
 	"applicableprocess":"Applicable process",
 	"recommendnews":"Recommend news",
 	"returnlist":"Return list",
-	"onlinepreview":"Online preview",
-	"filedownload":"File download",
+	"onlinepreview":"preview",
+	"filedownload":"download",
 	"formatpdf":"Format: PDF",
 	"responsibilitydetail":"Details of responsibility",
 	"viewdetails":"View details",
@@ -57,6 +57,7 @@
 	"submit":"Submit",
 	"search":"Search",
 	"nodatafound":"No data found",
+	"keywordsearch":"Keyword search",
 	"nodatatryother":"No relevant data was found. Try searching for other keywords.",
 	"newsdetails":"News details"
 }

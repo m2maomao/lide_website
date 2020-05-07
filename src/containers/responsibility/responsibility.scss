@@ -28,7 +28,7 @@
     .silders {
       position: absolute;
       width: pc2rem(330);
-      height: pc2rem(290);
+      min-height: pc2rem(290);
       left: pc2rem(100);
       background: rgba(38, 145, 209, 0.8);
       .title{
