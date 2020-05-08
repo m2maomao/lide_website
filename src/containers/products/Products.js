@@ -12,6 +12,7 @@ import { useFetch } from '@/hooks/useFetch'
 
 import coverImg from '@/assets/images/products/banner.png'
 import productIndex from '@/assets/images/products/product_index.png'
+import productIndexEn from '@/assets/images/products/product_index_en.png'
 
 import http from '@/axios/http'
 import '@/axios/config'
@@ -150,7 +151,12 @@ export default function Products({ t }) {
                 </Accordion>
               </Side>
               <Link to="/products/indexes">
-                <img className="products-index" src={productIndex} alt="" />
+                <img
+                  className="products-index"
+                  src={localStorage.getItem('i18nextLng') !== 'en'
+                    ? productIndex : productIndexEn}
+                  alt=""
+                />
               </Link>
             </Col>
             <Col sm={9}>
