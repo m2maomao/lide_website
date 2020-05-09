@@ -28,7 +28,8 @@ export default function Player({ mp4 }) {
       </div>
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Body>
-          <ReactPlayer url={mp4} width="100%" height="200" playing controls />
+          {/* <ReactPlayer url={mp4} width="100%" height="200" playing controls /> */}
+          <video src={mp4} width="100%" height="260" preload="auto" autoPlay controls controlsList="nodownload" />
         </Modal.Body>
       </Modal>
     </div>
