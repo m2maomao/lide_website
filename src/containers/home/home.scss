@@ -63,6 +63,7 @@
   .animation-div {
     position: relative;
     height: pc2rem(140);
+    right: pc2rem(-5);
     
     overflow: hidden;
     .jt {
@@ -144,6 +145,7 @@
         height: 100%;
         width: 100%;
         z-index: -1;
+        right:pc2rem(5);
       }
       .bg-ph {
         // display: none;
@@ -158,7 +160,7 @@
 
   /* 新闻动态 */
   .news {
-    z-index: 10000;
+    z-index: 999;
     margin-top: -6.25rem;
     background: #0187d0;
     position: relative;
@@ -171,6 +173,9 @@
     width: 100%;
     height: pc2rem(70);
     margin-top: 10px;
+    img{
+      height: pc2rem(70);
+    }
   }
 
   .more-news {

@@ -26,7 +26,7 @@ export default function Detail({ data = [] }) {
 
   const {
     Detail: {
-      title, image, content, description, summary, images,
+      title, image, content, description, summary, images, keywords,
     },
   } = useFetch(`/home/Production/detail?id=${id}`, {
     Detail: {},
@@ -54,7 +54,11 @@ export default function Detail({ data = [] }) {
             </div>
             <div className="head d-flex flex-column">
               <div>
-                <h3 className="title">{title}</h3>
+                <h3 className="title">
+                  {title}
+                  {' '}
+                  {keywords}
+                </h3>
                 <p className="summary">{summary}</p>
               </div>
               <div className="min-preview-imgs">

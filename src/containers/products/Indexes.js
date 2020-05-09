@@ -100,7 +100,6 @@ export default function Indexes({
         <table className="table table-striped table-borderless">
           <thead className="thead-dark">
             <tr>
-              <th scope="col" width="70">序号</th>
               <th scope="col">系列</th>
               <th scope="col">名称</th>
               <th scope="col">种类</th>
@@ -112,7 +111,6 @@ export default function Indexes({
             {
               listTemp && listTemp.map((item, index) => (
                 <tr key={index} onClick={() => goto(`/products/${item.id}`)}>
-                  <th scope="row">{item.id}</th>
                   <td>{item.serialtype}</td>
                   <td>
                     {item.title}

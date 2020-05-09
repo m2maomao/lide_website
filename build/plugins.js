@@ -35,7 +35,8 @@ const devPlugin = [
     template: resolve('public/index.html'),
     filename: 'index.html',
     title: config.title,
-    inject: true
+    inject: true,
+    favicon: resolve('src/assets/favicon.ico')
   }),
   new webpack.NamedModulesPlugin(), // 会打印出哪个文件更新了...
   new webpack.HotModuleReplacementPlugin()  // HMR
@@ -49,6 +50,7 @@ const prodPlugins = [
     template: resolve('public/index.html'),
     inject: true,
     title: config.title,
+    favicon: resolve('src/assets/favicon.ico'),
     minify: {
       removeComments: true,
       collapseWhitespace: true,

@@ -10,7 +10,8 @@ import marketIcon from '@/assets/images/home/market.png'
 import trueLeft from '@/assets/images/home/true-left.png'
 import newsImg from '@/assets/images/home/news-img.png'
 import line from '@/assets/images/home/line.png'
-import logo from '@/assets/images/home/logo.png'
+import logo1 from '@/assets/images/home/logo-1.png'
+import logo2 from '@/assets/images/home/logo-2.png'
 import jt1 from '@/assets/images/home/jt1.png'
 import jt2 from '@/assets/images/home/jt2.png'
 import jt3 from '@/assets/images/home/jt3.png'
@@ -113,7 +114,10 @@ export default function Home({ lng, t }) {
                     ))}
                 </ul>
               </div>
-              <img className="logo" src={logo} alt="logo" />
+              <div className="logo">
+                <a href="http://www.sinopec.com" target="_blank" rel="noopener noreferrer"><img src={logo1} alt="logo1" /></a>
+                <a href="http://www.srici.com" target="_blank" rel="noopener noreferrer"><img src={logo2} alt="logo2" /></a>
+              </div>
             </Col>
           </Row>
         </Col>
