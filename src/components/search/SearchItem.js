@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import './searchItem.scss'
 
 export default function SearchItem({
-  title, create_time, firstColumn, secondColumn, id,
+  title, create_time, firstColumn, secondColumn, id, t,
 }) {
   const history = useHistory()
 
@@ -41,7 +41,7 @@ export default function SearchItem({
       <div className="link">
         <i className="read-more-icon" />
         <button type="button" onClick={() => handleClick(firstColumn, secondColumn, id)} className="read-more-link">
-          阅读详情
+          {t('readdetail')}
         </button>
       </div>
     </div>

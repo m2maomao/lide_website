@@ -421,7 +421,7 @@ $colorSky :#0187d0;
       .content{
         width: 39%;
         right: 11%;
-        height: 250px;
+        min-height: 250px;
         position: absolute;
         bottom: 0px;
         background: rgba($color: $colorSky, $alpha: .8);
@@ -454,7 +454,7 @@ $colorSky :#0187d0;
       .content{
         width: 39%;
         right: 11%;
-        height: 250px;
+        min-height: 250px;
         position: absolute;
         bottom: 0px;
         background: rgba($color: $colorSky, $alpha: .8);
@@ -501,7 +501,7 @@ $colorSky :#0187d0;
       left: 9%;
       top: 32%;
       span{
-        font-size: pc2rem(30)!important;
+        // font-size: pc2rem(30)!important;
         background: none!important;
         width: pc2rem(330);
         display: block;

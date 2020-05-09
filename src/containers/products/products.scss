@@ -64,7 +64,8 @@
     }
     .card-img-top {
       display: block;
-      min-height: 100px;
+      height: 15.5rem;
+      object-fit: contain;
     }
     .card-body {
       background-color: #f7f7f7;

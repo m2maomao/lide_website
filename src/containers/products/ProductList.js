@@ -7,6 +7,7 @@ import { SearchItem, SearchInput } from 'com'
 import _ from 'lodash'
 
 export default function ProductList({
+  t,
   data, search, secondName, firstName, isInBottomRef,
 }) {
   // 父组件传入数据
@@ -47,12 +48,12 @@ export default function ProductList({
 
   return (
     <>
-      <SearchInput search={search} searchbtnvalue="产品搜索" />
+      <SearchInput t={t} search={search} searchbtnvalue={t('productsearch')} />
       <Breadcrumb>
         <li className="breadcrumb-item">
-          <Link to="/">首页</Link>
+          <Link to="/">{t('home')}</Link>
         </li>
-        <li className="breadcrumb-item">产品与服务</li>
+        <li className="breadcrumb-item">{t('product')}</li>
         <li className="breadcrumb-item">{firstName}</li>
         <Breadcrumb.Item active>{secondName}</Breadcrumb.Item>
       </Breadcrumb>
@@ -80,14 +81,14 @@ export default function ProductList({
                     </Card>
                   </Link>
                 </div>
-              )) : '暂无产品'
+              )) : t('noproduct')
             }
           </div>
           {
             loadMore
               ? (
                 <div className="load-more" onClick={loadMoreData}>
-                  <span>加载更多</span>
+                  <span>{t('loadmore')}</span>
                 </div>
               )
               : ''

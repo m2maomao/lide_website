@@ -6,7 +6,7 @@ import http from '@/axios/http'
 
 // import companyCover from '@/assets/images/welcome/company-cover.png'
 
-export default function Organ() {
+export default function Organ({ t }) {
   const [state, setState] = useState({
     seo: '',
     content: '',
@@ -34,14 +34,14 @@ export default function Organ() {
     <>
       <Breadcrumb>
         <li className="breadcrumb-item">
-          <Link to="/">首页</Link>
+          <Link to="/">{t('home')}</Link>
         </li>
-        <li className="breadcrumb-item">走进立得</li>
-        <Breadcrumb.Item active>组织架构</Breadcrumb.Item>
+        <li className="breadcrumb-item">{t('welcome')}</li>
+        <Breadcrumb.Item active>{t('structure')}</Breadcrumb.Item>
       </Breadcrumb>
       <div className="p-1r">
         <div className="p-1r-content">
-          <WTitle title="组织架构" enTitle="organizationalstructure" />
+          <WTitle title={t('structure')} enTitle="organizationalstructure" />
           <div className="d-flex organ-summary">
             <div className="d-flex flex-column">
               <img src={content[0]} alt="" />

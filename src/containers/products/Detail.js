@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 import './detail.scss'
 
-export default function Detail({ data = [] }) {
+export default function Detail({ data = [], t }) {
   const [firstName, secodeName] = data
   console.log('data is:', data)
   const { id } = useParams()
@@ -37,9 +37,9 @@ export default function Detail({ data = [] }) {
     <>
       <Breadcrumb>
         <li className="breadcrumb-item">
-          <Link to="/">首页</Link>
+          <Link to="/">{t('home')}</Link>
         </li>
-        <li className="breadcrumb-item"><Link to="/products">产品与服务</Link></li>
+        <li className="breadcrumb-item"><Link to="/products">{t('product')}</Link></li>
         <li className="breadcrumb-item"><Link to="/products">{firstName}</Link></li>
         <li className="breadcrumb-item"><Link to="/products">{secodeName}</Link></li>
         <Breadcrumb.Item active>{title}</Breadcrumb.Item>
@@ -62,7 +62,7 @@ export default function Detail({ data = [] }) {
                 <p className="summary">{summary}</p>
               </div>
               <div className="min-preview-imgs">
-                <p>产品展示</p>
+                <p>{t('productdisplay')}</p>
                 <ul className="d-flex">
                   {
                     images && images.length ? images.map((item, index) => (

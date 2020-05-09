@@ -6,7 +6,7 @@ import coverImage from '@/assets/images/responsibility-c.png'
 import pdfIcon from '@/assets/images/responsibility/pdf.png'
 import { useState, useEffect } from 'react'
 
-export default function Info() {
+export default function Info({ t }) {
   const { list } = useFetch('/home/Responsibility/info', {
     list: [],
   })
@@ -21,17 +21,17 @@ export default function Info() {
     <>
       <Breadcrumb>
         <li className="breadcrumb-item">
-          <Link to="/">首页</Link>
+          <Link to="/">{t('home')}</Link>
         </li>
-        <li className="breadcrumb-item">责任与关怀</li>
-        <Breadcrumb.Item active>信息公开</Breadcrumb.Item>
+        <li className="breadcrumb-item">{t('positions')}</li>
+        <Breadcrumb.Item active>{t('information')}</Breadcrumb.Item>
       </Breadcrumb>
       <div className="responsibility-main-container">
         <div className="r-main-container">
           <div className="p-banner">
             {
               list.map((item, index) => (
-                index === currentIndex ? <Sider item={item} setIndex={setIndex} currentIndex={currentIndex} listLength={list.length} key={index} /> : ''
+                index === currentIndex ? <Sider t={t} item={item} setIndex={setIndex} currentIndex={currentIndex} listLength={list.length} key={index} /> : ''
               ))
             }
             <img className="covers" src={coverImage} alt="img" />
@@ -40,7 +40,7 @@ export default function Info() {
             <ul>
               {
               list.map((item, index) => (
-                <ReportItem title={item.title} download={item.download} key={index} />
+                <ReportItem title={item.title} download={item.download} key={index} t={t} />
               ))
             }
             </ul>
@@ -53,7 +53,7 @@ export default function Info() {
 
 
 function Sider({
-  item, setIndex, listLength, currentIndex,
+  item, setIndex, listLength, currentIndex, t,
 }) {
   console.log(item)
 
@@ -94,12 +94,12 @@ function Sider({
       <div className="d-flex buttons">
         <button className="btns " type="button" onClick={() => handleClickPreview(item.download)}>
           <i />
-          在线预览
+          {t('onlinepreview')}
         </button>
         {/* <button className="btns " type="button" download={item.download}> */}
         <a href="###" className="btns " download={item.download}>
           <i />
-          文件下载
+          {t('filedownload')}
         </a>
         {/* </button> */}
       </div>
@@ -107,7 +107,7 @@ function Sider({
   )
 }
 
-function ReportItem({ title, download }) {
+function ReportItem({ title, download, t }) {
   function handleClickPreview(download) {
     window.open(download)
   }
@@ -120,14 +120,14 @@ function ReportItem({ title, download }) {
       <img className="file-type-icon" src={pdfIcon} alt="cover" />
       <div className="t">
         <h3 className="t-t">{title}</h3>
-        <span className="format">格式：PDF</span>
+        <span className="format">{t('formatpdf')}</span>
       </div>
       <div className="options">
         <button type="button" className="preview-btn" onClick={() => handleClickPreview(download)}>
-          在线预览
+          {t('onlinepreview')}
         </button>
         <a href="###" className="download-btn" download={download}>
-          文件下载
+          {t('filedownload')}
         </a>
       </div>
     </li>

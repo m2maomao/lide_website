@@ -8,7 +8,7 @@ import NewsDetail from '../newsDetail/NewsDetail'
 
 import './news.scss'
 
-export default function News() {
+export default function News({ t }) {
   const { isExact } = useRouteMatch()
 
   const data = useFetch('/home/Journalism/index', {
@@ -25,10 +25,10 @@ export default function News() {
         <Col lg={{ span: 10, offset: 1 }}>
           <Row>
             <Col sm={4}>
-              <Side title="新闻动态">
+              <Side title={t('news')}>
                 <div className="a-next">
                   <button type="button" className="sc-r recommend-btn">
-                    推荐新闻
+                    {t('recommendnews')}
                   </button>
                   {newsHot.length
                     ? newsHot.map((item) => (
@@ -55,9 +55,9 @@ export default function News() {
                   <>
                     <Breadcrumb>
                       <li className="breadcrumb-item">
-                        <Link to="/">首页</Link>
+                        <Link to="/">{t('home')}</Link>
                       </li>
-                      <Breadcrumb.Item active>新闻动态</Breadcrumb.Item>
+                      <Breadcrumb.Item active>{t('news')}</Breadcrumb.Item>
                     </Breadcrumb>
                     <div className="news-detail-body">
                       <ul className="new-lists">
@@ -70,7 +70,10 @@ export default function News() {
                     </div>
                   </>
                 ) : (
-                  <Route path="/news/:id" component={NewsDetail} />
+                  <Route
+                    path="/news/:id"
+                    render={(prop) => <NewsDetail t={t} />}
+                  />
                 )}
               </div>
             </Col>

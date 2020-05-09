@@ -23,7 +23,7 @@ import './footer.scss'
 
 export default function Footer({ t, i18n }) {
   const [qr, setQr] = useState(qrcode)
-  const [qrStr, setQrStr] = useState('立得催化剂官方公众号')
+  const [qrStr, setQrStr] = useState(t('wechatofficialaccount'))
 
   const handleClickTop = () => {
     let move = window.scrollY
@@ -40,10 +40,10 @@ export default function Footer({ t, i18n }) {
 
   const handChangeCode = (type) => {
     if (type === 'weibo') {
-      setQrStr('立得催化剂官方微博')
+      setQrStr(t('officialmicorblog'))
       setQr(weiboCode)
     } else {
-      setQrStr('立得催化剂官方公众号')
+      setQrStr(t('wechatofficialaccount'))
       setQr(qrcode)
     }
   }

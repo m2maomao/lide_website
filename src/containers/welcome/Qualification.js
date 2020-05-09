@@ -12,7 +12,7 @@ import $ from 'jquery'
 import { lightbox2 } from 'lightbox2'
 import 'lightbox2/dist/css/lightbox.css'
 
-export default function Qualification() {
+export default function Qualification({ t }) {
   const { content } = useFetch('/home/Enterlide/aptitude', {
     content: [],
   })
@@ -25,14 +25,14 @@ export default function Qualification() {
     <>
       <Breadcrumb>
         <li className="breadcrumb-item">
-          <Link to="/">首页</Link>
+          <Link to="/">{t('home')}</Link>
         </li>
-        <li className="breadcrumb-item">走进立得</li>
-        <Breadcrumb.Item active>资质与荣誉</Breadcrumb.Item>
+        <li className="breadcrumb-item">{t('welcome')}</li>
+        <Breadcrumb.Item active>{t('qualification')}</Breadcrumb.Item>
       </Breadcrumb>
       <div className="p-1r">
         <div className="p-1r-content">
-          <WTitle title="资质与荣誉" enTitle="Qualificationandhonor" />
+          <WTitle title={t('qualification')} enTitle="Qualificationandhonor" />
           <div className="qualification-honor" id="lightgallery">
             <div className="qualification">
               <div className="d-flex h">
