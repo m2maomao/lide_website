@@ -58,6 +58,8 @@
 	"search":"Search",
 	"nodatafound":"No data found",
 	"keywordsearch":"Keyword search",
+	"wechatofficialaccount":"WeChat official account",
+	"officialmicorblog":"Official Micro-blog",
 	"nodatatryother":"No relevant data was found. Try searching for other keywords.",
 	"newsdetails":"News details"
 }
