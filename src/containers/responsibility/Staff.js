@@ -137,13 +137,13 @@ function ReportItem({
 }) {
   const { title, create_time } = data
   return (
-    <li className="d-flex report-item" onClick={onClick}>
+    <li className="d-flex report-item" onClick={jump}>
       <div className="t">
         <h3 className="t-t">{title}</h3>
         <span className="format">{create_time}</span>
       </div>
       <div className="options">
-        <button type="button" className="read-btn" onClick={jump}>{t('readdetail')}</button>
+        <button type="button" className="read-btn">{t('readdetail')}</button>
       </div>
     </li>
   )

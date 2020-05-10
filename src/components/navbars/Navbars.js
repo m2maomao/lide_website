@@ -187,7 +187,7 @@ function Navbars(props) {
               className="switch-language-btn"
               onClick={changeLanguage}
             >
-              {i18n.language === 'en' ? 'Ch' : 'En'}
+              {i18n.language === 'en' ? '中文' : 'En'}
             </button>
           </div>
         </Navbar>

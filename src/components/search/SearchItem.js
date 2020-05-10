@@ -33,14 +33,14 @@ export default function SearchItem({
   }
 
   return (
-    <div className="d-flex search-item">
+    <div className="d-flex search-item" onClick={() => handleClick(firstColumn, secondColumn, id)}>
       <div className="content">
         <h3 className="title">{title}</h3>
         <span className="date">{create_time}</span>
       </div>
       <div className="link">
         <i className="read-more-icon" />
-        <button type="button" onClick={() => handleClick(firstColumn, secondColumn, id)} className="read-more-link">
+        <button type="button" className="read-more-link">
           {t('readdetail')}
         </button>
       </div>

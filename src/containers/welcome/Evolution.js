@@ -48,7 +48,7 @@ export default function Evolution({ t }) {
       </Breadcrumb>
       <div className="p-1r">
         <div className="p-1r-content">
-          <WTitle title={t('scientific')} enTitle="scientificresearch" />
+          <WTitle title={t('scientific')} enTitle="scientific research" />
           <div className="scientificre-search-wrapper">
             <p className="text">{development.summary}</p>
             <div className="d-flex development-images">
