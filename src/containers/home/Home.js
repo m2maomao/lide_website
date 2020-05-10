@@ -38,6 +38,7 @@ export default function Home({ lng, t }) {
   }
 
   useEffect(() => {
+    document.title = t('titleIndex')
     getData()
   }, [lng])
 
