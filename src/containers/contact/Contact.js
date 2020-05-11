@@ -2,6 +2,7 @@ import {
   Row, Col, Button, Alert,
 } from 'react-bootstrap'
 import { useState, setState, useEffect } from 'react'
+import { getImage } from '@/assets/js/lib'
 
 // import {
 //   Map, Marker, NavigationControl, InfoWindow,
@@ -152,7 +153,7 @@ export default function Contact({ t }) {
               <div className="d-flex wechat">
                 <img src={imgWechat} alt="wechat" />
                 <p>{contentH.connectUs.wechatname}</p>
-                <img className="qrcode" src={contentH.connectUs.ercode} alt="qrcode" />
+                <img className="qrcode" src={getImage(contentH.connectUs.ercode)} alt="qrcode" />
               </div>
             </div>
           </div>

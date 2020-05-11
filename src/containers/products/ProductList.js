@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { Breadcrumb, CardColumns, Card } from 'react-bootstrap'
 import { SearchItem, SearchInput } from 'com'
 import _ from 'lodash'
+import { getImage } from '@/assets/js/lib'
 
 export default function ProductList({
   t,
@@ -66,7 +67,7 @@ export default function ProductList({
                 <div className="col mb-4" key={index}>
                   <Link to={`/products/${item.id}`}>
                     <Card className="item">
-                      <Card.Img variant="top" src={item.image} alt={item.title} />
+                      <Card.Img variant="top" src={getImage(item.image)} alt={item.title} />
                       <Card.Body>
                         <div className="d-flex">
                           <div>

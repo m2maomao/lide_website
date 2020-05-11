@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Breadcrumb } from 'react-bootstrap'
 import { WTitle } from 'com'
 import http from '@/axios/http'
+import { getImage } from '@/assets/js/lib'
 
 // import companyCover from '@/assets/images/welcome/company-cover.png'
 
@@ -44,7 +45,7 @@ export default function Organ({ t }) {
           <WTitle title={t('structure')} enTitle="organizationalstructure" />
           <div className="d-flex organ-summary">
             <div className="d-flex flex-column">
-              <img src={content[0]} alt="" />
+              <img src={getImage(content[0])} alt="" />
             </div>
           </div>
           {/* <div className="d-flex data-summary">

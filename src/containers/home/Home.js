@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Row, Col } from 'react-bootstrap'
 import { Banner, Player } from 'com'
-
+import { getImage } from '@/assets/js/lib'
 import http from '@/axios/http'
 
 import productIcon from '@/assets/images/home/product.png'
@@ -104,7 +104,7 @@ export default function Home({ lng, t }) {
                       <li className="news-item" key={item.id}>
                         <Link to={`/news/${item.id}`}>
                           <img
-                            src={item.image}
+                            src={getImage(item.image)}
                             // src={newsImg}
                             alt="news"
                             className="news-cover"

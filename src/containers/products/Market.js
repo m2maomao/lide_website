@@ -3,6 +3,7 @@ import { Breadcrumb, Carousel } from 'react-bootstrap'
 import { Banner } from 'com'
 import './market.scss'
 import { useState, useEffect } from 'react'
+import { getImage } from '@/assets/js/lib'
 
 export default function Market({ data = [], t }) {
   console.log('data is:', data)
@@ -177,7 +178,7 @@ function MiddleBanner({ lists, listCurrentIndex, setListCurrentIndex }) {
       {lists.length
         && lists.map((list, index) => (
           <Carousel.Item key={index}>
-            <img className="d-block w-80" src={list.image} alt="banner" />
+            <img className="d-block w-80" src={getImage(list.image)} alt="banner" />
           </Carousel.Item>
         ))}
     </Carousel>
@@ -191,7 +192,7 @@ function TopBottomBanner({ lists }) {
       {lists.length
         && lists.map((list, index) => (
           <Carousel.Item key={index}>
-            <img className="d-block w-80" src={list.image} alt="banner" />
+            <img className="d-block w-80" src={getImage(list.image)} alt="banner" />
           </Carousel.Item>
         ))}
     </Carousel>

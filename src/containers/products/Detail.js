@@ -2,6 +2,7 @@ import { Link, useParams, useHistory } from 'react-router-dom'
 import { Breadcrumb } from 'react-bootstrap'
 import { useFetch } from '@/hooks/useFetch'
 import { useState } from 'react'
+import { getImage } from '@/assets/js/lib'
 
 import './detail.scss'
 
@@ -49,7 +50,7 @@ export default function Detail({ data = [], t }) {
           <div className="d-flex meta">
             <div className="cover">
               {images && images.length
-                ? <img src={images[currentIndex].image} alt={description} />
+                ? <img src={getImage(images[currentIndex].image)} alt={description} />
                 : ''}
             </div>
             <div className="head d-flex flex-column">
@@ -67,7 +68,7 @@ export default function Detail({ data = [], t }) {
                   {
                     images && images.length ? images.map((item, index) => (
                       <li key={index} onClick={() => setIndex(index)}>
-                        <img src={item.image} alt={item.title} />
+                        <img src={getImage(item.image)} alt={item.title} />
                       </li>
                     )) : ''
                   }
