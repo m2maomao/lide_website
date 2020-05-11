@@ -135,29 +135,21 @@
 }
 
 @media screen and (max-width: 576px) {
-  .navbar {
-    margin: 0 !important;
-    padding: 10px !important;
-  }
-  .navbar-brand > img {
-    width: 100px;
-  }
-  .nav-link {
-    text-align: center;
-  }
-  .navbar-collapse {
-    border-top: 1px solid #2962ae;
-    margin-top: 10px;
-    margin-right: -10px;
-    margin-left: -10px;
-  }
-  .nav-right {
-    display: block;
-    width: 100%;
-  }
-  .switch-language-btn {
-    display: block;
-    margin: 0 auto;
+  .wap-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo{
+      width: 100px;
+      height: 36px;
+      margin: 10px;
+    }
+    .search-btn{
+      width: 25px;
+      height: 25px;
+      margin-right: 20px;
+      background: url('../../assets/images/wap-cate.png') center center / 25px auto no-repeat;
+    }
   }
 }
 .navbar-nav{

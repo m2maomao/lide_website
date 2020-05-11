@@ -178,6 +178,7 @@
         width: ph2rem(150);
         height: ph2rem(50);
         margin-bottom: ph2rem(10);
+        display: none;
       }
       .phone-text {
         margin-bottom: ph2rem(10);
@@ -189,6 +190,7 @@
       }
     }
     .link-list {
+      display: none;
       .nav-list {
         p {
           font-size: 12px;
@@ -214,6 +216,7 @@
     }
     .foot-icons {
       justify-content: left;
+      display: none;
       .account {
         order: 1;
         position: relative;

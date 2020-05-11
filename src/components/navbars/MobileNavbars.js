@@ -20,8 +20,12 @@ function MobileNavbars(props) {
   }
 
   return (
-    <div style={{ width: '100%' }}>
-      <Navbar className="d-flex d-sm-none" bg="white" expand="lg">
+    <div style={{ width: '100%' }} className="wap-top">
+      <div className="logo-wrap">
+        <Logo />
+      </div>
+      <div className="search-btn" />
+      {/* <Navbar className="d-flex d-sm-none" bg="white" expand="lg">
         <Navbar.Brand href="/">
           <Logo />
         </Navbar.Brand>
@@ -61,7 +65,7 @@ function MobileNavbars(props) {
             </button>
           </div>
         </Navbar.Collapse>
-      </Navbar>
+      </Navbar> */}
     </div>
   )
 }
