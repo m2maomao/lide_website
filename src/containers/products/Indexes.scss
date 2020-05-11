@@ -1,8 +1,11 @@
+@function pc2rem($px) {
+    @return #{$px/1920 * 100}rem;
+  }
 .main-side-container{
     .table .thead-dark th{
         background-color: #2862ae;
         border-color: #2862ae;
-        font-size: 16px;
+        font-size: pc2rem(18);
     }
     .table-striped tbody{
         font-size: 14px;

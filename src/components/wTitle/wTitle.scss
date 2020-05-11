@@ -9,7 +9,7 @@
     padding: pc2rem(60) 0;
     text-align: center;
     color: #2862ae;
-    font-size: 24px;
+    font-size: pc2rem(28);
     font-family: 'sc-b';
     z-index: 1;
   }
@@ -21,6 +21,6 @@
     z-index: 0;
     color: #f4f6f9;
     font-family: 'sc-h';
-    font-size: 48px;
+    font-size: pc2rem(48);
   }
 }

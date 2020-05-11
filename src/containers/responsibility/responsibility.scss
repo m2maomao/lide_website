@@ -42,11 +42,11 @@
           color: #fff;
           i{
             font-style: normal;
-            font-size: 30px;
+            font-size: pc2rem(35);
             font-weight: bold;
           }
           span{
-            font-size: 18px;
+            font-size: pc2rem(21);
           }
         }
         .arrow-wrap{
@@ -68,6 +68,7 @@
         }
       }
       .content{
+        font-size: pc2rem(18);
         padding: 0 pc2rem(30);
         height: pc2rem(150);
         color: #fff;
