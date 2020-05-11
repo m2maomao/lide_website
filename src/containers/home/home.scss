@@ -184,7 +184,7 @@
     justify-content: space-between;
     align-items: center;
     .title {
-      font-size: 28px;
+      font-size: pc2rem(31);
       margin-left: pc2rem(30);
     }
     img {
@@ -217,7 +217,7 @@
     }
     .news-title {
       width: 100%;
-      font-size: 14px;
+      font-size: pc2rem(16);
       overflow: hidden;
       text-overflow: ellipsis;
       padding-right: pc2rem(15);
