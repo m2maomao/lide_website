@@ -1,0 +1,8 @@
+@function pc2rem($px) {
+    @return #{$px/1920 * 100}rem;
+  }
+
+  .logo{
+      width: pc2rem(150);
+      height: pc2rem(49);
+  }

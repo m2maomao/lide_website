@@ -14,9 +14,10 @@
 }
 
 .navbar {
-  margin-top: 10px !important;
+  font-size: pc2rem(20);
+  margin-top: pc2rem(10) !important;
   z-index: 999;
-  padding: 0 20px !important;
+  padding: 0 pc2rem(20) !important;
   justify-content: space-between !important;
 }
 .navbar-nav {
@@ -28,11 +29,12 @@
 .nav-link {
   text-align: center;
   position: relative;
+
   color:#666 !important;
   font-weight: bold;
   &.active {
     color: #2862ae !important;
-    border-bottom: 4px solid #2862ae;
+    border-bottom: pc2rem(6) solid #2862ae;
   }
   padding-top: pc2rem(18) !important;
   padding-bottom: pc2rem(18) !important;
@@ -45,7 +47,7 @@
 .welcome{
   width: pc2rem(150);
   position: absolute;
-  top: pc2rem(64);
+  top: pc2rem(70);
   left: -70%;
   width: 240%;
   background: #fff;
@@ -69,7 +71,7 @@
 .responsibility{
   width: pc2rem(150);
   position: absolute;
-  top: pc2rem(64);
+  top: pc2rem(70);
   left: -70%;
   width: 240%;
   background: #fff;
@@ -94,7 +96,7 @@
 .products{
   width: pc2rem(150);
   position: absolute;
-  top: pc2rem(64);
+  top: pc2rem(70);
   left: -70%;
   width: 240%;
   background: #fff;
@@ -121,7 +123,7 @@
   border: none;
   background: none;
   outline: none;
-  font-size: 18px;
+  font-size: pc2rem(20);
   &:focus {
     outline: none;
   }
