@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { useState } from 'react'
 import Logo from '../logo/Logo'
 import SearchButton from '../search/SearchButton'
 
@@ -7,6 +8,8 @@ import './navbars.scss'
 
 function MobileNavbars(props) {
   const { t, i18n } = props
+
+  const [menuShow, setMenuShow] = useState(false)
 
   // 切换中英文
   function changeLanguage() {
@@ -24,7 +27,7 @@ function MobileNavbars(props) {
       <div className="logo-wrap">
         <Logo />
       </div>
-      <div className="search-btn" />
+      <div className="search-btn" onClick={() => setMenuShow(true)} />
       {/* <Navbar className="d-flex d-sm-none" bg="white" expand="lg">
         <Navbar.Brand href="/">
           <Logo />
@@ -66,6 +69,36 @@ function MobileNavbars(props) {
           </div>
         </Navbar.Collapse>
       </Navbar> */}
+      <>
+        {menuShow ? <div className="menu_panel_bg" /> : ''}
+        <div className={['menu', menuShow ? 'showM' : ''].join(' ')}>
+          <div className="top">
+            <div className="language-btn" onClick={changeLanguage}>{i18n.language === 'en' ? '中文' : 'En'}</div>
+            <div className="close-btn" onClick={() => setMenuShow(false)} />
+          </div>
+          <ul>
+            <li>{t('welcome')}</li>
+            <li>{t('product')}</li>
+            <li>{t('news')}</li>
+            <li className="active">
+              {t('positions')}
+              <ul>
+                <li>
+                  <Link to="/responsibility/info">{t('information')}</Link>
+                </li>
+                <li>
+                  <Link to="/responsibility/community">{t('responsibility')}</Link>
+                </li>
+                <li>
+                  <Link to="/responsibility/staff">{t('employee')}</Link>
+                </li>
+              </ul>
+            </li>
+            <li>{t('contact')}</li>
+          </ul>
+        </div>
+      </>
+
     </div>
   )
 }
