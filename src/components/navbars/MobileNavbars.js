@@ -4,10 +4,11 @@ import { useState } from 'react'
 import Logo from '../logo/Logo'
 import SearchButton from '../search/SearchButton'
 
+
 import './navbars.scss'
 
 function MobileNavbars(props) {
-  const { t, i18n } = props
+  const { t, i18n, history } = props
 
   const [menuShow, setMenuShow] = useState(false)
 
@@ -20,6 +21,12 @@ function MobileNavbars(props) {
   // 搜索
   function handleSearch() {
     console.log('search')
+  }
+
+  // 跳转
+  function handleClick(src) {
+    setMenuShow(false)
+    history.push(src)
   }
 
   return (
@@ -77,24 +84,19 @@ function MobileNavbars(props) {
             <div className="close-btn" onClick={() => setMenuShow(false)} />
           </div>
           <ul>
-            <li>{t('welcome')}</li>
-            <li>{t('product')}</li>
-            <li>{t('news')}</li>
+            <li onClick={() => handleClick('/')}>{t('home')}</li>
+            <li onClick={() => handleClick('/welcome/introduce')}>{t('welcome')}</li>
+            <li onClick={() => handleClick('/products')}>{t('product')}</li>
+            <li onClick={() => handleClick('/news')}>{t('news')}</li>
             <li className="active">
               {t('positions')}
               <ul>
-                <li>
-                  <Link to="/responsibility/info">{t('information')}</Link>
-                </li>
-                <li>
-                  <Link to="/responsibility/community">{t('responsibility')}</Link>
-                </li>
-                <li>
-                  <Link to="/responsibility/staff">{t('employee')}</Link>
-                </li>
+                <li onClick={() => handleClick('/responsibility/info')}>{t('information')}</li>
+                <li onClick={() => handleClick('/responsibility/community')}>{t('responsibility')}</li>
+                <li onClick={() => handleClick('/responsibility/staff')}>{t('employee')}</li>
               </ul>
             </li>
-            <li>{t('contact')}</li>
+            <li onClick={() => handleClick('/contact')}>{t('contact')}</li>
           </ul>
         </div>
       </>
