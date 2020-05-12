@@ -7,6 +7,7 @@ import {
 } from 'react'
 import _ from 'lodash'
 import { useBottomScrollListener } from 'react-bottom-scroll-listener'
+import { getImage } from '@/assets/js/lib'
 import MagazineDetail from './MagazineDetail'
 
 // import imgAcquire from '@/assets/images/welcome/imgAcquire.png'
@@ -116,7 +117,7 @@ function Item({ isIcon, data }) {
             </div>
             )
           }
-          <img className="post-image" src={image} alt="图片" />
+          <img className="post-image" src={getImage(image)} alt="图片" />
           <div className="d-flex">
             <h3 className="t">{title}</h3>
           </div>

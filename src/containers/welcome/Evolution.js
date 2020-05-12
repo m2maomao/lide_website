@@ -9,6 +9,7 @@ import imgAcquire from '@/assets/images/welcome/imgAcquire.png'
 
 import Limarquee from 'limarquee'
 import './evolution.css'
+import { getImage } from '@/assets/js/lib'
 
 export default function Evolution({ t }) {
   const { content: { development = {}, acquire = {} } } = useFetch('/home/Enterlide/evolution', {
@@ -56,7 +57,7 @@ export default function Evolution({ t }) {
                 {
                   development.images && development.images.map((item, index) => (
                     <div className="box" key={index}>
-                      <div className="img-wrap" style={{ background: `url(${item.image}) center center / auto 120% no-repeat` }} />
+                      <div className="img-wrap" style={{ background: `url(${getImage(item.image)}) center center / auto 120% no-repeat` }} />
                       <div className="title">{item.title}</div>
                     </div>
                   ))
@@ -75,7 +76,7 @@ export default function Evolution({ t }) {
                   {
                     acquire.images && acquire.images.map((item, index) => (
                       <li key={index}>
-                        <img src={item.image} alt="" />
+                        <img src={getImage(item.image)} alt="" />
                         <h6>{item.title}</h6>
                       </li>
                     ))

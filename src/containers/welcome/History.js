@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { Breadcrumb } from 'react-bootstrap'
 import { WTitle, Timeline } from 'com'
 import { useFetch } from '@/hooks/useFetch'
+import { getImage } from '@/assets/js/lib'
 
 
 export default function History({ t }) {
@@ -44,7 +45,7 @@ function TimelineItem({ data }) {
         <div className="year-image">
           <h3 className="year">{year}</h3>
           <div className="img">
-            <img src={img} alt="images" />
+            <img src={getImage(img)} alt="images" />
           </div>
         </div>
         <div className="event">

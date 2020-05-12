@@ -18,6 +18,7 @@ import num_bg1 from '@/assets/images/welcome/num_bg1.png'
 import num_bg2 from '@/assets/images/welcome/num_bg2.png'
 
 import { createListener } from '@1eeing/scroll-listener'
+import { getImage } from '@/assets/js/lib'
 
 // import companyCover from '@/assets/images/welcome/company-cover.png'
 
@@ -113,7 +114,7 @@ export default function Introduce({ t }) {
             <div style={{ width: '50%' }}>
               <img
                 style={{ width: '100%' }}
-                src={content ? content[0].image : ''}
+                src={content ? getImage(content[0].image) : ''}
                 alt="company"
               />
             </div>

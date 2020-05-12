@@ -1,4 +1,5 @@
 import { Carousel } from 'react-bootstrap'
+import { getImage } from '@/assets/js/lib'
 import './banner.scss'
 
 export default function Banner({ lists }) {
@@ -7,7 +8,7 @@ export default function Banner({ lists }) {
       {lists.length
         && lists.map((list, index) => (
           <Carousel.Item key={index}>
-            <img className="d-block w-100" src={list.image} alt="banner" />
+            <img className="d-block w-100" src={getImage(list.image)} alt="banner" />
           </Carousel.Item>
         ))}
     </Carousel>

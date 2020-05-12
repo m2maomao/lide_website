@@ -1,6 +1,7 @@
 import { Link, Route, useRouteMatch } from 'react-router-dom'
 import { Breadcrumb } from 'react-bootstrap'
 import { useFetch } from '@/hooks/useFetch'
+import { getImage } from '@/assets/js/lib'
 
 import Detail from './Detail'
 
@@ -63,7 +64,7 @@ function Item({ data, idx, t }) {
 
   return (
     <li className="d-flex community-item">
-      {idx % 2 === 0 && <img src={image} alt="cover" className="cover" />}
+      {idx % 2 === 0 && <img src={getImage(image)} alt="cover" className="cover" />}
       <div className="community-text">
         <h2 className="t">{title}</h2>
         <p className="text">{summary}</p>
@@ -72,7 +73,7 @@ function Item({ data, idx, t }) {
           {t('viewdetails')}
         </Link>
       </div>
-      {idx % 2 !== 0 && <img src={image} alt="cover" className="cover" />}
+      {idx % 2 !== 0 && <img src={getImage(image)} alt="cover" className="cover" />}
     </li>
   )
 }

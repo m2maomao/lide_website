@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { getImage } from '@/assets/js/lib'
 
 export default function NewItem({ data, index }) {
   const {
@@ -14,7 +15,7 @@ export default function NewItem({ data, index }) {
         <>
           {index % 2 !== 0 && (
             <div className="i-m-g">
-              <img src={image} alt="cover" />
+              <img src={getImage(image)} alt="cover" />
             </div>
           )}
           <div className="c">
@@ -23,7 +24,7 @@ export default function NewItem({ data, index }) {
           </div>
           {index % 2 === 0 && (
             <div className="i-m-g">
-              <img src={image} alt="cover" />
+              <img src={getImage(image)} alt="cover" />
             </div>
           )}
         </>

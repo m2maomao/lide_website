@@ -8,6 +8,7 @@ import { useFetch } from '@/hooks/useFetch'
 
 import arrowLeft from '@/assets/images/responsibility/arrow-left.png'
 import arrowRight from '@/assets/images/responsibility/arrow-right.png'
+import { getImage } from '@/assets/js/lib'
 import Detail from './Detail'
 
 export default function Staff({ t }) {
@@ -58,7 +59,7 @@ export default function Staff({ t }) {
                     <StaffOpen
                       title={list.length ? list[idx].title : ''}
                       create_time={list.length ? list[idx].create_time : ''}
-                      image={list.length ? list[idx].image : ''}
+                      image={list.length ? getImage(list[idx].image) : ''}
                       summary={list.length ? list[idx].summary : ''}
                       leftClick={handleLeft}
                       rightClick={handleRight}

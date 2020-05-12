@@ -11,6 +11,7 @@ import demo2 from '@/assets/images/welcome/demo2.png'
 import $ from 'jquery'
 import { lightbox2 } from 'lightbox2'
 import 'lightbox2/dist/css/lightbox.css'
+import { getImage } from '@/assets/js/lib'
 
 export default function Qualification({ t }) {
   const { content } = useFetch('/home/Enterlide/aptitude', {
@@ -89,7 +90,7 @@ function Item({ src, info }) {
     <div className="item">
       <div className="img-c">
         <a href={src} data-lightbox="images">
-          <img className="certificate" src={src} alt="证书" />
+          <img className="certificate" src={getImage(src)} alt="证书" />
         </a>
       </div>
       <p className="i-intro">{info}</p>
