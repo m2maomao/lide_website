@@ -10,7 +10,7 @@ export default function NewsDetail({ t }) {
   const data = useFetch(`/home/Journalism/detail?id=${id}`, { Detail: {} })
 
   const {
-    title, create_time, content, summary,
+    title, create_time, content, summary, source = '', author = '',
   } = data.Detail
 
   return (
@@ -29,7 +29,7 @@ export default function NewsDetail({ t }) {
           <div className="d-flex">
             <div className="header">
               <h2 className="t">{title}</h2>
-              <span className="date">{create_time === undefined ? '' : create_time.slice(0, 10)}</span>
+              <span className="date">{`${create_time === undefined ? '' : create_time.slice(0, 10)}\u00A0\u00A0\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0\u00A0\u00A0发布人:${author}\u00A0\u00A0\u00A0\u00A0\u00A0发布单位:${source}`}</span>
             </div>
             <Link to="/news" className="return">
               {t('returnlist')}

@@ -100,10 +100,10 @@ export default function Indexes({
         <table className="table table-striped table-borderless">
           <thead className="thead-dark">
             <tr>
-              <th scope="col" width="90">{t('series')}</th>
+              <th scope="col" width="10%">{t('series')}</th>
               <th scope="col">{t('category')}</th>
               <th scope="col">{t('type')}</th>
-              <th scope="col" width="180">{t('siptbs')}</th>
+              <th scope="col" width="20%">{t('siptbs')}</th>
               <th scope="col">{t('applicableprocess')}</th>
             </tr>
           </thead>
