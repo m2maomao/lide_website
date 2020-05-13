@@ -173,8 +173,11 @@
     width: 100%;
     height: pc2rem(70);
     margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
     img{
-      height: pc2rem(70);
+      max-width: 100%;
+      max-height: ph2rem(90);
     }
   }
 

@@ -55,9 +55,14 @@ export default function Footer({ t, i18n }) {
           <Col className="phone-wrapper" xs={12} md={4}>
             <img src={logos} alt="logos" />
             <div className="phone-text">
-              <p>
+              <p className="phone-wrap">
                 <i className="icon phone" />
-                +86-021-57294218 &nbsp;&nbsp; +86-021-57294299
+                <div>
+                  {t('phone1')}
+                  {' '}
+                  <br />
+                  {t('phone2')}
+                </div>
               </p>
               <p>
                 <i className="icon message" />

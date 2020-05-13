@@ -17,8 +17,13 @@
   .phone-wrapper {
     font-size: 12px;
     color: #5c5c5c;
+    
     p {
       margin-bottom: pc2rem(5);
+      &.phone-wrap{
+        display: flex;
+        align-items: baseline;
+      }
     }
     img {
       width: pc2rem(150);
@@ -30,6 +35,8 @@
       height: pc2rem(14);
       width: pc2rem(14);
       margin-right: pc2rem(10);
+      position: relative;
+      top: 3px;
       &.phone {
         background: url(~@/assets/images/foot/i-phone.png);
         background-size: 100% 100%;
