@@ -4,6 +4,8 @@ import { Breadcrumb } from 'react-bootstrap'
 import { WTitle } from 'com'
 import http from '@/axios/http'
 import { getImage } from '@/assets/js/lib'
+import { lightbox2 } from 'lightbox2'
+import 'lightbox2/dist/css/lightbox.css'
 
 // import companyCover from '@/assets/images/welcome/company-cover.png'
 
@@ -45,7 +47,9 @@ export default function Organ({ t }) {
           <WTitle title={t('structure')} enTitle="organizationalstructure" />
           <div className="d-flex organ-summary">
             <div className="d-flex flex-column">
-              <img src={getImage(content[0])} alt="" />
+              <a href={getImage(content[0])} data-lightbox="images">
+                <img src={getImage(content[0])} alt="" />
+              </a>
             </div>
           </div>
           {/* <div className="d-flex data-summary">

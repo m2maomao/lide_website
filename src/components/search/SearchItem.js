@@ -23,6 +23,8 @@ export default function SearchItem({
       case 'Duty':
         if (sc === 'Info') {
           history.push(`/responsibility/${sc}/${id}`)
+        } else if (sc === 'Society') {
+          history.push(`/responsibility/community/${id}`)
         } else {
           history.push(`/responsibility/${sc}/${id}`)
         }

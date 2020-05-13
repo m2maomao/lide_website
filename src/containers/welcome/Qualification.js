@@ -89,7 +89,7 @@ function Item({ src, info }) {
   return (
     <div className="item">
       <div className="img-c">
-        <a href={src} data-lightbox="images">
+        <a href={getImage(src)} data-lightbox="images">
           <img className="certificate" src={getImage(src)} alt="证书" />
         </a>
       </div>
