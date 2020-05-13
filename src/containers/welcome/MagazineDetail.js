@@ -32,7 +32,7 @@ export default function MagazineDetail() {
           <div className="d-flex">
             <div className="header">
               <h2 className="t">{title}</h2>
-              <span className="date">{`${create_time}\u00A0\u00A0\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0\u00A0\u00A0发布人:${author}\u00A0\u00A0\u00A0\u00A0\u00A0发布单位:${source}`}</span>
+              <span className="date">{`${create_time}\u00A0\u00A0\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0\u00A0\u00A0作者:${author}\u00A0\u00A0\u00A0\u00A0\u00A0部门:${source}`}</span>
             </div>
             <button type="button" className="return" onClick={handleBack}>
               返回列表

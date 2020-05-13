@@ -22,7 +22,9 @@ export default function Detail({ t }) {
         <div className="d-flex">
           <div className="header">
             <h2 className="t">{title}</h2>
-            <span className="date">{`${create_time === undefined ? '' : create_time.slice(0, 10)}\u00A0\u00A0\u00A0\u00A0\u00A0|\u00A0\u00A0\u00A0\u00A0\u00A0发布人:${author}\u00A0\u00A0\u00A0\u00A0\u00A0发布单位:${source}`}</span>
+            <span className="date">
+              {`${create_time === undefined ? '' : create_time.slice(0, 10)}`}
+            </span>
           </div>
           <button type="button" className="return" onClick={handleBack}>
             {t('returnlist')}
