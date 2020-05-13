@@ -324,7 +324,7 @@ $colorSky :#0187d0;
       background-size: cover;
       position: absolute;
       left: pc2rem(-45);
-      top: pc2rem(180);
+      top: pc2rem(360);
       z-index: 999;
     }
     .img-singular-wrap{
@@ -369,7 +369,7 @@ $colorSky :#0187d0;
       background-size: cover;
       position: absolute;
       left: pc2rem(-45);
-      top: pc2rem(180);
+      top: pc2rem(360);
       z-index: 999;
     }
     .img-singular-wrap{
@@ -384,7 +384,7 @@ $colorSky :#0187d0;
           margin-left: pc2rem(40);
           padding: pc2rem(55) pc2rem(44) pc2rem(44);
           position: relative;
-          margin-top: -90px;
+          margin-top: pc2rem(-100);
           background: rgba($color: #fff, $alpha: .95);
           text-align: justify;
         }
