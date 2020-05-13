@@ -48,10 +48,10 @@ export default function Market({ data = [], t }) {
             topData
               ? (
                 <div className="bottom top">
-                  <Title
+                  {/* <Title
                     title={bottomData.title}
                     enTitle="Major technical service projects include"
-                  />
+                  /> */}
                   <div className="d-flex">
                     <div className="inner-carousel">
                       {/* <Carousel interval={3000} indicators={false}>

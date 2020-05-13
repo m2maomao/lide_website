@@ -141,14 +141,14 @@ export default function Footer({ t, i18n }) {
                   src={wechat}
                   alt="微信"
                 />
-                <img className="spacer" src={spacer} alt="spacer" />
+                {/* <img className="spacer" src={spacer} alt="spacer" />
                 <img
                   onMouseEnter={handChangeCode.bind(this, 'weibo')}
                   onClick={handChangeCode.bind(this, 'weibo')}
                   className="weibo"
                   src={weibo}
                   alt="微博"
-                />
+                /> */}
               </div>
               <div className="code">
                 <img className="code-img" src={qr} alt="二维码" />
