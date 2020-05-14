@@ -25,6 +25,8 @@ export default function SearchItem({
           history.push(`/responsibility/${sc}/${id}`)
         } else if (sc === 'Society') {
           history.push(`/responsibility/community/${id}`)
+        } else if (sc === 'Employee') {
+          history.push(`/responsibility/staff/${id}`)
         } else {
           history.push(`/responsibility/${sc}/${id}`)
         }
