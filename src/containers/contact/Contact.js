@@ -38,6 +38,8 @@ export default function Contact({ t }) {
     connectUs: {},
   })
 
+  const [wechatFlag, setWechatFlag] = useState(false)
+
   function getData() {
     http.get('/home/index/connect').then((res) => {
       if (res.status === 200) {
@@ -102,7 +104,9 @@ export default function Contact({ t }) {
     })
   }
 
-  function handleClick() {}
+  function wechatHandle() {
+
+  }
 
   const onChange = (event) => {
     // 使用es6扩展运算  [event.target.name] 获取绑定的key
@@ -152,11 +156,21 @@ export default function Contact({ t }) {
               </div>
               <div className="d-flex wechat">
                 <img src={imgWechat} alt="wechat" />
-                <p>{contentH.connectUs.wechatname}</p>
+                <p onClick={() => setWechatFlag(true)}>{contentH.connectUs.wechatname}</p>
                 <img className="qrcode" src={getImage(contentH.connectUs.ercode)} alt="qrcode" />
               </div>
             </div>
           </div>
+          {
+            wechatFlag
+              ? (
+                <>
+                  <div className="wechat-shadow" onClick={() => setWechatFlag(false)} />
+                  <div className="wechat-code"><img className="qrcode" src={getImage(contentH.connectUs.ercode)} alt="qrcode" /></div>
+                </>
+              )
+              : ''
+          }
         </Col>
       </Row>
       <Row>

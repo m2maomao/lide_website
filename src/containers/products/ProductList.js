@@ -82,7 +82,8 @@ export default function ProductList({
                     </Card>
                   </Link>
                 </div>
-              )) : t('noproduct')
+              ))
+                : <div className="noData">{t('noproduct')}</div>
             }
           </div>
           {

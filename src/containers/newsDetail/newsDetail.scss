@@ -89,3 +89,101 @@
     height: 30px;
   }
 }
+@media screen and (max-width: 576px) {
+  .news-detail-body {
+    background-color: #fff;
+    padding: 0 1rem;
+    .news-header {
+      padding: pc2rem(44) pc2rem(80);
+      padding-bottom: pc2rem(30);
+      background: #fff;
+      > .d-flex {
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: none;
+        padding-bottom: pc2rem(30);
+        flex-direction: column;
+      }
+      .header {
+        flex: 1;
+        margin-right: 0;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+      .t {
+        font-family: 'sc-r';
+        color: #231815;
+        font-size: 18px;
+        & + .date {
+          font-size: 13px;
+          color: #bbbbbb;
+        }
+      }
+      .return {
+        display: block;
+        border: 1px solid #2862ae;
+        font-family: 'sc-b';
+        font-size: 14px;
+        padding: 5px 15px;
+        color: #2862ae;
+        &:hover {
+          color: #2862ae;
+          text-decoration: none;
+        }
+      }
+    }
+    .quote {
+      padding: pc2rem(44) pc2rem(80);
+      padding-top: 0;
+      background: #fff;
+      > div {
+        position: relative;
+        padding: pc2rem(25);
+        &::before {
+          content: '';
+          position: absolute;
+          width: 3px;
+          height: 100%;
+          left: 0;
+          top: 0;
+          background: #2862ae;
+        }
+      }
+    }
+    .content {
+      *{
+        font-size: 14px!important;
+        line-height: 1.5em!important;
+      }
+    }
+    .index-1{
+      margin:0rem 4.16667rem 1.5625rem;
+      border-left: 5px solid #2862ae;
+      min-height: 80px;
+    }
+    .index-content{
+      padding: 0 30px;
+      font-size: 0.9rem;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.5em;
+    }
+    .index-2{
+    
+      background-image: url('~@/assets/images/index-2.png');
+      margin: 0 0 0 20px;
+      background-repeat: no-repeat;
+      background-position-y: bottom;
+      height: 30px;
+    }
+    .index-3{
+      background-image: url('~@/assets/images/index-3.png');
+      background-position: right;
+      background-repeat: no-repeat;
+      text-align: right;
+      height: 30px;
+    }
+  }
+}

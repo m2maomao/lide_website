@@ -118,7 +118,7 @@ function ReportItem({ title, download, t }) {
   return (
     <li className="d-flex report-item">
       <img className="file-type-icon" src={pdfIcon} alt="cover" />
-      <div className="t">
+      <div className="t" onClick={() => handleClickPreview(download)}>
         <h3 className="t-t">{title}</h3>
         <span className="format">{t('formatpdf')}</span>
       </div>

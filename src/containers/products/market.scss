@@ -160,3 +160,178 @@
     }
 }
 }
+
+@media screen and (max-width: 576px) {
+  .market-container {
+    // padding: pc2rem(50);
+    background: #fff;
+    .top {
+      padding: pc2rem(50) 0 pc2rem(35) !important;
+      // padding-top: 0 !important;
+      .sum {
+        padding: 0;
+        width: 100%;
+      }
+      .t-t {
+        margin-bottom: pc2rem(30) !important;
+        padding: 10px 30px 0;
+      }
+      .t-t + p{
+        padding: 0 10px;
+      }
+      .ch {
+        color: #2862ae;
+      }
+      > .d-flex {
+        flex-direction: column;
+      }
+    }
+    .middle{
+      padding: pc2rem(35) pc2rem(50);
+      .t-t {
+        margin-bottom: pc2rem(30);
+      } 
+      .indicators{
+      // position: absolute;
+      // right: 0;
+      // bottom: 0;
+      // left: 0;
+      padding: 0;
+      z-index: 15;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      // padding-left: 0;
+      // margin-right: 15%;
+      // margin-left: 15%;
+      list-style: none;
+      margin-bottom: 0;
+      }
+      .banner-circle{
+        margin: 15px 5px 0 5px;
+        width: 8px;
+        height: 8px;
+        background: #bed0e7;
+        border-radius: 7.5px;
+        cursor: pointer;
+        &.active{
+          background: #2862ae;
+          border-radius: 10px;
+        }
+      }
+    }
+    .bottom {
+      padding: pc2rem(50) 0 pc2rem(35) !important;
+      .t-t {
+        margin-bottom: pc2rem(30);
+      }
+    }
+    .bottom {
+      padding-bottom: 0;
+      .t-t {
+        margin-bottom: pc2rem(50);
+      }
+      .ul {
+        width: 100%;
+        padding: 10px;
+        li {
+          color: #2862ae;
+          font-family: 'sc-m';
+          font-size: 15px;
+          padding-left: 25px;
+          margin-bottom: pc2rem(14);
+          background: url('~@/assets/images/products/icon.png') no-repeat left
+            center;
+        }
+      }
+      > .d-flex{
+        flex-direction: column;
+      }
+      .inner-carousel {
+        flex: 1;
+        height: 100%;
+        overflow: hidden;
+        .carousel {
+          height: 100%;
+          .carousel-control-prev, .carousel-control-next{
+            display: none;
+          }
+        }
+        .w-80{
+          padding-left: 10%;
+          padding-right: 10%;
+        }
+      }
+    }
+    .t-t {
+      .ch {
+        font-family: 'sc-b';
+        font-size: 22px;
+        margin-bottom: 0;
+      }
+      .en {
+        font-size: 14px;
+        color: #a6b4c8;
+        font-family: 'sc-r';
+      }
+    }
+    .borders {
+      height: 2px;
+      background: #f7f7f7;
+      margin: 0 pc2rem(-50);
+    }
+    .experts {
+      flex-wrap: wrap;
+    }
+    .experts-items {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      background: none;
+      .exports-text {
+        position: relative;
+        padding: 0 10px;
+        padding-bottom: pc2rem(33);
+        font-size: 18px;
+        color: #2d2d2d;
+        font-family: 'sc-m';
+        text-align: center;
+        margin: 10px 10px 0;
+        border-bottom: 0;
+        width: 100%;
+        &::after {
+          content: '';
+          position: absolute;
+          left: 50%;
+          margin-left: pc2rem(-24);
+          width: 0;
+          bottom: 0px;
+          height: 0;
+          background: #2862ae;
+        }
+      }
+      img {
+        display: block;
+        width: 100%;
+        min-height: pc2rem(200);
+        background: #fff;
+      }
+    }
+    .carousel-control-prev-icon{
+      width: 12px!important;
+      height: 20px!important;
+      background-image: url('~@/assets/images/products/market_banner_left.png')!important;
+      &:hover{
+        background-image: url('~@/assets/images/products/market_banner_left_hover.png')!important;
+      }
+  }
+  .carousel-control-next-icon{
+      width: 12px!important;
+      height: 20px!important;
+      background-image: url('~@/assets/images/products/market_banner_right.png')!important;
+      &:hover{
+        background-image: url('~@/assets/images/products/market_banner_right_hover.png')!important;
+      }
+  }
+  }  
+}

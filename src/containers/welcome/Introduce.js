@@ -111,7 +111,7 @@ export default function Introduce({ t }) {
           <WTitle title={t('introduction')} enTitle="companyintroduction" />
           {/* 第一区 */}
           <div className={['d-flex', numPosition === 1 ? 'first-container-bg2' : 'first-container-bg1'].join(' ')} id="first">
-            <div style={{ width: '50%' }}>
+            <div>
               <img
                 style={{ width: '100%' }}
                 src={content ? getImage(content[0].image) : ''}
