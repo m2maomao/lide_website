@@ -57,12 +57,12 @@ export default function Footer({ t, i18n }) {
             <div className="phone-text">
               <p className="phone-wrap">
                 <i className="icon phone" />
-                <div>
+                <span>
                   {t('phone1')}
                   {' '}
                   <br />
                   {t('phone2')}
-                </div>
+                </span>
               </p>
               <p>
                 <i className="icon message" />

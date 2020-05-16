@@ -12,6 +12,96 @@ function MobileNavbars(props) {
 
   const [menuShow, setMenuShow] = useState(false)
 
+  // 二级带单动态
+  const nav = [
+    {
+      name: t('home'),
+      link: '/',
+      children: [],
+    },
+    {
+      name: t('welcome'),
+      link: '',
+      active: false,
+      children: [
+        {
+          name: t('introduction'),
+          link: '/welcome/introduce',
+        },
+        {
+          name: t('culture'),
+          link: '/welcome/culture',
+        },
+        {
+          name: t('qualification'),
+          link: '/welcome/qualification',
+        },
+        {
+          name: t('history'),
+          link: '/welcome/history',
+        },
+        {
+          name: t('structure'),
+          link: '/welcome/organ',
+        },
+        {
+          name: t('scientific'),
+          link: '/welcome/evolution',
+        },
+      ],
+    },
+    {
+      name: t('product'),
+      link: '',
+      active: false,
+      children: [
+        {
+          name: t('center'),
+          link: '/products',
+        },
+        {
+          name: t('mservice'),
+          link: '/products/market',
+        },
+      ],
+    },
+    {
+      name: t('news'),
+      link: '/news',
+      children: [],
+    },
+    {
+      name: t('positions'),
+      link: '',
+      active: false,
+      children: [
+        {
+          name: t('information'),
+          link: '/responsibility/info',
+        },
+        {
+          name: t('responsibility'),
+          link: '/responsibility/community',
+        },
+        {
+          name: t('employee'),
+          link: '/responsibility/staff',
+        },
+      ],
+    },
+    {
+      name: t('contact'),
+      link: '/contact',
+      children: [],
+    },
+  ]
+
+  const [staticNav, setStaticNav] = useState(nav)
+
+  // 展示隐藏二级菜单
+  const navTemp = JSON.parse(JSON.stringify(nav))
+
+
   // 切换中英文
   function changeLanguage() {
     const lng = i18n.language === 'en' ? 'ch' : 'en'
@@ -26,7 +116,17 @@ function MobileNavbars(props) {
   // 跳转
   function handleClick(src) {
     setMenuShow(false)
+    setStaticNav(nav)
     history.push(src)
+  }
+
+  function handleSecondClick(index) {
+    navTemp.forEach((item, i) => {
+      if (i === index) {
+        navTemp[i].active = !item.active
+      }
+    })
+    setStaticNav(navTemp)
   }
 
   return (
@@ -35,47 +135,6 @@ function MobileNavbars(props) {
         <Logo />
       </div>
       <div className="search-btn" onClick={() => setMenuShow(true)} />
-      {/* <Navbar className="d-flex d-sm-none" bg="white" expand="lg">
-        <Navbar.Brand href="/">
-          <Logo />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="/">{t('home')}</Nav.Link>
-            <NavDropdown title={t('welcome')}>
-              <NavDropdown.Item href="#action/3.1">公司介绍</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">企业文化</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">荣誉与资质</NavDropdown.Item>
-              <NavDropdown.Item href="#">发展历程（时间轴）</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">组织架构</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">科研开发</NavDropdown.Item>
-            </NavDropdown>
-            <Link to="/products" className="nav-link">
-              {t('product')}
-            </Link>
-            <Link to="/news" className="nav-link">
-              {t('news')}
-            </Link>
-            <Link to="/responsibility" className="nav-link">
-              {t('positions')}
-            </Link>
-            <Link to="/contact" className="nav-link">
-              {t('contact')}
-            </Link>
-          </Nav>
-          <div className="nav-right">
-            <SearchButton search={handleSearch} />
-            <button
-              type="button"
-              className="switch-language-btn"
-              onClick={changeLanguage}
-            >
-              {i18n.language === 'en' ? '中文' : 'En'}
-            </button>
-          </div>
-        </Navbar.Collapse>
-      </Navbar> */}
       <>
         {menuShow ? <div className="menu_panel_bg" /> : ''}
         <div className={['menu', menuShow ? 'showM' : ''].join(' ')}>
@@ -84,19 +143,24 @@ function MobileNavbars(props) {
             <div className="close-btn" onClick={() => setMenuShow(false)} />
           </div>
           <ul>
-            <li onClick={() => handleClick('/')}>{t('home')}</li>
-            <li onClick={() => handleClick('/welcome/introduce')}>{t('welcome')}</li>
-            <li onClick={() => handleClick('/products')}>{t('product')}</li>
-            <li onClick={() => handleClick('/news')}>{t('news')}</li>
-            <li className="active">
-              {t('positions')}
-              <ul>
-                <li onClick={() => handleClick('/responsibility/info')}>{t('information')}</li>
-                <li onClick={() => handleClick('/responsibility/community')}>{t('responsibility')}</li>
-                <li onClick={() => handleClick('/responsibility/staff')}>{t('employee')}</li>
-              </ul>
-            </li>
-            <li onClick={() => handleClick('/contact')}>{t('contact')}</li>
+            {
+              staticNav.length && staticNav.map((item, index) => {
+                // 判断是否无下级导航
+                if (!item.children.length) {
+                  return <li key={index} onClick={() => handleClick(item.link)}>{item.name}</li>
+                }
+                return (
+                  <li key={index} onClick={() => handleSecondClick(index)} className={['second', item.active ? 'active' : ''].join(' ')}>
+                    {item.name}
+                    <ul>
+                      {
+                        item.active && item.children.map((i, k) => <li key={k} onClick={() => handleClick(i.link)}>{i.name}</li>)
+                      }
+                    </ul>
+                  </li>
+                )
+              })
+            }
           </ul>
         </div>
       </>
