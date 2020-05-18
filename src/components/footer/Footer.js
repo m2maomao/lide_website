@@ -134,13 +134,13 @@ export default function Footer({ t, i18n }) {
           <Col xs={12} md={4}>
             <div className="foot-icons">
               <div className="account">
-                <img
+                {/* <img
                   onMouseEnter={handChangeCode.bind(this, 'wechat')}
                   onClick={handChangeCode.bind(this, 'wechat')}
                   className="wechat"
                   src={wechat}
                   alt="微信"
-                />
+                /> */}
                 {/* <img className="spacer" src={spacer} alt="spacer" />
                 <img
                   onMouseEnter={handChangeCode.bind(this, 'weibo')}

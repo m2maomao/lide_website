@@ -552,10 +552,12 @@ $colorSky :#0187d0;
   }
   .culture-item {
     justify-content: space-between;
-    img,
-    .texts {
+    img{
       width: 33.333333%;
       height:  33.333333%;;
+    }
+    .texts {
+      width: 33.333333%;
     }
     .t {
       position: relative;

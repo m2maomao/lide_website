@@ -13,7 +13,7 @@ export default function Indexes({
 }) {
   const [lists, setLists] = useState([])
   // 请求数据
-  const { content, marketService } = useFetch('/home/Production/index?index=1', {
+  const { content, marketService } = useFetch('/home/Production/allindexproduct?index=1', {
     content: [],
     marketService: [],
   })
