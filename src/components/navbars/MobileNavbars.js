@@ -134,7 +134,10 @@ function MobileNavbars(props) {
       <div className="logo-wrap">
         <Logo />
       </div>
-      <div className="search-btn" onClick={() => setMenuShow(true)} />
+      <div className="right-box">
+        <div className="search-btn" onClick={() => handleClick('/search')} />
+        <div className="menu-btn" onClick={() => setMenuShow(true)} />
+      </div>
       <>
         {menuShow ? <div className="menu_panel_bg" /> : ''}
         <div className={['menu', menuShow ? 'showM' : ''].join(' ')}>

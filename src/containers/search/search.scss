@@ -18,6 +18,12 @@
 }
 
 @media screen and (max-width: 576px) {
+  .search-container {
+    background: #fbfbfb;
+    padding: 20px 0;
+    padding-top: 0;
+    min-height: calc(100vh - 200px); 
+  }
   .n-result {
     padding: 40px 0;
   }

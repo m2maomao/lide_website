@@ -30,9 +30,9 @@ export default function Indexes({
 
   useEffect(() => {
     console.log('1111111')
-    if (content[0]) {
-      const tempData = []
-      content.map((a) => a.firstChildren.map((b) => b.children.map((c) => c.map((d) => tempData.push(d)))))
+    if (content) {
+      let tempData = []
+      tempData = content.firstChildren && content.firstChildren.children
       setLists(tempData)
       console.log('tempData', tempData)
     }

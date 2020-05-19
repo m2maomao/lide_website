@@ -147,11 +147,20 @@
       height: 36px;
       margin: 10px;
     }
-    .search-btn{
-      width: 25px;
-      height: 25px;
-      margin-right: 20px;
-      background: url('../../assets/images/wap-cate.png') center center / 25px auto no-repeat;
+    .right-box{
+      display: flex;
+      .search-btn{
+        width: 25px;
+        height: 25px;
+        margin-right: 20px;
+        background: url('../../assets/images/wap-search.png') center center / 20px auto no-repeat;
+      }
+      .menu-btn{
+        width: 25px;
+        height: 25px;
+        margin-right: 20px;
+        background: url('../../assets/images/wap-cate.png') center center / 25px auto no-repeat;
+      }
     }
   }
   .menu_panel_bg{
