@@ -103,12 +103,14 @@ export default function Home({ lng, t }) {
                     && state.news.map((item) => (
                       <li className="news-item" key={item.id}>
                         <Link to={`/news/${item.id}`}>
-                          <img
-                            src={getImage(item.image)}
+                          <div className="news-kimg-div">
+                            <img
+                              src={getImage(item.image)}
                             // src={newsImg}
-                            alt="news"
-                            className="news-cover"
-                          />
+                              alt="news"
+                              className="news-cover"
+                            />
+                          </div>
                           <p className="news-title">{item.title}</p>
                         </Link>
                       </li>

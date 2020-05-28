@@ -212,11 +212,21 @@
       display: flex;
       align-items: center;
     }
-    .news-cover {
+    .news-kimg-div{
       width: pc2rem(108);
-      height: pc2rem(74);
+      //height: pc2rem(74);
       margin-left: pc2rem(25);
       margin-right: pc2rem(15);
+    align-items: center;
+    display: inline-flex;
+    }
+    .news-cover {
+      max-width: 100%;
+      max-height: 100%;
+      // width: pc2rem(108);
+      // height: pc2rem(74);
+      // margin-left: pc2rem(25);
+      // margin-right: pc2rem(15);
     }
     .news-title {
       width: 100%;

@@ -67,7 +67,7 @@ export default function Qualification({ t }) {
                    ))
                 }
               </div>
-              <div className="d-flex wrapper">
+              <div className="wrapper">
                 {
                    content.map((item, index) => (
                      index === 1 ? item.imgs.map((item, index) => (

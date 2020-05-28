@@ -634,11 +634,12 @@ $colorSky :#0187d0;
     }
     .wrapper {
       flex-wrap: wrap;
+      display: flex;
     }
     .item {
       text-align: center;
       margin-bottom: 20px;
-      margin-right: pc2rem(48);
+      margin-right: pc2rem(55);
       &:nth-child(3n) {
         margin-right: 0;
       }
@@ -646,7 +647,7 @@ $colorSky :#0187d0;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: pc2rem(315);
+        width: pc2rem(295);
         height: pc2rem(390);
         padding: 20px;
         background: #f3f5f8;
