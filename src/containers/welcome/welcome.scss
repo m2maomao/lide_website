@@ -541,6 +541,17 @@ $colorSky :#0187d0;
       color: #fff;
       font-size: 14px;
     }
+    .bigContent{
+      position: absolute;
+      left: 9%;
+      top: 32%;
+      span{
+        // font-size: pc2rem(30)!important;
+        background: none!important;
+        width: pc2rem(330);
+        display: block;
+      }
+    }
   }
   /* 企业文化 */
   .culture-body {
@@ -607,11 +618,11 @@ $colorSky :#0187d0;
       font-family: 'sc-m';
       font-size: 16px;
       border-radius: 8px;
-      min-width: 80px;
+      min-width: 110px;
       text-align: center;
       & + p {
         flex: 1;
-        font-size: 12px;
+        font-size: 14px;
         color: #333;
         line-height: 1.2em;
       }
@@ -1534,8 +1545,8 @@ $colorSky :#0187d0;
         }
       }
     }
-    .sixth-container-bg2{
-      position: relative;
+    .sixth-container-bg2{ position: relative;
+      margin-top: 10px;
       &:after{
         width:pc2rem(40);
         height: pc2rem(46);
@@ -1559,13 +1570,33 @@ $colorSky :#0187d0;
         }
       };
       .content{
-        width: 42.5%;
-        right: 7.5%;
-        position: absolute;
-        top: pc2rem(110);
+        width: 100%;
+        right: 0;
+        position: relative;
+        padding: 0 5px;
+        top: pc2rem(0);
         line-height: 24px;
-        color: #fff;
+        color: #333;
         font-size: 14px;
+        *{
+          font-size: 14px!important;
+          line-height: 1.5em;
+        }
+      }
+      .bigContent{
+        position: relative;
+        left: 0;
+        top: 0;
+        span{
+          // font-size: pc2rem(30)!important;
+          padding: 5px;
+          background: none!important;
+          width: 100%;
+          display: block;
+          font-size: 14px!important;
+          line-height: 1.5em;
+          color: #333!important;
+        }
       }
     }
     /* 企业文化 */
@@ -1638,7 +1669,7 @@ $colorSky :#0187d0;
         font-family: 'sc-m';
         font-size: 16px;
         border-radius: 8px;
-        min-width: 80px;
+        min-width: 110px;
         text-align: center;
         & + p {
           flex: 1;

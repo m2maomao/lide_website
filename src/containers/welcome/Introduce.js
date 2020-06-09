@@ -19,6 +19,7 @@ import num_bg2 from '@/assets/images/welcome/num_bg2.png'
 
 import { createListener } from '@1eeing/scroll-listener'
 import { getImage } from '@/assets/js/lib'
+import { useBottomScrollListener } from 'react-bottom-scroll-listener'
 
 // import companyCover from '@/assets/images/welcome/company-cover.png'
 
@@ -43,6 +44,7 @@ export default function Introduce({ t }) {
   useEffect(() => {
     getData()
   }, [])
+
 
   const [numPosition, setNumPosition] = useState(1)
 
@@ -87,12 +89,31 @@ export default function Introduce({ t }) {
     ],
   })
 
+  const handleOnDocumentBottom = useCallback(() => {
+    console.log(`I am at bottom! ${Math.round(performance.now())}`)
+    setNumPosition(6)
+  }, [])
+
+  /* This will trigger handleOnDocumentBottom when the body of the page hits the bottom */
+  useBottomScrollListener(handleOnDocumentBottom)
+
   useEffect(() => {
     listener.start()
     return () => {
       listener.stop()
     }
   }, [])
+
+  useEffect(() => {
+    const handleScroll = (e) => {
+      console.log(window.scrollY)
+      if (window.scrollY < 200) setNumPosition(1)
+    }
+    document.addEventListener('scroll', handleScroll)
+    return () => {
+      document.removeEventListener('scroll', handleScroll)
+    }
+  })
 
   console.log(state)
   const { content, specWork } = state
