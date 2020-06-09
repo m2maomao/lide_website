@@ -609,6 +609,10 @@ $colorSky :#0187d0;
         margin-bottom: 10px;
         align-items: center;
       }
+      .words-top{
+        margin-bottom: 10px;
+        align-items: flex-start;
+      }
     }
     .blue-text {
       margin-right: 10px;
@@ -620,6 +624,9 @@ $colorSky :#0187d0;
       border-radius: 8px;
       min-width: 110px;
       text-align: center;
+      &.top{
+        margin-top: 6px;
+      }
       & + p {
         flex: 1;
         font-size: 14px;

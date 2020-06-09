@@ -56,7 +56,7 @@ export default function Culture({ t }) {
             <div className="d-flex culture-item">
               <Texts icon={imgValue} title={t('valueconcept')} list={state.content[1]} />
               <img src={imgCulture2} alt="images" />
-              <Texts icon={imgSocial} title={t('socialresponsibility')} list={state.content[2]} />
+              <Texts icon={imgSocial} title={t('socialresponsibility')} list={state.content[2]} isEndtext />
             </div>
           </div>
           <img className="bottom-image" src={imgCulture4} alt="ima" />
@@ -67,7 +67,7 @@ export default function Culture({ t }) {
 }
 
 function Texts({
-  icon, title, list,
+  icon, title, list, isEndtext,
 }) {
   return (
     <div className="d-flex flex-column texts">
@@ -78,11 +78,11 @@ function Texts({
       <div>
         {
           list && list.map((item, index) => (
-            <div className="d-flex words" key={index}>
+            <div className={isEndtext ? 'd-flex words-top' : 'd-flex words'} key={index}>
               {
                 item.blueWord
                   ? <span className="blue-text">{item.blueWord}</span>
-                  : <span className="blue-text" style={{ padding: '3px', minWidth: '0' }}>{item.blueWord}</span>
+                  : <span className={isEndtext ? 'blue-text top' : 'blue-text'} style={{ padding: '3px', minWidth: '0' }}>{item.blueWord}</span>
               }
 
               <p>{item.blackWord}</p>
