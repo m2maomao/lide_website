@@ -78,7 +78,7 @@ function Texts({
       <div>
         {
           list && list.map((item, index) => (
-            <div className={isEndtext ? 'd-flex words-top' : 'd-flex words'} key={index}>
+            <div className="d-flex words-top" key={index}>
               {
                 item.blueWord
                   ? <span className="blue-text">{item.blueWord}</span>
