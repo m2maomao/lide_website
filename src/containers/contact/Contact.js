@@ -12,7 +12,7 @@ import { Cover } from 'com'
 import http from '@/axios/http'
 
 
-import coverImg from '@/assets/images/contact-cover.jpg'
+import coverImg from '@/assets/images/contact-cover.png'
 import imgAddress from '@/assets/images/contact/address.png'
 import imgEmail from '@/assets/images/contact/email.png'
 import imgMobile from '@/assets/images/contact/mobile.png'

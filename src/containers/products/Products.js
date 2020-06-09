@@ -11,6 +11,7 @@ import { Cover, Side } from 'com'
 import { useFetch } from '@/hooks/useFetch'
 
 import coverImg from '@/assets/images/products/banner.png'
+import coverImgEn from '@/assets/images/products/banner_en.png'
 import productIndex from '@/assets/images/products/product_index.png'
 import productIndexEn from '@/assets/images/products/product_index_en.png'
 
@@ -109,7 +110,9 @@ export default function Products({ t }) {
   }, [history.location.state])
   return (
     <div className="products-container">
-      <Cover src={coverImg} />
+      <Cover src={localStorage.getItem('i18nextLng') !== 'en'
+        ? coverImg : coverImgEn}
+      />
       <Row style={{ background: '#f7f7f7' }}>
         <Col lg={{ span: 10, offset: 1 }}>
           <Row>
