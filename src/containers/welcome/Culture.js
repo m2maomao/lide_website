@@ -8,6 +8,7 @@ import imgCulture1 from '@/assets/images/welcome/culture1.png'
 import imgCulture2 from '@/assets/images/welcome/culture2.png'
 import imgCulture3 from '@/assets/images/welcome/culture3.png'
 import imgCulture4 from '@/assets/images/welcome/culture4.png'
+import imgCulture4En from '@/assets/images/welcome/culture4-en.png'
 import imgBrand from '@/assets/images/welcome/brand.png'
 import imgValue from '@/assets/images/welcome/value.png'
 import imgSocial from '@/assets/images/welcome/social.png'
@@ -59,7 +60,12 @@ export default function Culture({ t }) {
               <Texts icon={imgSocial} title={t('socialresponsibility')} list={state.content[2]} isEndtext />
             </div>
           </div>
-          <img className="bottom-image" src={imgCulture4} alt="ima" />
+          <img
+            className="bottom-image"
+            src={localStorage.getItem('i18nextLng') !== 'en'
+              ? imgCulture4 : imgCulture4En}
+            alt="ima"
+          />
         </div>
       </div>
     </>

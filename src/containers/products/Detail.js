@@ -54,14 +54,20 @@ export default function Detail({ data = [], t }) {
                 : ''}
             </div>
             <div className="head d-flex flex-column">
-              <div>
-                <h3 className="title">
-                  {title}
-                  {' '}
-                  {keywords}
-                </h3>
-                <p className="summary">{summary}</p>
+              <div className="topback d-flex flex-row">
+                <div>
+                  <h3 className="title">
+                    {title}
+                    {' '}
+                    {keywords}
+                  </h3>
+                  <p className="summary">{summary}</p>
+                </div>
+                <button type="button" className="return" onClick={handleBack}>
+                  {t('returnlist')}
+                </button>
               </div>
+
               <div className="min-preview-imgs">
                 <p>{t('productdisplay')}</p>
                 <ul className="d-flex">

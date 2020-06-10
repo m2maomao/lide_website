@@ -25,6 +25,18 @@
       flex: 1;
       margin-left: 20px;
       justify-content: space-around;
+      .topback{
+        justify-content: space-between;
+      }
+      .return{
+        border: 1px solid #2862ae;
+        font-family: "sc-b";
+        font-size: 14px;
+        padding: 5px 15px;
+        color: #2862ae;
+        background: transparent;
+        height: pc2rem(42);
+      }
     }
     .title {
       font-family: 'sc-b';
@@ -62,6 +74,7 @@
   .product-intro {
     margin-top: pc2rem(30);
   }
+ 
 }
 
 @media screen and (max-width: 576px) {
