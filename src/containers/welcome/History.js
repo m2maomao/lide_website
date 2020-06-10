@@ -21,7 +21,7 @@ export default function History({ t }) {
       </Breadcrumb>
       <div className="p-1r">
         <div className="p-1r-content history-1r-content">
-          <WTitle title={t('history')} enTitle="developmenthistory" />
+          <WTitle title={t('history')} enTitle="developmenthistory" bottomTitle={t('infuture')} />
           <div className="timeline">
             {/* <TimelineItem /> */}
             {/* <Timeline list={content} /> */}
