@@ -185,7 +185,6 @@ function MiddleBanner({ lists, listCurrentIndex, setListCurrentIndex }) {
   )
 }
 
-
 function TopBottomBanner({ lists }) {
   return (
     <Carousel interval={null} indicators={false}>
@@ -198,7 +197,6 @@ function TopBottomBanner({ lists }) {
     </Carousel>
   )
 }
-
 
 function Title({ title = '', enTitle = '', isCenter = true }) {
   return (

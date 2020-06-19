@@ -5,7 +5,6 @@ import {
 import { Breadcrumb } from 'react-bootstrap'
 import { useFetch } from '@/hooks/useFetch'
 
-
 import arrowLeft from '@/assets/images/responsibility/arrow-left.png'
 import arrowRight from '@/assets/images/responsibility/arrow-right.png'
 import { getImage } from '@/assets/js/lib'
@@ -19,7 +18,6 @@ export default function Staff({ t }) {
   const { list } = useFetch('/home/Responsibility/employee', {
     list: [],
   })
-
 
   function handleClick(idx) {
     setIdx(idx)
@@ -100,7 +98,6 @@ export default function Staff({ t }) {
 
   )
 }
-
 
 function StaffOpen({
   title, create_time, image, summary, leftClick, rightClick,

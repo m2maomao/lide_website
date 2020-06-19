@@ -7,15 +7,26 @@ import { getImage } from '@/assets/js/lib'
 import './detail.scss'
 
 export default function Detail({ data = [], t }) {
-  const [firstName, secodeName] = data
-  console.log('data is:', data)
+  let firstName
+  let secodeName
+  const [lists] = data
+
+  // console.log('data is:', data)
   const { id } = useParams()
   const history = useHistory()
 
   const [currentIndex, setIndex] = useState(0)
 
-  console.log('id:', id)
-  console.log('currentIndex:', currentIndex)
+  lists.map((item) => {
+    if (+item.id === +id) {
+      firstName = item.firstColumn
+      secodeName = item.secondColumn
+    }
+    return true
+  })
+
+  // console.log('id:', id)
+  // console.log('currentIndex:', currentIndex)
 
   function handleBack() {
     history.goBack()
@@ -32,7 +43,6 @@ export default function Detail({ data = [], t }) {
   } = useFetch(`/home/Production/detail?id=${id}`, {
     Detail: {},
   })
-
 
   return (
     <>

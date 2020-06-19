@@ -4,7 +4,6 @@ import { useState } from 'react'
 import Logo from '../logo/Logo'
 import SearchButton from '../search/SearchButton'
 
-
 import './navbars.scss'
 
 function MobileNavbars(props) {
@@ -100,7 +99,6 @@ function MobileNavbars(props) {
 
   // 展示隐藏二级菜单
   const navTemp = JSON.parse(JSON.stringify(nav))
-
 
   // 切换中英文
   function changeLanguage() {

@@ -28,7 +28,6 @@ export default function Magazine() {
   // 是否显示分页
   const [loadMore, setLoadMore] = useState(true)
 
-
   useEffect(() => {
     setListTemp(listTotal[page])
     if (pageTotal > 1) {
@@ -99,7 +98,6 @@ export default function Magazine() {
     </>
   )
 }
-
 
 function Item({ isIcon, data }) {
   const {

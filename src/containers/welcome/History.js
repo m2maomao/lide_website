@@ -4,7 +4,6 @@ import { WTitle, Timeline } from 'com'
 import { useFetch } from '@/hooks/useFetch'
 import { getImage } from '@/assets/js/lib'
 
-
 export default function History({ t }) {
   const { content } = useFetch('/home/Enterlide/devlopment', {
     content: [],

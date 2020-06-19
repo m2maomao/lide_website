@@ -55,7 +55,6 @@ export default function MagazineDetail() {
   )
 }
 
-
 function Item({ isIcon, data }) {
   const {
     title, image, summary, create_time,

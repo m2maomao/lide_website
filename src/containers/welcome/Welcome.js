@@ -16,7 +16,6 @@ import Organ from './Organ'
 import Magazine from './Magazine'
 import MagazineDetail from './MagazineDetail'
 
-
 import './Welcome.scss'
 
 export default function Welcome({ t }) {

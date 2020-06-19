@@ -12,7 +12,6 @@ import { useBottomScrollListener } from 'react-bottom-scroll-listener'
 export default function Search({ t }) {
   const { keyword } = useParams()
 
-
   // 声明状态
   const [searchData, setSearchData] = useState([])
   const [searchValue, setSearchValue] = useState(keyword === undefined ? null : keyword)
@@ -43,7 +42,6 @@ export default function Search({ t }) {
     setSearchValue(sv)
   }
 
-
   useEffect(() => {
     setPage(+1)
     setSearchData([])
@@ -51,7 +49,6 @@ export default function Search({ t }) {
     // search(searchValue)
     getSearchData()
   }, [searchValue])
-
 
   const isInBottomRef = useRef(null)
   // const loadMore = () => isInBottomRef.current.loadMore()
@@ -66,7 +63,6 @@ export default function Search({ t }) {
   useImperativeHandle(isInBottomRef, () => ({
     loadMore: () => getSearchData(),
   }))
-
 
   return (
     <Row className="search-container">

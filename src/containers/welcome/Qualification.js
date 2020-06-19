@@ -84,7 +84,6 @@ export default function Qualification({ t }) {
   )
 }
 
-
 function Item({ src, info }) {
   return (
     <div className="item">

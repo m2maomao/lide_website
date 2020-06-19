@@ -45,7 +45,6 @@ export default function Introduce({ t }) {
     getData()
   }, [])
 
-
   const [numPosition, setNumPosition] = useState(1)
 
   const listener = createListener({
@@ -215,7 +214,6 @@ export default function Introduce({ t }) {
               </div>
             </div>
           </div>
-
 
           {/* 第五区 */}
           <div className={numPosition === 5 ? 'fifth-container-bg2' : 'fifth-container-bg1'} id="fifth">

@@ -51,7 +51,6 @@ export default function Info({ t }) {
   )
 }
 
-
 function Sider({
   item, setIndex, listLength, currentIndex, t,
 }) {

@@ -10,7 +10,6 @@ import MobileNavbars from './MobileNavbars'
 
 import './navbars.scss'
 
-
 function Navbars(props) {
   const { pathname } = useLocation()
   const [showNav, setShowNav] = useState(false)

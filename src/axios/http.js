@@ -5,7 +5,6 @@ import url from './config'
 
 // const base = 'http://120.76.157.227:10001'
 
-
 // 请求前拦截
 axios.interceptors.request.use(
   (config) => config,

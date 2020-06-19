@@ -23,7 +23,6 @@ import Detail from './Detail'
 import Market from './Market'
 import Indexes from './Indexes'
 
-
 import './products.scss'
 
 export default function Products({ t }) {
@@ -95,6 +94,7 @@ export default function Products({ t }) {
 
   useEffect(() => {
     if (content[0]) {
+      console.log('content[0]', content[0])
       setChangeFirstName(content[0].firstName)
       setFirstName(content[0].firstName)
       setName(content[0].firstChildren[0].secodeName)
@@ -191,7 +191,7 @@ export default function Products({ t }) {
                                     <Route
                                       path="/products/:id"
                             // component={Detail}
-                                      render={(prop) => <Detail t={t} data={[firstName, secodeName]} {...prop} />}
+                                      render={(prop) => <Detail t={t} data={[lists]} {...prop} />}
                                     />
                                   )
                               }
