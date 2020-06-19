@@ -7,20 +7,22 @@ import { getImage } from '@/assets/js/lib'
 import './detail.scss'
 
 export default function Detail({ data = [], t }) {
-  let firstName
-  let secodeName
-  const [lists] = data
-
+  const [firstName, secodeName, lists] = data
+  let FN = firstName
+  let SN = secodeName
+  // console.log('lists', lists)
   // console.log('data is:', data)
   const { id } = useParams()
   const history = useHistory()
 
   const [currentIndex, setIndex] = useState(0)
-
   lists.map((item) => {
     if (+item.id === +id) {
-      firstName = item.firstColumn
-      secodeName = item.secondColumn
+      // console.log('item.firstColumn', item.firstColumn)
+      if (item.firstColumn) {
+        FN = item.firstColumn
+        SN = item.secondColumn
+      }
     }
     return true
   })
@@ -51,8 +53,8 @@ export default function Detail({ data = [], t }) {
           <Link to="/">{t('home')}</Link>
         </li>
         <li className="breadcrumb-item"><Link to="/products">{t('product')}</Link></li>
-        <li className="breadcrumb-item"><Link to="/products">{firstName}</Link></li>
-        <li className="breadcrumb-item"><Link to="/products">{secodeName}</Link></li>
+        <li className="breadcrumb-item"><Link to="/products">{FN}</Link></li>
+        <li className="breadcrumb-item"><Link to="/products">{SN}</Link></li>
         <Breadcrumb.Item active>{title}</Breadcrumb.Item>
       </Breadcrumb>
       <div className="main-side-container">

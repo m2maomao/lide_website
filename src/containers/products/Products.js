@@ -191,7 +191,7 @@ export default function Products({ t }) {
                                     <Route
                                       path="/products/:id"
                             // component={Detail}
-                                      render={(prop) => <Detail t={t} data={[lists]} {...prop} />}
+                                      render={(prop) => <Detail t={t} data={[firstName, secodeName, lists]} {...prop} />}
                                     />
                                   )
                               }
